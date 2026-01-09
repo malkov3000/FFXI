@@ -361,13 +361,12 @@ function aftercast(spell)
 		return --Exit the function!
 	end
 
--- Aftercast check for params and choose a set
-	if player.status == 'Engaged' then
-        equip(sets.tp[TP_Set_Names[TP_Index]])
-	elseif areas.towns:contains(world.area) then
-		equip(sets.idle.town)	
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
 	else
-		equip(sets.idle.dt)
+		equip(sets.idle.dt) --Default to DT set!
 	end
 
 end
