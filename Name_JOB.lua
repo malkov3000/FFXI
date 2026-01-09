@@ -255,11 +255,14 @@ function precast(spell)
 		return --Exit the function!
 	end
 	
+	equip(sets.idle.dt) --Start from DT set as a base set!
+	
 -- Magic
+	if spell.action_type == 'Magic' then --Is the spell magic?
+		equip(sets.fc.standard) --Yes! Equip FC
+	end
 	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
 		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
-	elseif spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
 	end
 	
 -- Weapon Skill
@@ -286,10 +289,11 @@ function precast(spell)
 	end
 	
 -- Job Ability
+	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
+		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	end
 	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
-	elseif sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
 	end
 	
 -- Ranged Attack
@@ -311,19 +315,23 @@ function midcast(spell)
 	if canceled then --Spell cancelled?
 		return --Exit the function!
 	end
+	
+	equip(sets.idle.dt) --Start from DT set as a base set!
 
 -- Magic
+	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
+		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	end
 	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
 		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
-	elseif sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
 	end
 	
 -- Job Ability
+	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
+		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	end
 	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
-	elseif sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
 	end
 
 -- Ranged Attack
@@ -514,6 +522,3 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
-
