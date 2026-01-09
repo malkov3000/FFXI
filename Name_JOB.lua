@@ -403,27 +403,17 @@ end)
 
 
 ---
---- Toggle for TP set modes
+--- Toggle for TP and WEAPON set modes
 ---
 
 function self_command(command)
-    if command == 'toggletp' then --Set Command
+    if command == 'toggletp' then --Set Command TP
         TP_Index = TP_Index +1 --Cycle variable
         if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
 		--Let me know which mode I'm in!
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    end
-end
-
-
-
----
---- Toggle for WEAPON set modes
----
-
-function self_command(command)
-    if command == 'togglewep' then --Set Command
+    elseif command == 'togglewep' then --Set Command WEP
         WEP_Index = WEP_Index +1 --Cycle variable
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
 		--Let me know which mode I'm in!
@@ -431,6 +421,7 @@ function self_command(command)
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
     end
 end
+
 
 
 -------------------
@@ -523,3 +514,4 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
