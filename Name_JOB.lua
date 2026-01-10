@@ -46,7 +46,6 @@ function get_sets()
 	sets.idle = {} --Leave Empty!
 
 	-- DT set here
-	-- DT set is starting point for most other sets!
 	sets.idle.dt = {}  
 
 	-- Town set here
@@ -543,6 +542,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
