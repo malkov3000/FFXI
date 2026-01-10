@@ -256,8 +256,6 @@ function precast(spell)
 		return --Exit the function!
 	end
 	
-	equip(sets.idle.dt) --Start from DT set as a base set!
-	
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
 		equip(sets.fc.standard) --Yes! Equip FC
@@ -317,7 +315,6 @@ function midcast(spell)
 		return --Exit the function!
 	end
 	
-	equip(sets.idle.dt) --Start from DT set as a base set!
 
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
@@ -546,6 +543,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
