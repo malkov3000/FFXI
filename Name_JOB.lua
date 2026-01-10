@@ -326,6 +326,29 @@ function midcast(spell)
 	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
 		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
+
+	-- Weapon Skill
+	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
+		if sets.ws[spell.english] then --Do we have a WS set for this WS?
+			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+		else
+			equip(sets.ws.standard) --No!  Use the standard WS set!
+		end
+	else
+		if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance < 4.5 then --Melee range?
+			if sets.ws[spell.english] then --Do we have a WS set for this WS?
+				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+			else
+				equip(sets.ws.standard) --No!  Use the standard WS set!
+			end
+		--Out of melee range?
+		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance >= 6 then
+			--Cancel WS
+			cancel_spell()
+			--Let me know you cancelled WS!
+			send_command('@input /echo Weapon Skill Canceled  Target Out of Range')
+		end
+	end
 	
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
@@ -523,4 +546,5 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
