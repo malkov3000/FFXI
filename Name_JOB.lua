@@ -233,8 +233,24 @@ function get_sets()
 	
 	--Cure Potency / Spell Int Rate / HP
 	sets.blu.cure = {}	
-	
 
+
+	------------------- PET SETS ----------------------
+
+	sets.pet = {} --Leave Empty!
+    
+	--Pet Mid Action Physical	
+	sets.pet.phy = {}
+
+	--Pet Mid Action Magic
+	sets.pet.mab = {}
+	
+	--Pet Specifc Ability
+	--This is NOT the name of YOUR Job Abilities!!
+	--It is the name of the PET's Spell/Ability!
+	sets.pet['x'] = {}
+
+	
 
 end
 
@@ -384,6 +400,11 @@ end
 
 function aftercast(spell)
 
+	--Pet Midcast protection!
+	if pet_midaction() then
+        return
+    end
+	
 -- Cancel
 	if canceled then --Spell cancelled?
 		return --Exit the function!
@@ -451,6 +472,40 @@ function self_command(command)
 end
 
 
+---
+--- PET MIDCAST AND AFTERCAST
+---
+
+function pet_midcast(spell)
+
+--PET MIDCAST
+	--Phy or Mab sets
+	if Physical_BPs:contains(spell.english) then
+		equip(sets.pet.phy)  
+	elseif Magical_BPs:contains(spell.english) then
+		equip(sets.pet.mab)
+
+	--Spell Specific Set
+	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
+		equip(sets.pet[spell.english]) --Yes!  Equip that set!
+	end
+
+end
+
+--PET AFTERCAST
+function pet_aftercast(spell)
+
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
+	else
+		equip(sets.idle.dt) --Default to DT set!
+	end
+
+end
+
+
 
 -------------------
 --   AREA List   --
@@ -505,6 +560,14 @@ weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sid
     "Myrkr"}
 
 
+-------------------------
+--   SMN Spells List   --
+-------------------------
+
+Physical_BPs = S{"Example1","Example2","Volt Strike"}
+
+Magical_BPs = S{"Example1","Example2","Conflag Strike"}
+
 
 -------------------------
 --   BLU Spells List   --
@@ -542,6 +605,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
