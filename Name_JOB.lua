@@ -433,11 +433,11 @@ end
 
 function pet_midcast(spell)
 
--- PET MIDCAST - Uses the SMN Spell list near bottom of file!
+-- PET MIDCAST - Uses the PET Spell list near bottom of file!
 	--Phy or Mab sets
-	if Physical_BPs:contains(spell.english) then
+	if Physical_PET:contains(spell.english) then
 		equip(sets.pet.phy)  
-	elseif Magical_BPs:contains(spell.english) then
+	elseif Magical_PET:contains(spell.english) then
 		equip(sets.pet.mab)
 	end
 
@@ -571,9 +571,9 @@ weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sid
 --   SMN Spells List   --
 -------------------------
 
-Physical_BPs = S{"Example1","Example2","Volt Strike"}
+Physical_PET = S{"Example1","Example2","Volt Strike"}
 
-Magical_BPs = S{"Example1","Example2","Conflag Strike"}
+Magical_PET = S{"Example1","Example2","Conflag Strike"}
 
 
 -------------------------
@@ -612,6 +612,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
