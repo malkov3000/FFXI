@@ -325,6 +325,11 @@ end
 
 function midcast(spell)
 
+	--Pet Midcast protection!
+	if pet_midaction() then
+        return
+    end
+
 -- Cancel
 	if canceled then --Spell cancelled?
 		return --Exit the function!
@@ -605,6 +610,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
