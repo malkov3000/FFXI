@@ -222,7 +222,9 @@ function get_sets()
 ------------------- BLUE MAGIC SETS --------------------
 
 	sets.blu = {} --Leave Empty!
-    
+
+	--Update BLU Spell List at end of file!
+	
 	--Accuracy / Str+Dex+Vit	
 	sets.blu.str = {}
 	
@@ -239,7 +241,9 @@ function get_sets()
 ----------------------- PET SETS ----------------------
 
 	sets.pet = {} --Leave Empty!
-    
+
+	--Update PET Spell List near end of file!
+	
 	--Pet Mid Action Physical	
 	sets.pet.phy = {}
 
@@ -614,3 +618,4 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
