@@ -147,6 +147,7 @@ function get_sets()
 	sets.ja['BloodPactRage'] = {}
 	sets.ja['BloodPactWard'] = {}
 	sets.ja['PetCommand'] = {}
+	sets.ja['Monster'] = {}
 
 	-- Single Ability examples below!
 	-- Replace the x with desired Ability name!
@@ -613,5 +614,3 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
