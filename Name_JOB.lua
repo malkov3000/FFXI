@@ -428,6 +428,42 @@ end
 
 
 ---
+--- PET MIDCAST AND AFTERCAST
+---
+
+function pet_midcast(spell)
+
+--PET MIDCAST - Uses the SMN Spell list near bottom of file!
+	--Phy or Mab sets
+	if Physical_BPs:contains(spell.english) then
+		equip(sets.pet.phy)  
+	elseif Magical_BPs:contains(spell.english) then
+		equip(sets.pet.mab)
+	end
+
+	--Spell Specific Set
+	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
+		equip(sets.pet[spell.english]) --Yes!  Equip that set!
+	end
+
+end
+
+--PET AFTERCAST
+function pet_aftercast(spell)
+
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
+	else
+		equip(sets.idle.dt) --Default to DT set!
+	end
+
+end
+
+
+
+---
 --- Status and Zone change
 ---
 
@@ -474,41 +510,6 @@ function self_command(command)
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
     end
-end
-
-
----
---- PET MIDCAST AND AFTERCAST
----
-
-function pet_midcast(spell)
-
---PET MIDCAST
-	--Phy or Mab sets
-	if Physical_BPs:contains(spell.english) then
-		equip(sets.pet.phy)  
-	elseif Magical_BPs:contains(spell.english) then
-		equip(sets.pet.mab)
-	end
-
-	--Spell Specific Set
-	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
-		equip(sets.pet[spell.english]) --Yes!  Equip that set!
-	end
-
-end
-
---PET AFTERCAST
-function pet_aftercast(spell)
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
-	end
-
 end
 
 
@@ -611,6 +612,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
