@@ -298,7 +298,7 @@ function precast(spell)
 			--Cancel WS
 			cancel_spell()
 			--Let me know you cancelled WS!
-			send_command('@input /echo Weapon Skill Canceled  Target Out of Range')
+			send_command('@input /echo Weapon Skill Canceled - Target Out of Range!')
 		end
 	end
 	
@@ -362,7 +362,7 @@ function midcast(spell)
 			--Cancel WS
 			cancel_spell()
 			--Let me know you cancelled WS!
-			send_command('@input /echo Weapon Skill Canceled  Target Out of Range')
+			send_command('@input /echo Weapon Skill Canceled - Target Out of Range!')
 		end
 	end
 	
@@ -613,4 +613,5 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
