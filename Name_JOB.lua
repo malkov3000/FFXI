@@ -568,7 +568,7 @@ weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sid
 
 
 -------------------------
---   SMN Spells List   --
+--   PET Spells List   --
 -------------------------
 
 Physical_PET = S{"Example1","Example2","Volt Strike"}
@@ -612,14 +612,3 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
-
-
-
-
-
-
-
-
-
