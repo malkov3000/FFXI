@@ -119,6 +119,18 @@ function get_sets()
 --	sets.tp.TH = {}		
 
 
+	
+--------------------- RANGED SETS ----------------------
+
+	sets.ra = {} --Leave Empty!
+	
+	-- PRESHOT goes here
+	sets.ra.preshot = {}
+
+	-- MIDSHOT goes here
+	sets.ra.midshot = {}
+
+
 
 ----------------------- WS SETS ------------------------
 	
@@ -160,18 +172,6 @@ function get_sets()
 --	sets.ja['Provoke'] = sets.hate.high
 	
 	
-	
---------------------- RANGED SETS ----------------------
-
-	sets.ra = {} --Leave Empty!
-	
-	-- PRESHOT goes here
-	sets.ra.preshot = {}
-
-	-- MIDSHOT goes here
-	sets.ra.midshot = {}
-
-
 
 --------------------- FASTCAST SETS --------------------
 
@@ -618,4 +618,5 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
