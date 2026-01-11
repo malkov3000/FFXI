@@ -335,7 +335,6 @@ function midcast(spell)
 		return --Exit the function!
 	end
 	
-
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
@@ -344,7 +343,7 @@ function midcast(spell)
 		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
-	-- Weapon Skill
+-- Weapon Skill
 	if weaponskills.ranged:contains(spell.english) then --Ranged WS?
 		if sets.ws[spell.english] then --Do we have a WS set for this WS?
 			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
@@ -614,3 +613,4 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
