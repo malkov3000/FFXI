@@ -280,21 +280,21 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) then --Ranged WS?  Do we have TP?
+	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
 		if sets.ws[spell.english] then --Do we have a WS set for this WS?
 			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 		else
 			equip(sets.ws.standard) --No!  Use the standard WS set!
 		end
 	else
-		if spell.type == 'WeaponSkill' and player.target.distance < 4.5 then --Melee range?
+		if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance < 4.5 then --Melee range?
 			if sets.ws[spell.english] then --Do we have a WS set for this WS?
 				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 			else
 				equip(sets.ws.standard) --No!  Use the standard WS set!
 			end
 		--Out of melee range?
-		elseif spell.type == 'WeaponSkill' and player.target.distance >= 6 then
+		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance >= 6 then
 			--Cancel WS
 			cancel_spell()
 			--Let me know you cancelled WS!
@@ -345,21 +345,21 @@ function midcast(spell)
 	end
 
 	-- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
+	if weaponskills.ranged:contains(spell.english) then --Ranged WS?
 		if sets.ws[spell.english] then --Do we have a WS set for this WS?
 			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 		else
 			equip(sets.ws.standard) --No!  Use the standard WS set!
 		end
 	else
-		if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance < 4.5 then --Melee range?
+		if spell.type == 'WeaponSkill' and player.target.distance < 4.5 then --Melee range?
 			if sets.ws[spell.english] then --Do we have a WS set for this WS?
 				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 			else
 				equip(sets.ws.standard) --No!  Use the standard WS set!
 			end
 		--Out of melee range?
-		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance >= 6 then
+		elseif spell.type == 'WeaponSkill' and player.target.distance >= 6 then
 			--Cancel WS
 			cancel_spell()
 			--Let me know you cancelled WS!
