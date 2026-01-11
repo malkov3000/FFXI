@@ -156,7 +156,7 @@ function get_sets()
 	-- We can set an Ability to a set we already created!
 	-- See example below!
 
-	sets.ja['Provoke'] = sets.hate.high
+--	sets.ja['Provoke'] = sets.hate.high
 	
 	
 	
@@ -214,7 +214,7 @@ function get_sets()
 	-- We can set a Spell to a set we already created!
 	-- See example below!
 	
-	sets.ma['Flash'] = sets.hate.high
+--	sets.ma['Flash'] = sets.hate.high
 
 
 
@@ -251,8 +251,8 @@ function get_sets()
 	sets.pet['x'] = {}
 
 	
-
 end
+
 
 
 --------------------
@@ -567,6 +567,7 @@ weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sid
     "Myrkr"}
 
 
+
 -------------------------
 --   PET Spells List   --
 -------------------------
@@ -574,6 +575,7 @@ weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sid
 Physical_PET = S{"Example1","Example2","Volt Strike"}
 
 Magical_PET = S{"Example1","Example2","Conflag Strike"}
+
 
 
 -------------------------
