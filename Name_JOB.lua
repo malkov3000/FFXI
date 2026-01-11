@@ -235,7 +235,7 @@ function get_sets()
 	sets.blu.cure = {}	
 
 
-	------------------- PET SETS ----------------------
+----------------------- PET SETS ----------------------
 
 	sets.pet = {} --Leave Empty!
     
@@ -325,7 +325,7 @@ end
 
 function midcast(spell)
 
-	--Pet Midcast protection!
+-- Pet Midcast protection
 	if pet_midaction() then
         return
     end
@@ -405,7 +405,7 @@ end
 
 function aftercast(spell)
 
-	--Pet Midcast protection!
+-- Pet Midcast protection
 	if pet_midaction() then
         return
     end
@@ -433,7 +433,7 @@ end
 
 function pet_midcast(spell)
 
---PET MIDCAST - Uses the SMN Spell list near bottom of file!
+-- PET MIDCAST - Uses the SMN Spell list near bottom of file!
 	--Phy or Mab sets
 	if Physical_BPs:contains(spell.english) then
 		equip(sets.pet.phy)  
@@ -448,7 +448,7 @@ function pet_midcast(spell)
 
 end
 
---PET AFTERCAST
+-- PET AFTERCAST
 function pet_aftercast(spell)
 
 	if player.status == 'Engaged' then --Are we fighting?
@@ -612,6 +612,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
