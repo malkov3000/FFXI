@@ -489,6 +489,7 @@ function pet_midcast(spell)
 		equip(sets.pet.phy)  
 	elseif Magical_BPs:contains(spell.english) then
 		equip(sets.pet.mab)
+	end
 
 	--Spell Specific Set
 	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
@@ -610,6 +611,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
