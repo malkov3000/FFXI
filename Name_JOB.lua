@@ -79,7 +79,7 @@ function get_sets()
 	-- You can remove sets from this list too!
 	WEP_Set_Names = {"TPBONUS","SKILL","ACC"}
 	
-	-- TP sets go below!
+	-- Weapon sets go below! Here are samples!
 	
 	--TP BONUS
 	sets.wep.TPBONUS = {}	
@@ -106,7 +106,7 @@ function get_sets()
 	-- You can remove sets from this list too!
 	TP_Set_Names = {"DT","ACC","TP"}
 	
-	-- TP sets go below!
+	-- TP sets go below! Here are samples!
 	
 	--Damage Taken Reduction
 	sets.tp.DT = {}	
@@ -620,6 +620,7 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
 
