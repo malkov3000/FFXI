@@ -294,14 +294,14 @@ function precast(spell)
 			equip(sets.ws.standard) --No!  Use the standard WS set!
 		end
 	else
-		if spell.type == 'WeaponSkill' and player.tp >= 1000 --Do We Have TP?
+		if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
 			if sets.ws[spell.english] then --Do we have a WS set for this WS?
 				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 			else
 				equip(sets.ws.standard) --No!  Use the standard WS set!
 			end
 		--Out of melee range?
-		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 --No TP? Cancel WS!
+		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 then --No TP? Cancel WS!
 			--Cancel WS
 			cancel_spell()
 			--Let me know you cancelled WS!
@@ -358,7 +358,7 @@ function midcast(spell)
 			equip(sets.ws.standard) --No!  Use the standard WS set!
 		end
 	else
-		if spell.type == 'WeaponSkill'
+		if spell.type == 'WeaponSkill' then
 			if sets.ws[spell.english] then --Do we have a WS set for this WS?
 				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
 			else
@@ -614,9 +614,5 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
-
-
 
 
