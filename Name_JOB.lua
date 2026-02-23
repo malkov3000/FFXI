@@ -300,12 +300,6 @@ function precast(spell)
 			else
 				equip(sets.ws.standard) --No!  Use the standard WS set!
 			end
-		--Out of melee range?
-		elseif spell.type == 'WeaponSkill' and player.tp >= 1000 then --No TP? Cancel WS!
-			--Cancel WS
-			cancel_spell()
-			--Let me know you cancelled WS!
-			send_command('@input /echo Weapon Skill Canceled - Target Out of Range!')
 		end
 	end
 	
@@ -614,5 +608,6 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+
 
 
