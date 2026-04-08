@@ -281,7 +281,8 @@ function precast(spell)
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
 		equip(sets.fc.standard) --Yes! Equip FC
-	elseif sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
+	end
+	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
 		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
 	end
 	
@@ -305,7 +306,8 @@ function precast(spell)
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
 		equip(sets.ja[spell.type]) --Yes!  Equip that set!
-	elseif sets.ja[spell.english] then --Do we have a set for this Job Ability?
+	end
+	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
 	end
 	
@@ -337,8 +339,9 @@ function midcast(spell)
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
-	elseif sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	end
+	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
+		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
 -- Weapon Skill
@@ -361,7 +364,8 @@ function midcast(spell)
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
 		equip(sets.ja[spell.type]) --Yes!  Equip that set!
-	elseif sets.ja[spell.english] then --Do we have a set for this Job Ability?
+	end
+	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
 	end
 
