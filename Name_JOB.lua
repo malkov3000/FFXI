@@ -281,8 +281,7 @@ function precast(spell)
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
 		equip(sets.fc.standard) --Yes! Equip FC
-	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
+	elseif sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
 		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
 	end
 	
@@ -306,8 +305,7 @@ function precast(spell)
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
 		equip(sets.ja[spell.type]) --Yes!  Equip that set!
-	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
+	elseif sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
 	end
 	
@@ -339,8 +337,7 @@ function midcast(spell)
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
-	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
+	elseif sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
 		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
@@ -364,8 +361,7 @@ function midcast(spell)
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
 		equip(sets.ja[spell.type]) --Yes!  Equip that set!
-	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
+	elseif sets.ja[spell.english] then --Do we have a set for this Job Ability?
 		equip(sets.ja[spell.english]) --Yes!  Equip that set!
 	end
 
@@ -487,9 +483,12 @@ end)
 
 
 ---
---- Toggle for TP and WEAPON set modes
+--- Toggle for TP and WEAPON set modes + Bar modes
 ---
-
+	BARELE_Index = 1
+	BAR_ELE_Names = {"Barfira","Barblizzara","Baraera","Barstonra","Barthundra","Barwatera"}
+	BARSTA_Index = 1
+	BAR_STA_Names = {"Barsleepra","Barpoisonra","Barparalyzra","Barblindra","Barsilencera","Barpetra","Barvira","Baramnesra"}
 function self_command(command)
     if command == 'toggletp' then --Set Command TP
         TP_Index = TP_Index +1 --Cycle variable
@@ -503,6 +502,20 @@ function self_command(command)
 		--Let me know which mode I'm in!
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
+	elseif command == 'togglebarelement' then 
+        BARELE_Index = BARELE_Index +1
+        if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
+		--Let me know which mode I'm in!
+        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
+	elseif command == 'castbarelement' then
+		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
+	elseif command == 'togglebarstatus' then 
+        BARSTA_Index = BARSTA_Index +1
+        if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
+		--Let me know which mode I'm in!
+        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
+	elseif command == 'castbarstatus' then
+		send_command('@input /ma "'..BAR_STA_Names[BARSTA_Index]..'" <me>')
     end
 end
 
