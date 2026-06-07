@@ -56,11 +56,11 @@ function get_sets()
     right_ear="Etiolation Earring",
     left_ring="murky ring",
     right_ring="Shneddick Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 }  
 
 	-- Town set here
-	--sets.idle.town = sets.idle.dt
+	sets.idle.town = sets.idle.dt
 
 
 
@@ -87,7 +87,7 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"TPBONUS","SKILL","ACC","CLUB"}
+	WEP_Set_Names = {"TPBONUS","ACC","SKILL","CLUB"}
 	
 	-- TP sets go below!
 	
@@ -99,7 +99,7 @@ function get_sets()
 
 	--SKILL+ OFF HAND
 	sets.wep.SKILL = {    
-	main="Naegling",
+	main="Maxentius",
     sub="Iris",
 	}
 
@@ -110,8 +110,8 @@ function get_sets()
 	}
 	
 	sets.wep.CLUB = {    
-	main="Kaja Rod",
-    sub="Hep. Sapara +1",
+	main="Maxentius",
+    sub="Machaera +3",
 	}
 
 
@@ -128,66 +128,32 @@ function get_sets()
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
 	--TP_Set_Names = {"DT_MAX","DT_MID","DT_LOW","LEARN","TP_LOW","TP_MID","TP_MAX"}
-	TP_Set_Names = {"TP","HYBRID","DT","LEARN"}
+	TP_Set_Names = {"TP","LEARN"}
 	
 	-- TP sets go below!
 	
-	--
 	sets.tp.TP = {
     ammo="Aurgelmir Orb",
-    head="Hashishin Kavuk +3",
-    body="Hashishin Mintan +3",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Carmine Greaves +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Suppanomimi",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
-    right_ring="Epona's Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-
-	--
-	sets.tp.HYBRID = {
-    ammo="Aurgelmir Orb",
-    head="Hashishin Kavuk +3",
-    body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Carmine Greaves +1",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Suppanomimi",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
-    right_ring="Epona's Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ring="Murky Ring",
+    right_ring="Epona's ring",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 }
 	
-	--
-	sets.tp.DT = {
-    ammo="Aurgelmir Orb",
-    head="Hashishin Kavuk +3",
-    body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
-    feet="Hashi. Basmak +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Suppanomimi",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
-    right_ring="Epona's Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
 
 	--Learning Blu spells
 	sets.tp.LEARN = {
     ammo="Mavi Tathlum",
     head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +3",
+    body="Assim. Jubbah +4",
     hands="Assim. Bazu. +1",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs +2",
@@ -197,15 +163,13 @@ function get_sets()
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="murky ring",
     right_ring="Stikini Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 }
 	
 
 	--Treasure Hunter
 --	sets.tp.TH = {}		
 
-	-- Town set here
-	sets.idle.town = sets.tp.TP
 
 
 ----------------------- WS SETS ------------------------
@@ -214,54 +178,71 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
-    ammo="Aurgelmir Orb",
+    ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +3",
+    body="Assim. Jubbah +4",
     hands="Jhakri Cuffs +2",
-    legs="Luhlaza Shalwar +3",
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="Rufescent Ring",
-    right_ring="Rajas Ring",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
-}  
-
-	-- WS specific sets! Replace the x with the WS name!
-	-- Like this--->> sets.ws['Savage Blade'] = {}
-	
-	sets.ws['Savage Blade'] = {
-    ammo="Aurgelmir Orb",
-    head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +3",
-    hands="Jhakri Cuffs +2",
-    legs="Luhlaza Shalwar +3",
+    legs="Luhlaza Shalwar +4",
     feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Ishvara Earring",
     right_ear="Moonshade Earring",
-    left_ring="Rufescent Ring",
-    right_ring="Rajas Ring",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+}  
+
+	sets.ws.maxtp = {
+	ammo="Oshasha's Treatise",
+    head="Hashishin Kavuk +3",
+    body="Assim. Jubbah +4",
+    hands="Jhakri Cuffs +2",
+    legs="Luhlaza Shalwar +4",
+    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist="Sailfi Belt +1",
+    left_ear="Ishvara Earring",
+    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+	}
+
+
+	-- WS specific sets! Replace the x with the WS name!
+	-- Like this--->> sets.ws['Savage Blade'] = {}
+	
+	sets.ws['Savage Blade'] = {
+    ammo="Oshasha's Treatise",
+    head="Hashishin Kavuk +3",
+    body="Assim. Jubbah +4",
+    hands="Jhakri Cuffs +2",
+    legs="Luhlaza Shalwar +4",
+    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist="Sailfi Belt +1",
+    left_ear="Ishvara Earring",
+    right_ear="Moonshade Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }  
 	
 	sets.ws['Chant du Cygne'] = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Abnoba kaftan",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Luhlaza Shalwar +3",
+    legs="Hashishin Tayt +2",
     feet={ name="Herculean Boots", augments={'Crit.hit rate+2','"Dbl.Atk."+2','Accuracy+15 Attack+15',}},
-    neck="Light Gorget",
-    waist="Life Belt",
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist="Light Belt",
     left_ear="Odr Earring",
     right_ear="Brutal Earring",
     left_ring="Ilabrat Ring",
     right_ring="Epona's Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }  
 
 
@@ -388,9 +369,9 @@ function get_sets()
 	sets.blu.str = {
     ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +3",
+    body="Assim. Jubbah +4",
     hands="Hashi. Bazu. +2",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Malignance Tights",
     feet="Carmine Greaves +1",
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
@@ -407,7 +388,7 @@ function get_sets()
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +2",
-    legs="Luhlaza Shalwar +3",
+    legs="Luhlaza Shalwar +4",
     feet="Hashi. Basmak +2",
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Belisama's Rope +1",
@@ -422,7 +403,7 @@ function get_sets()
 	sets.blu.skill = {
     ammo="Mavi Tathlum",
     head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +3",
+    body="Assim. Jubbah +4",
     hands="Hashi. Bazu. +2",
     legs="Hashishin Tayt +2",
 	feet="Luhlaza Charuqs +2",
@@ -441,7 +422,7 @@ function get_sets()
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +2",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Carmine Cuisses +1",
     feet="Carmine Greaves +1",
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Sanctuary Obi",
@@ -514,11 +495,14 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
+	end
+	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+		equip(sets.ws.maxtp) 	
 	end
 	
 -- Job Ability
@@ -563,12 +547,15 @@ function midcast(spell)
 	end
 
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
-	end	
+	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
+	end
+	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+		equip(sets.ws.maxtp) 	
+	end
 	
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
