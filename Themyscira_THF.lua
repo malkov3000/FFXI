@@ -46,16 +46,18 @@ function get_sets()
 	-- DT set here
 	sets.idle.dt = {
     head="Skulker's Bonnet +2",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    body="Pillager's Vest +3",
+	--hands="Plun. Armlets +2",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
     feet="Skulk. Poulaines +3",
     neck={ name="Asn. Gorget +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Odr Earring",
     right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="murky ring",
-    right_ring="Shneddick Ring",
+    --left_ring="Ilabrat ring",
+    left_ring="Shneddick Ring",
+    right_ring="Epona's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 } 
 
@@ -87,25 +89,25 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"KajaKnife","Naegling","Pull"}
+	WEP_Set_Names = {"Dagger","Sword","Pull"}
 	
 	-- TP sets go below!
 	
-	sets.wep.Naegling = {   
+	sets.wep.Sword = {   
     ammo="Aurgelmir Orb",	
 	main="Naegling",
     sub="Shijo",
 	}	
 
-	sets.wep.KajaKnife = {  
+	sets.wep.Dagger = {  
 	ammo="Yetshila",
-	main="Kaja Knife",
+	main="Tauret",
     sub="Shijo",
 	}
 	
 	sets.wep.Pull = {  
 	range="Antitail +1",
-	main="Kaja Knife",
+	main="Tauret",
     sub="Shijo",
 	}
 
@@ -125,17 +127,17 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"DT"}
+	TP_Set_Names = {"TP","TH"}
 	
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
-	sets.tp.DT = {
+	sets.tp.TP = {
     head="Skulker's Bonnet +2",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Pillager's Vest +3",
 	--hands="Plun. Armlets +2",
-	hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
     feet="Skulk. Poulaines +3",
     neck={ name="Asn. Gorget +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
@@ -144,6 +146,23 @@ function get_sets()
     --left_ring="Ilabrat ring",
     left_ring="murky ring",
     right_ring="Epona's Ring",
+    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+}	
+
+	sets.tp.TH = {
+    head="Skulker's Bonnet +2",
+    body="Plunderer's Vest +2",
+    --body="Pillager's Vest +3",
+    hands="Plun. Armlets +2",
+    legs="Malignance Tights",
+    feet="Skulk. Poulaines +3",
+    neck={ name="Asn. Gorget +1", augments={'Path: A',}},
+    waist="Sailfi Belt +1",
+    left_ear="Odr Earring",
+    right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    --left_ring="Ilabrat ring",
+    left_ring="murky ring",
+    right_ring="Hoxne Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 }	
 
@@ -189,17 +208,18 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
     neck={ name="Asn. Gorget +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
-    left_ear="Moonshade Earring",
-    right_ear="Ishvara Earring",
+    left_ear="Ishvara Earring",
+    right_ear="Moonshade Earring",
     left_ring="Rufescent Ring",
     right_ring="Rajas Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}  
 	
 	sets.ws['Evisceration'] = {
-    head="Pill. Bonnet +2",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    head="Adhemar Bonnet +1",
+    --body="Plunderer's Vest +3",
+    body="Pillager's Vest +3",
+    hands="Mummu wrists +2",
     legs="Mummu Kecks +2",
     feet={ name="Herculean Boots", augments={'Crit.hit rate+2','"Dbl.Atk."+2','Accuracy+15 Attack+15',}},
     neck="Light Gorget",
@@ -256,7 +276,11 @@ function get_sets()
 	sets.fc = {} --Leave Empty!
 
 	-- FC set here
-	sets.fc.standard = {}  
+	sets.fc.standard = {
+    legs="Enif Cosciales",
+	left_ear="Etiolation Earring",
+    right_ear="Loquac. Earring",
+	}  
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.fc['Blue Magic'] = {}
