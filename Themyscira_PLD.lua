@@ -81,7 +81,7 @@ function get_sets()
     waist="Flume Belt",
     left_ear={ name="Alabaster Earring", priority=100},
     right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Apeile Ring",
+    left_ring="Apeile Ring +1",
     right_ring={ name="Gelatinous Ring +1", priority=80},
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
 }
@@ -136,7 +136,21 @@ function get_sets()
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
-	sets.tp.DT = sets.idle.town
+	sets.tp.DT = {
+    ammo="Staunch Tathlum",
+    head={ name="Chev. Armet +2", priority=135},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Chev. Gauntlets +2", priority=54},
+    legs={ name="Chev. Cuisses +2", priority=117},
+    feet={ name="Rev. Leggings +3", priority=82},
+    neck={ name="Unmoving Collar +1", priority=140},
+    waist="Flume Belt",
+    left_ear={ name="Alabaster Earring", priority=100},
+    right_ear={ name="Odnowa Earring +1", priority=110},
+    left_ring="Apeile Ring +1",
+    right_ring={ name="Gelatinous Ring +1", priority=80},
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+}
 
 	--Accuracy
 --	sets.tp.ACC = {}
@@ -154,7 +168,17 @@ function get_sets()
 	sets.ws = {} --Leave Empty!
 
 	-- WS set here
-	sets.ws.standard = {}  
+	sets.ws.standard = {   
+
+    ammo="Oshasha's Treatise",
+
+    feet="Sulev. Leggings +2",
+
+    waist="Sailfi Belt +1",
+    left_ear="Moonshade Earring",
+
+    left_ring="Rufescent Ring",
+    right_ring="Cornelia's ring",}  
 
 	-- WS specific sets! Replace the x with the WS name!
 	-- Like this--->> sets.ws['Savage Blade'] = {}
@@ -187,10 +211,41 @@ function get_sets()
 
 	sets.ja['Provoke'] = sets.hate.high
 	sets.ja['Majesty'] = sets.hate.high
-	sets.ja['Sentinal'] = sets.hate.high
+	sets.ja['Sentinal'] = {
+    ammo="Staunch Tathlum",
+    head={ name="Rev. Coronet +3", priority=71},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Rev. Gauntlets +3", priority=113},
+    legs={ name="Rev. Breeches +3", priority=163},
+    feet={ name="Cab. Leggings +2", priority=53},
+    neck={ name="Unmoving Collar +1", priority=140},
+    waist="Flume Belt",
+    left_ear={ name="Alabaster Earring", priority=100},
+    right_ear={ name="Odnowa Earring +1", priority=110},
+    left_ring="Apeile Ring +1",
+    right_ring={ name="Gelatinous Ring +1", priority=80},
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+}
+	sets.ja['Shield Bash'] = {
+    ammo="Staunch Tathlum",
+    head={ name="Rev. Coronet +3", priority=71},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Cab. Gauntlets +2", priority=114},
+    legs={ name="Rev. Breeches +3", priority=163},
+    feet={ name="Rev. Leggings +3", priority=82},
+    neck={ name="Unmoving Collar +1", priority=140},
+    waist="Flume Belt",
+    left_ear={ name="Alabaster Earring", priority=100},
+    right_ear={ name="Odnowa Earring +1", priority=110},
+    left_ring="Apeile Ring +1",
+    right_ring={ name="Gelatinous Ring +1", priority=80},
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+}
 	sets.ja['Rampart'] = sets.hate.high
+	sets.ja['Fealty'] = sets.hate.high
 	sets.ja['Palisade'] = sets.hate.high
 	sets.ja['Invincible'] = sets.hate.high
+	sets.ja['Cover'] = sets.hate.high
 	
 
 
@@ -265,11 +320,11 @@ function get_sets()
 }
 	sets.ma['Healing Magic'] = {
     ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71 },
+    head={ name="Chev. Armet +2", priority=135},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Rev. Gauntlets +3", priority=113 },
-    legs={ name="Rev. Breeches +3", priority=163 },
-    feet={ name="Rev. Leggings +3", priority=82 },
+    legs={ name="Carmine Cuisses +1", priority=130},
+    feet={ name="Carmine Greaves +1", priority=95},
     neck={ name="Unmoving Collar +1", priority=140 },
     waist="Sroda Belt",
     left_ear={ name="Alabaster Earring", priority=100 },
@@ -281,16 +336,16 @@ function get_sets()
 	sets.ma['Enhancing Magic'] = {
     ammo="Staunch Tathlum",
     head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Rev. Surcoat +3", priority=254},
+    body={ name="Chev. Cuirass +2", priority=141},
     hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Carmine Cuisses +1", priority=50},
+    legs={ name="Carmine Cuisses +1", priority=130},
     feet={ name="Rev. Leggings +3", priority=82},
     neck="Moonbeam Necklace",
     waist="Audumbla sash",
     left_ear={ name="Alabaster Earring", priority=100},
     right_ear="Mimir Earring",
     left_ring="Murky Ring",
-    right_ring="Stikini Ring",
+    right_ring="Defending Ring",
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
 }
 --	sets.ma['Enfeebling Magic'] = {}
@@ -298,12 +353,40 @@ function get_sets()
 --	sets.ma['Dark Magic'] = {}
 --	sets.ma['Summoning Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
-	sets.ma['Blue Magic'] = sets.ma['Divine Magic']
+	sets.ma['Blue Magic'] = {
+    ammo="Ombre Tathlum +1",
+    head={ name="Rev. Coronet +3", priority=71},
+    body={ name="Chev. Cuirass +2", priority=141},
+    hands={ name="Rev. Gauntlets +3", priority=113},
+    legs={ name="Rev. Breeches +3", priority=163},
+    feet={ name="Rev. Leggings +3", priority=82},
+    neck="Moonbeam Necklace",
+    waist="Audumbla sash",
+    left_ear={ name="Alabaster Earring", priority=100},
+    right_ear={ name="Odnowa Earring +1", priority=110},
+    left_ring="Murky Ring",
+    right_ring={ name="Gelatinous Ring +1", priority=80 },
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+}
 
 	-- Single Spell examples below!
 	-- Replace the x with desired Spell name!
 
-	--sets.ma['x'] = {}  
+	sets.ma['Enlight II'] = {
+	ammo="Staunch Tathlum",
+    head={ name="Rev. Coronet +3", priority=71},
+    body={ name="Rev. Surcoat +3", priority=254},
+    hands={ name="Rev. Gauntlets +3", priority=113},
+    legs={ name="Carmine Cuisses +1", priority=130},
+    feet={ name="Carmine Greaves +1", priority=95},
+    neck="Moonbeam Necklace",
+    waist="Audumbla Sash",
+    left_ear={ name="Alabaster Earring", priority=100 },
+    right_ear={ name="Odnowa Earring +1", priority=110 },
+    left_ring="Murky Ring",
+    right_ring={ name="Gelatinous Ring +1", priority=80 },
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+	}  
 
 	-- We can set a Spell to a set we already created!
 	-- See example below!
