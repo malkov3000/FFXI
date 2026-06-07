@@ -287,20 +287,14 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
-		if sets.ws[spell.english] then --Do we have a WS set for this WS?
-			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-		else
-			equip(sets.ws.standard) --No!  Use the standard WS set!
-		end
-	else
-		if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-			if sets.ws[spell.english] then --Do we have a WS set for this WS?
-				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-			else
-				equip(sets.ws.standard) --No!  Use the standard WS set!
-			end
-		end
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
+	end
+	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
+	end
+	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+		equip(sets.ws.maxtp) 	
 	end
 	
 -- Job Ability
@@ -345,20 +339,14 @@ function midcast(spell)
 	end
 
 -- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) then --Ranged WS?
-		if sets.ws[spell.english] then --Do we have a WS set for this WS?
-			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-		else
-			equip(sets.ws.standard) --No!  Use the standard WS set!
-		end
-	else
-		if spell.type == 'WeaponSkill' then
-			if sets.ws[spell.english] then --Do we have a WS set for this WS?
-				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-			else
-				equip(sets.ws.standard) --No!  Use the standard WS set!
-			end
-		end
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
+	end
+	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
+	end
+	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+		equip(sets.ws.maxtp) 	
 	end
 	
 -- Job Ability
@@ -563,19 +551,6 @@ areas.towns = S{
 }
 
 
-
--------------------------------
--- Mappings for weaponskills --
--------------------------------
-
-weaponskills = {}
-
--- Weaponskills that can be used at range
-weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sidewinder", "Arching Arrow",
-    "Empyreal Arrow", "Refulgent Arrow", "Apex Arrow", "Namas Arrow", "Jishnu's Radiance",
-    "Hot Shot", "Split Shot", "Sniper Shot", "Slug Shot", "Heavy Shot", "Detonator", "Last Stand",
-    "Coronach", "Trueflight", "Leaden Salute", "Wildfire",
-    "Myrkr"}
 
 
 
