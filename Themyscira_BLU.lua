@@ -625,7 +625,7 @@ end)
 
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- Toggle for TP and WEAPON set modes
 ---
 
 function self_command(command)
