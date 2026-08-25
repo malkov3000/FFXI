@@ -5,9 +5,9 @@
 ------------------------------------------------------------------
 
 
----------------
--- Load -------
----------------
+----------------
+---- Load ------
+----------------
 
 include('organizer-lib')
 
@@ -26,9 +26,11 @@ send_command('wait 4; input /macro set 1') -- Update # to desired starting macro
 --no help on!
 send_command('input /blockhelp on')
 
----------------------
-------- SETS --------
----------------------
+
+
+----------------
+---- SETS ------
+----------------
 
 function get_sets()
 
@@ -466,10 +468,9 @@ end
 
 
 
---------------------
------  SCRIPT  -----
---------------------
-
+----------------
+---- SCRIPT ----
+----------------
 
 
 ---
@@ -512,7 +513,6 @@ function precast(spell)
 	
 	
 end
-
 
 
 ---
@@ -574,7 +574,6 @@ function midcast(spell)
 end
 
 
-
 ---
 --- AFTERCAST
 ---
@@ -595,7 +594,6 @@ function aftercast(spell)
 	end
 
 end
-
 
 
 ---
@@ -624,7 +622,6 @@ windower.register_event('zone change', function(new_zone_id, old_zone_id)
 		equip(sets.idle.dt) 
 	end
 end)
-
 
 
 ---
