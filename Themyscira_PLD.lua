@@ -25,7 +25,8 @@ end
 send_command('input /macro book 2') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
-
+--no help on
+send_command('input /blockhelp on')
 
 ---------------------
 ------- SETS --------
@@ -46,18 +47,18 @@ function get_sets()
 	-- Town set here
 	sets.idle.town = {
     ammo="Staunch Tathlum",
-    head={ name="Chev. Armet +2", priority=135},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Chev. Gauntlets +2", priority=54},
-    legs={ name="Chev. Cuisses +2", priority=117},
-    feet={ name="Rev. Leggings +3", priority=82},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Flume Belt",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Shneddick Ring",
-    right_ring={ name="Gelatinous Ring +1", priority=80},
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    head="Chev. Armet +3",
+    body="Sakpata's Plate",
+    hands="Chev. Gauntlets +2", 
+    legs={ name="Chev. Cuisses +3", priority = 141},
+    feet={ name="Rev. Leggings +4", priority = 127},
+    neck={ name="Unmoving Collar +1", priority = 200},
+    waist="Null Belt",
+    left_ear={ name="Alabaster Earring", priority = 100},
+    right_ear={ name="Etiolation Earring", priority = 50},
+    right_ring="Shneddick Ring",
+    left_ring={ name="Gelatinous Ring +1", priority = 100},
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
 
 	-- DT set here
@@ -72,18 +73,18 @@ function get_sets()
 	-- Enmity +++
 	sets.hate.high = {
     ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71},
+    head="Rev. Coronet +3",
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Rev. Breeches +3", priority=163},
-    feet={ name="Rev. Leggings +3", priority=82},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Flume Belt",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Apeile Ring +1",
-    right_ring={ name="Gelatinous Ring +1", priority=80},
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Rev. Breeches +3",
+    feet="Chev. Sabatons +2",
+    neck="Unmoving Collar +1",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
 	
 	-- Enmity ---
@@ -102,15 +103,31 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"TANK"}
+	WEP_Set_Names = {"PDT","MDT","WS","STUN"}
 	
 	-- TP sets go below!
 	
 	--TP BONUS
-	sets.wep.TANK = {
+	sets.wep.MDT = {
     main="Malignance Sword",
-    sub="Priwen",
+    sub="Aegis",
 }	
+
+	sets.wep.STUN = {
+    main="Kaja Lance",
+    sub="Wizzan grip",
+}	
+
+	sets.wep.PDT = {
+    main="Malignance Sword",
+    sub="Duban",
+}	
+
+	sets.wep.WS = {
+    main="Naegling",
+    sub="Blurred Shield +1",
+}	
+	
 
 	--SKILL+
 --	sets.wep.SKILL = {}
@@ -131,35 +148,44 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"DT"}
+	TP_Set_Names = {"DT", "TP"}
 	
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
 	sets.tp.DT = {
     ammo="Staunch Tathlum",
-    head={ name="Chev. Armet +2", priority=135},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Chev. Gauntlets +2", priority=54},
-    legs={ name="Chev. Cuisses +2", priority=117},
-    feet={ name="Rev. Leggings +3", priority=82},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Flume Belt",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Apeile Ring +1",
-    right_ring={ name="Gelatinous Ring +1", priority=80},
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    head="Chev. Armet +3",
+    body="Sakpata's Plate",
+    hands="Chev. Gauntlets +2", 
+    legs="Chev. Cuisses +3", 
+    feet="Rev. Leggings +4", 
+    neck="Null loop",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Murky Ring",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
 
-	--Accuracy
---	sets.tp.ACC = {}
+	sets.tp.TP = {
+    ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck="Null loop",
+    waist="Sailfi Belt +1",
+    left_ear="Alabaster Earring",
+    right_ear="Cessance Earring",
+    right_ring="Murky Ring",
+    left_ring="Gelatinous Ring +1",
+    back="Null Shawl",
+}
 
-	--Multi-Hit, Store TP, Attack Speed
---	sets.tp.TP = {}
-
-	--Treasure Hunter
---	sets.tp.TH = {}		
+	
 
 
 
@@ -169,19 +195,22 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {   
-
-    ammo="Oshasha's Treatise",
-
+	ammo="Oshasha's Treatise",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
     feet="Sulev. Leggings +2",
-
+    neck="Rep. Plat. Medal",
     waist="Sailfi Belt +1",
     left_ear="Moonshade Earring",
+    right_ear="Ishvara Earring",
+    right_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
+    back="Null Shawl",
+	}  
 
-    left_ring="Rufescent Ring",
-    right_ring="Cornelia's ring",}  
 
-	-- WS specific sets! Replace the x with the WS name!
-	-- Like this--->> sets.ws['Savage Blade'] = {}
 	
 	--sets.ws['x'] = {}  
 
@@ -201,46 +230,11 @@ function get_sets()
 	--sets.ja['BloodPactWard'] = {}
 	--sets.ja['PetCommand'] = {}
 
-	-- Single Ability examples below!
-	-- Replace the x with desired Ability name!
-
-	-- sets.ja['x'] = {}
-
-	-- We can set an Ability to a set we already created!
-	-- See example below!
 
 	sets.ja['Provoke'] = sets.hate.high
 	sets.ja['Majesty'] = sets.hate.high
-	sets.ja['Sentinal'] = {
-    ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Rev. Breeches +3", priority=163},
-    feet={ name="Cab. Leggings +2", priority=53},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Flume Belt",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Apeile Ring +1",
-    right_ring={ name="Gelatinous Ring +1", priority=80},
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
-}
-	sets.ja['Shield Bash'] = {
-    ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Cab. Gauntlets +2", priority=114},
-    legs={ name="Rev. Breeches +3", priority=163},
-    feet={ name="Rev. Leggings +3", priority=82},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Flume Belt",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Apeile Ring +1",
-    right_ring={ name="Gelatinous Ring +1", priority=80},
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
-}
+	sets.ja['Sentinal'] = sets.hate.high
+	sets.ja['Shield Bash'] = sets.hate.high
 	sets.ja['Rampart'] = sets.hate.high
 	sets.ja['Fealty'] = sets.hate.high
 	sets.ja['Palisade'] = sets.hate.high
@@ -257,36 +251,36 @@ function get_sets()
 	-- FC set here
 	sets.fc.standard = {
     ammo="Impatiens",
-    head={ name="Carmine Mask +1", priority=38},
-    body={ name="Rev. Surcoat +3", priority=254},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Enif Cosciales", priority=40},
-    feet={ name="Carmine Greaves +1", priority=95},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist={ name="Eschan Stone", priority=20},
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring={ name="Griffon ring", priority=25},
-    right_ring={ name="Gelatinous Ring +1", priority=80},
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    body="Rev. Surcoat +3",
+    hands="Rev. Gauntlets +3",
+    legs="Enif Cosciales",
+    feet="Chev. Sabatons +2",
+    neck="Voltsurge torque",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Loquac. Earring",
+    right_ring="Naji's Loop",
+    left_ring="Lebeche ring",
     back={ name="Rudianos's Mantle", augments={'"Fast Cast"+10',}},
-} 
+}
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 --	sets.fc['Blue Magic'] = {}
 --	sets.fc['Divine Magic'] = {}
 	sets.fc['Healing Magic'] = {
     ammo="Impatiens",
-    head={ name="Carmine Mask +1", priority=38},
-    body={ name="Rev. Surcoat +3", priority=254},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Enif Cosciales", priority=40},
-    feet={ name="Carmine Greaves +1", priority=95},
-    neck={ name="Unmoving Collar +1", priority=140},
-    waist="Sailfi Belt +1",
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    body="Rev. Surcoat +3",
+    hands="Chev. Gauntlets +2",
+    legs="Enif Cosciales",
+    feet="Chev. Sabatons +2",
+    neck="Voltsurge torque",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Nourish. Earring +1",
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring={ name="Griffon ring", priority=25},
-    right_ring={ name="Gelatinous Ring +1", priority=80},
+    right_ear="Loquac. Earring",
+    right_ring="Naji's Loop",
+    left_ring="Lebeche ring",
     back={ name="Rudianos's Mantle", augments={'"Fast Cast"+10',}},
 }
 --	sets.fc['Enhancing Magic'] = {}
@@ -304,49 +298,51 @@ function get_sets()
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.ma['Divine Magic'] = {
-    ammo="Ombre Tathlum +1",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Rev. Surcoat +3", priority=254},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Rev. Breeches +3", priority=163},
-    feet={ name="Rev. Leggings +3", priority=82},
+    ammo="Staunch Tathlum",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands="Cab. Gauntlets +2",
+    legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+    feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
-    waist={ name="Eschan Stone", priority=20},
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Murky Ring",
-    right_ring="Stikini Ring",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Knightly Earring",
+    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Damage taken-5%',}},
+    right_ring="Murky Ring",
+    left_ring="Apeile Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
+
 	sets.ma['Healing Magic'] = {
     ammo="Staunch Tathlum",
-    head={ name="Chev. Armet +2", priority=135},
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Rev. Gauntlets +3", priority=113 },
-    legs={ name="Carmine Cuisses +1", priority=130},
-    feet={ name="Carmine Greaves +1", priority=95},
-    neck={ name="Unmoving Collar +1", priority=140 },
-    waist="Sroda Belt",
-    left_ear={ name="Alabaster Earring", priority=100 },
-    right_ear={ name="Odnowa Earring +1", priority=110 },
-    left_ring="Menelaus's Ring",
-    right_ring={ name="Gelatinous Ring +1", priority=80 },
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    hands="Macabre Gaunt. +1",
+    legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+    feet="Odyssean Greaves",
+    neck="Moonbeam Necklace",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Knightly Earring",
+    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Damage taken-5%',}},
+    right_ring="Murky Ring",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
+
 	sets.ma['Enhancing Magic'] = {
     ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Chev. Cuirass +2", priority=141},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Carmine Cuisses +1", priority=130},
-    feet={ name="Rev. Leggings +3", priority=82},
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body="Chev. Cuirass +2",
+    hands="Chev. Gauntlets +2",
+    legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+    feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
-    waist="Audumbla sash",
-    left_ear={ name="Alabaster Earring", priority=100},
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
     right_ear="Mimir Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    right_ring="Murky Ring",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
 --	sets.ma['Enfeebling Magic'] = {}
 --	sets.ma['Elemental Magic'] = {}
@@ -354,44 +350,40 @@ function get_sets()
 --	sets.ma['Summoning Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 	sets.ma['Blue Magic'] = {
-    ammo="Ombre Tathlum +1",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Chev. Cuirass +2", priority=141},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Rev. Breeches +3", priority=163},
-    feet={ name="Rev. Leggings +3", priority=82},
+    ammo="Staunch Tathlum",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body="Chev. Cuirass +2",
+    hands="Chev. Gauntlets +2",
+    legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+    feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
-    waist="Audumbla sash",
-    left_ear={ name="Alabaster Earring", priority=100},
-    right_ear={ name="Odnowa Earring +1", priority=110},
-    left_ring="Murky Ring",
-    right_ring={ name="Gelatinous Ring +1", priority=80 },
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Damage taken-5%',}},
+    right_ring="Murky Ring",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
 
-	-- Single Spell examples below!
-	-- Replace the x with desired Spell name!
-
-	sets.ma['Enlight II'] = {
-	ammo="Staunch Tathlum",
-    head={ name="Rev. Coronet +3", priority=71},
-    body={ name="Rev. Surcoat +3", priority=254},
-    hands={ name="Rev. Gauntlets +3", priority=113},
-    legs={ name="Carmine Cuisses +1", priority=130},
-    feet={ name="Carmine Greaves +1", priority=95},
+	
+	sets.ma['Phalanx'] = {
+    main="Sakpata's sword",
+    sub="Priwen",
+    ammo="Staunch Tathlum",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body="Chev. Cuirass +2",
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Sakpata's Cuisses",
+    feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
     waist="Audumbla Sash",
-    left_ear={ name="Alabaster Earring", priority=100 },
-    right_ear={ name="Odnowa Earring +1", priority=110 },
-    left_ring="Murky Ring",
-    right_ring={ name="Gelatinous Ring +1", priority=80 },
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}, priority=60},
-	}  
+    left_ear="Knightly Earring",
+    right_ear="Mimir Earring",
+    right_ring="Murky Ring",
+    left_ring="Stikini ring",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
+}
 
-	-- We can set a Spell to a set we already created!
-	-- See example below!
-	
---	sets.ma['Flash'] = sets.hate.high
 
 
 	
@@ -410,29 +402,29 @@ end
 
 function precast(spell)
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
 	end
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 end
 
@@ -444,29 +436,29 @@ end
 
 function midcast(spell)
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end	
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end	
 end
 
@@ -478,17 +470,20 @@ end
 
 function aftercast(spell)
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end
 
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
+	
+	equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	
 end
 
 
@@ -499,22 +494,22 @@ end
 
 function status_change(new, old)
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end
 -- Zone changes
 windower.register_event('zone change', function(new_zone_id, old_zone_id)
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end)
 
@@ -525,18 +520,16 @@ end)
 ---
 
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
     end
 end
 
