@@ -6,12 +6,10 @@
 
 
 ---------------
----Load Libs---
+-- Load -------
 ---------------
 
 include('organizer-lib')
-
-
 
 ------------------------------------LOCKSTYLE------------------------------------------
 local lockstyle = 1 -- Uses the in-game gearsets! Set # to desired lockstyle look!
@@ -25,7 +23,8 @@ end
 send_command('input /macro book 1') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
-
+--no help on!
+send_command('input /blockhelp on')
 
 ---------------------
 ------- SETS --------
@@ -47,90 +46,72 @@ function get_sets()
     ammo="Staunch Tathlum",
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    hands="Hashi. Bazu. +3",
+    legs="Hashishin Tayt +3",
     feet="Hashi. Basmak +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Flume Belt",
-    left_ear="Ethereal Earring",
+    neck="Elite Royal Collar",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
-    left_ring="murky ring",
+    left_ring="Murky Ring",
     right_ring="Shneddick Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 }  
 
 	-- Town set here
 	sets.idle.town = sets.idle.dt
-
-
-
------------------------ ENMITY SETS --------------------
-
-	sets.hate = {} --Leave Empty!
 	
-	-- Enmity +++
-	sets.hate.high = {}
-	
-	-- Enmity ---
-	sets.hate.low = {}
-	
-
 	
 ----------------------- WEAPON SETS --------------------
 
-	WEP_Index = 1 --Don't Change!
-	sets.wep = {} --Leave Empty!
-
-	-- We can have multiple different WEAPON sets!
+	WEP_Index = 1 
+	sets.wep = {} 
+	WSLIST = {}
+	
 	--
 	--> Use "/console gs c togglewep" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"TPBONUS","ACC","SKILL","CLUB"}
+
+	WEP_Set_Names = {"Tizona","Maxentius","Naegling","Bunzi"}
 	
-	-- TP sets go below!
-	
-	--TP BONUS OFF HAND
-	sets.wep.TPBONUS = {    
-	main="Naegling",
-    sub="Machaera +3",
+	sets.wep.Tizona = {    
+	main="Tizona",
+    sub="Thibron",
 	}	
+	WSLIST.Tizona = {"Expiacion","Chant du Cygne","Requiescat","Flat Blade"}
 
-	--SKILL+ OFF HAND
-	sets.wep.SKILL = {    
-	main="Maxentius",
-    sub="Iris",
-	}
-
-	--ACCURACY OFF HAND
-	sets.wep.ACC = {    
-	main="Naegling",
-    sub="Hep. Sapara +1",
-	}
 	
-	sets.wep.CLUB = {    
+	sets.wep.Naegling = {    
+	main="Naegling",
+    sub="Thibron",
+	}	
+	WSLIST.Naegling = {"Savage Blade","Chant du Cygne","Sanguine Blade","Flat Blade"}
+	
+	sets.wep.Maxentius = {    
 	main="Maxentius",
-    sub="Machaera +3",
+    sub="Thibron",
 	}
-
-
+	WSLIST.Maxentius = {"Black Halo","Realmrazer","Starlight","Brainshaker"}
+	
+	sets.wep.Bunzi = {    
+	main="Bunzi's Rod",
+    sub="Maxentius",
+	}
+	WSLIST.Bunzi = {"Judgment","Realmrazer","Starlight","Brainshaker"}
+	
 	
 ----------------------- TP SETS ------------------------
 
-	TP_Index = 1 --Don't Change!
-	sets.tp = {} --Leave Empty!
-
-	-- We can have multiple different TP sets!
+	TP_Index = 1 
+	sets.tp = {} 
+	
 	--
 	--> Use "/console gs c toggletp" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a TP set for it below!
-	--TP_Set_Names = {"DT_MAX","DT_MID","DT_LOW","LEARN","TP_LOW","TP_MID","TP_MAX"}
-	TP_Set_Names = {"TP","LEARN"}
+
+	TP_Set_Names = {"TP","DW0","DT","LEARN"}
 	
-	-- TP sets go below!
+	-- TP, DT, 0DW, LEARN
 	
 	sets.tp.TP = {
     ammo="Aurgelmir Orb",
@@ -139,37 +120,49 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Suppanomimi",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
+    waist="Kentarch Belt +1",
+    left_ear="Crep. Earring",
+    right_ear="Dedition Earring",
     left_ring="Murky Ring",
     right_ring="Epona's ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 }
-	
+
+	sets.tp.DW0 = {
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
+    waist="Kentarch Belt +1",
+    left_ear="Crep. Earring",
+    right_ear="Dedition Earring",
+    left_ring="Murky Ring",
+    right_ring="Ilabrat Ring",
+    back="Null shawl",
+}
 
 	--Learning Blu spells
 	sets.tp.LEARN = {
     ammo="Mavi Tathlum",
-    head="Hashishin Kavuk +3",
+    head="Luhlaza Keffiyeh +4",
     body="Assim. Jubbah +4",
     hands="Assim. Bazu. +1",
-    legs="Hashishin Tayt +2",
-    feet="Luhlaza Charuqs +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Flume Belt",
+    legs="Hashishin Tayt +3",
+    feet="Luhlaza Charuqs +4",
+    neck="Mirage Stole +2",
+    waist="Null Belt",
     left_ear="Njordr Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="murky ring",
     right_ring="Stikini Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 }
-	
 
-	--Treasure Hunter
---	sets.tp.TH = {}		
-
+	sets.tp.DT = sets.idle.dt
 
 
 ----------------------- WS SETS ------------------------
@@ -183,147 +176,110 @@ function get_sets()
     body="Assim. Jubbah +4",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +4",
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    feet="Nyame sollerets",
+    neck="Mirage Stole +2",
     waist="Sailfi Belt +1",
     left_ear="Ishvara Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
     right_ring="Cornelia's ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-}  
+}   
 
-	sets.ws.maxtp = {
-	ammo="Oshasha's Treatise",
+	sets.ws.mab = {
+    ammo="Ghastly Tathlum +1",
     head="Hashishin Kavuk +3",
     body="Assim. Jubbah +4",
     hands="Jhakri Cuffs +2",
-    legs="Luhlaza Shalwar +4",
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    legs="Luh. Shalwar +4",
+    feet="Nyame sollerets",
+    neck="Sibyl Scarf",
+    waist="Eschan Stone",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Cornelia's ring",
+    right_ring="Cornelia's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-	}
-
-
-	-- WS specific sets! Replace the x with the WS name!
-	-- Like this--->> sets.ws['Savage Blade'] = {}
-	
-	sets.ws['Savage Blade'] = {
-    ammo="Oshasha's Treatise",
-    head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +4",
-    hands="Jhakri Cuffs +2",
-    legs="Luhlaza Shalwar +4",
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+10','DEX+7','Weapon skill damage +4%','Accuracy+12 Attack+12',}},
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Ishvara Earring",
-    right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Cornelia's ring",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-}  
+} 
 	
 	sets.ws['Chant du Cygne'] = {
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Abnoba kaftan",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Hashishin Tayt +2",
-    feet={ name="Herculean Boots", augments={'Crit.hit rate+2','"Dbl.Atk."+2','Accuracy+15 Attack+15',}},
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    body="Abnoba Kaftan",
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    legs="Gleti's Breeches",
+    feet="Thereoid Greaves",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Light Belt",
     left_ear="Odr Earring",
-    right_ear="Brutal Earring",
+    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="Ilabrat Ring",
     right_ring="Epona's Ring",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-}  
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}},
+}
 
+	sets.ws['Sanguine Blade'] = sets.ws.mab
+
+	sets.ws['Seraph Blade'] = sets.ws.mab
+	
+	sets.ws['Seraph Blade'] = {
+}
 
 
 ------------------- JOB ABILITY SETS -------------------
 
-	sets.ja = {} --Leave Empty!
+	sets.ja = {} 
 
 	--Uses: Windower>res>job_abilities
-	sets.ja['CorsairRoll'] = {}
-	sets.ja['CorsairShot'] = {}
-	sets.ja['Waltz'] = {}
-	sets.ja['Jig'] = {}
-	sets.ja['Step'] = {}
-	sets.ja['BloodPactRage'] = {}
-	sets.ja['BloodPactWard'] = {}
-	sets.ja['PetCommand'] = {}
-
-	-- Single Ability examples below!
-	-- Replace the x with desired Ability name!
+--	sets.ja['CorsairRoll'] = {}
+--	sets.ja['CorsairShot'] = {}
+--	sets.ja['Waltz'] = {}
+--	sets.ja['Jig'] = {}
+--	sets.ja['Step'] = {}
+--	sets.ja['BloodPactRage'] = {}
+--	sets.ja['BloodPactWard'] = {}
+--	sets.ja['PetCommand'] = {}
 
 	sets.ja['Diffusion'] = {
-	feet="Luhlaza Charuqs +2",
+	feet="Luhlaza Charuqs +4",
 }
 
-	-- We can set an Ability to a set we already created!
-	-- See example below!
-
---	sets.ja['Provoke'] = sets.hate.high
+	sets.ja['Provoke'] = {    
+	ammo="Per. Lucky Egg",
+    head="Wh. Rarab Cap +1",
+    right_ring="Hoxne Ring",
+}
+	
+	sets.ja['Jump'] = {    
+	ammo="Per. Lucky Egg",
+    head="Wh. Rarab Cap +1",
+    right_ring="Hoxne Ring",
+}
 	
 	
-	
---------------------- RANGED SETS ----------------------
-
-	sets.ra = {} --Leave Empty!
-	
-	-- PRESHOT goes here
-	sets.ra.preshot = {}
-
-	-- MIDSHOT goes here
-	sets.ra.midshot = {}
-
-
-
 --------------------- FASTCAST SETS --------------------
 
-	sets.fc = {} --Leave Empty!
+	sets.fc = {} 
 
 	-- FC set here
 	sets.fc.standard = {
     ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Hashishin Mintan +3",
-    hands="Jhakri Cuffs +2",
+    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5',}},
     legs="Aya. Cosciales +2",
-    feet="Carmine Greaves +1",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+    neck="Voltsurge Torque",
     waist="Witful Belt",
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
-    left_ring="murky ring",
-    right_ring="Jhakri Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
-}  
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
+}
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
-	sets.fc['Blue Magic'] = {
-    ammo="Impatiens",
-    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-    body="Hashishin Mintan +3",
-    hands="Jhakri Cuffs +2",
-    legs="Aya. Cosciales +2",
-    feet="Carmine Greaves +1",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Witful Belt",
-    left_ear="Loquac. Earring",
-    right_ear="Etiolation Earring",
-    left_ring="murky ring",
-    right_ring="Jhakri Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
-}
+--	sets.fc['Blue Magic'] = {}
 --	sets.fc['Divine Magic'] = {}
 --	sets.fc['Healing Magic'] = {}
 --	sets.fc['Enhancing Magic'] = {}
@@ -334,10 +290,9 @@ function get_sets()
 --	sets.fc['Ninjutsu'] = {}
 
 
-
 --------------------- MAGIC SETS -----------------------
 
-	sets.ma = {} --Leave Empty!
+	sets.ma = {} 
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 --	sets.ma['Divine Magic'] = {}
@@ -349,37 +304,75 @@ function get_sets()
 --	sets.ma['Summoning Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 
-	-- Single Spell examples below!
-	-- Replace the x with desired Spell name!
+	sets.ma['White Wind'] = {
+    ammo="Ombre Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Hashi. Bazu. +3",
+    legs="Nyame Flanchard",
+    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+    neck="Unmoving Collar +1",
+    waist="Plat. Mog. Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Odnowa Earring +1",
+    left_ring="Lebeche Ring",
+    right_ring="Menelaus's ring",
+    back="Solemnity Cape",
+}  
 
-	sets.ma['x'] = {}  
-
-	-- We can set a Spell to a set we already created!
-	-- See example below!
-	
---	sets.ma['Flash'] = sets.hate.high
-
+	sets.ma['Embalming Earth'] = {
+    ammo="Ghastly Tathlum +1",
+    head="Hashishin Kavuk +3",
+    body="Hashishin Mintan +3",
+    hands="Hashi. Bazu. +3",
+    legs="Luh. Shalwar +4",
+    feet="Hashi. Basmak +2",
+    neck="Quanpur Necklace",
+    waist="Eschan Stone",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Mephitas's Ring +1",
+    right_ring="Metamor. Ring +1",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
+}
 
 
 ------------------- BLUE MAGIC SETS --------------------
 
 	sets.blu = {} --Leave Empty!
     
+	--Cure Potency / Spell Int Rate / HP
+	sets.blu.cure = {
+    ammo="Ombre Tathlum +1",
+    head="Hashishin Kavuk +3",
+    body="Hashishin Mintan +3",
+    hands="Hashi. Bazu. +3",
+    legs="Hashishin Tayt +3",
+    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+    neck="Elite Royal Collar",
+    waist="Plat. Mog. Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Odnowa Earring +1",
+    left_ring="Lebeche Ring",
+    right_ring="Menelaus's ring",
+    back="Solemnity Cape",
+}	
+	
 	--Accuracy / Str+Dex+Vit	
-	sets.blu.str = {
+	sets.blu.phy = {
     ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +3",
-    body="Assim. Jubbah +4",
-    hands="Hashi. Bazu. +2",
-    legs="Malignance Tights",
-    feet="Carmine Greaves +1",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    body="Hashishin Mintan +3",
+    hands="Hashi. Bazu. +3",
+    legs="Hashishin Tayt +3",
+    feet="Hashi. Basmak +2",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sailfi Belt +1",
-    left_ear="Mache Earring +1",
+    left_ear="Alabaster Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
+    left_ring="Ilabrat Ring",
     right_ring="Rajas Ring",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 	
 	--Magic Attack Bonus / Magic Accuracy
@@ -387,84 +380,87 @@ function get_sets()
     ammo="Ghastly Tathlum +1",
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs="Luhlaza Shalwar +4",
+    hands="Hashi. Bazu. +3",
+    legs="Luh. Shalwar +4",
     feet="Hashi. Basmak +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Belisama's Rope +1",
+    neck="Sibyl Scarf",
+    waist="Eschan Stone",
     left_ear="Hecate's Earring",
     right_ear="Friomisi Earring",
     left_ring="Mephitas's Ring +1",
     right_ring="Metamor. Ring +1",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 }
 
-	--Blue Skill / Magic Accuracy / Spell Int Rate	
-	sets.blu.skill = {
-    ammo="Mavi Tathlum",
-    head="Hashishin Kavuk +3",
+	--Blue Skill / Magic Accuracy 	
+	sets.blu.macc = {
+    ammo="Ombre Tathlum +1",
+    head="Assim. Keffiyeh +4",
     body="Assim. Jubbah +4",
-    hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
-	feet="Luhlaza Charuqs +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    hands="Hashi. Bazu. +3",
+    legs="Hashishin Tayt +3",
+    feet="Luhlaza Ch. +4",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
+    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    left_ring="Murky Ring",
+    right_ring="Stikini ring",
+    back="Aurist's Cape +1",
+}
+
+	--Blue Skill / Spell Int Rate	
+	sets.blu.skill = {
+    ammo="Ombre Tathlum +1",
+    head="Assim. Keffiyeh +4",
+    body="Assim. Jubbah +4",
+    hands="Hashi. Bazu. +3",
+    legs="Hashishin Tayt +3",
+    feet="Luhlaza Ch. +4",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sanctuary Obi",
     left_ear="Njordr Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
+    left_ring="Murky Ring",
     right_ring="Stikini Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 }
 	
-	--Cure Potency / Spell Int Rate / HP
-	sets.blu.cure = {
-    ammo="Staunch Tathlum",
-    head="Hashishin Kavuk +3",
-    body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs="Carmine Cuisses +1",
-    feet="Carmine Greaves +1",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sanctuary Obi",
-    left_ear="Meili Earring",
-    right_ear="Etiolation Earring",
-    left_ring="murky ring",
-    right_ring="Stikini Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}	
-
-	--inturruption rate for buffs
+	--inturruption rate for buffs no skill
 	sets.blu.rupt = {
     ammo="Staunch Tathlum",
-    head="Hashishin Kavuk +3",
-    body="Hashishin Mintan +3",
-    hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
-    feet="Luhlaza Charuqs +2",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    head="Luhlaza Keffiyeh +4",
+    body="Assim. Jubbah +4",
+    hands="Hashi. Bazu. +3",
+    legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
+    feet="Luhlaza Ch. +4",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sanctuary Obi",
     left_ear="Njordr Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
-    left_ring="murky ring",
+    left_ring="Murky Ring",
     right_ring="Stikini Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
+}
+
+	--Magic Attack Bonus / Magic Accuracy
+	sets.blu.bre = {
+    ammo="Ghastly Tathlum +1",
+    head="Luhlaza Keffiyeh +4",
+    body="Hashishin Mintan +3",
+    hands="Hashi. Bazu. +3",
+    legs="Luh. Shalwar +4",
+    feet="Hashi. Basmak +2",
+    neck="Sibyl Scarf",
+    waist="Eschan Stone",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Mephitas's Ring +1",
+    right_ring="Metamor. Ring +1",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 }
 
 
------------------------ PET SETS ----------------------
-
-	sets.pet = {} --Leave Empty!
-    
-	--Pet Mid Action Physical	
-	sets.pet.phy = {}
-
-	--Pet Mid Action Magic
-	sets.pet.mab = {}
-	
-	--Pet Specifc Ability
-	--This is NOT the name of YOUR Job Abilities!!
-	--It is the name of the PET's Spell/Ability!
-	sets.pet['x'] = {}
 
 	
 end
@@ -482,41 +478,37 @@ end
 function precast(spell)
 
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end
 	
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
 		equip(sets.ws[spell.english]) 
 	end
-	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-		equip(sets.ws.maxtp) 	
-	end
+	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+	--	equip(sets.ws.maxtp) 	
+	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 	
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.preshot) --Yes!  Equip PRESHOT!
-	end
 	
 end
 
@@ -528,61 +520,55 @@ end
 
 function midcast(spell)
 
--- Pet Midcast protection
-	if pet_midaction() then
-        return
-    end
 
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end
 	
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
 
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
 		equip(sets.ws[spell.english]) 
 	end
-	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-		equip(sets.ws.maxtp) 	
-	end
+	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+	--	equip(sets.ws.maxtp) 	
+	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
-	end
 	
 -- Blue Magic Midcast uses spell lists at bottom of file!
-	if PhysicalSpells:contains(spell.english) then
-		equip(sets.blu.str)  
-	elseif MagicalSpells:contains(spell.english) then
+	if blu_cure:contains(spell.english) then
+		equip(sets.blu.cure)  
+	elseif blu_phy:contains(spell.english) then
+		equip(sets.blu.phy)
+	elseif blu_mab:contains(spell.english) then
 		equip(sets.blu.mab)
-	elseif BlueMagic_Buffs:contains(spell.english) then
-		equip(sets.idle.dt)
-	elseif BlueMagic_Debuffs:contains(spell.english) then
+	elseif blu_macc:contains(spell.english) then
+		equip(sets.blu.macc)
+	elseif blu_skill:contains(spell.english) then
 		equip(sets.blu.skill)
-	elseif BlueMagic_Healing:contains(spell.english) then
-		equip(sets.blu.cure)
-	elseif BlueMagic_Skill:contains(spell.english) then
-		equip(sets.blu.skill)	
+	elseif blu_rupt:contains(spell.english) then
+		equip(sets.blu.rupt)
+	elseif blu_bre:contains(spell.english) then
+		equip(sets.blu.bre)		
 	end  
 		
 end
@@ -595,58 +581,18 @@ end
 
 function aftercast(spell)
 
--- Pet Midcast protection
-	if pet_midaction() then
-        return
-    end
-	
+
 -- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
+	if canceled then 
+		return 
 	end
 
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
-	end
-
-end
-
-
-
----
---- PET MIDCAST AND AFTERCAST
----
-
-function pet_midcast(spell)
-
--- PET MIDCAST - Uses the PET Spell list near bottom of file!
-	--Phy or Mab sets
-	if Physical_PET:contains(spell.english) then
-		equip(sets.pet.phy)  
-	elseif Magical_PET:contains(spell.english) then
-		equip(sets.pet.mab)
-	end
-
-	--Spell Specific Set
-	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
-		equip(sets.pet[spell.english]) --Yes!  Equip that set!
-	end
-
-end
-
--- PET AFTERCAST
-function pet_aftercast(spell)
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 
 end
@@ -660,23 +606,23 @@ end
 function status_change(new, old)
 
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end
 
 -- Zone changes
 windower.register_event('zone change', function(new_zone_id, old_zone_id)
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town)
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end)
 
@@ -685,40 +631,27 @@ end)
 ---
 --- Toggle for TP and WEAPON set modes + Bar modes
 ---
-	BARELE_Index = 1
-	BAR_ELE_Names = {"Barfira","Barblizzara","Baraera","Barstonra","Barthundra","Barwatera"}
-	BARSTA_Index = 1
-	BAR_STA_Names = {"Barsleepra","Barpoisonra","Barparalyzra","Barblindra","Barsilencera","Barpetra","Barvira","Baramnesra"}
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
-	elseif command == 'togglebarelement' then 
-        BARELE_Index = BARELE_Index +1
-        if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
-		--Let me know which mode I'm in!
-        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
-	elseif command == 'castbarelement' then
-		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
-	elseif command == 'togglebarstatus' then 
-        BARSTA_Index = BARSTA_Index +1
-        if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
-		--Let me know which mode I'm in!
-        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
-	elseif command == 'castbarstatus' then
-		send_command('@input /ma "'..BAR_STA_Names[BARSTA_Index]..'" <me>')
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	elseif command == 'ws1' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
+	elseif command == 'ws2' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][2]..'" <t>')
+	elseif command == 'ws3' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
+	elseif command == 'ws4' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
     end
 end
-
 
 
 -------------------
@@ -760,36 +693,13 @@ areas.towns = S{
 
 
 
--------------------------------
--- Mappings for weaponskills --
--------------------------------
-
-weaponskills = {}
-
--- Weaponskills that can be used at range
-weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sidewinder", "Arching Arrow",
-    "Empyreal Arrow", "Refulgent Arrow", "Apex Arrow", "Namas Arrow", "Jishnu's Radiance",
-    "Hot Shot", "Split Shot", "Sniper Shot", "Slug Shot", "Heavy Shot", "Detonator", "Last Stand",
-    "Coronach", "Trueflight", "Leaden Salute", "Wildfire",
-    "Myrkr"}
-
-
-
--------------------------
---   PET Spells List   --
--------------------------
-
-Physical_PET = S{"Example1","Example2","Volt Strike"}
-
-Magical_PET = S{"Example1","Example2","Conflag Strike"}
-
-
-
 -------------------------
 --   BLU Spells List   --
 -------------------------
 
-PhysicalSpells = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite',
+blu_cure = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot'} 
+
+blu_phy = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite',
                     'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash',
                     'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance',
                     'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut',
@@ -798,28 +708,26 @@ PhysicalSpells = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feat
                     'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball',
                     'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack',
                     'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats',
-                    'Sweeping Gouge'}
+                    'Sweeping Gouge', 'Sudden Lunge'}
 
-MagicalSpells = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind',
+blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind',
                    'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage',
                    'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate',
                    'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse',
                    'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray',
                    'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush',
                    'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare',
-                   'Embalming Earth', 'Entomb', 'Sandspin', 'Vapor Spray'}
+                   'Embalming Earth', 'Sandspin', 'Vapor Spray'}
+				   
+blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
 
-BlueMagic_Buffs = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance',
+blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations',
+                     'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
+
+
+blu_rupt = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance',
                      'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat',
                      'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge',
                      'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
 					 
-BlueMagic_Debuffs = S {'Dream Flower', 'Sheep Song'}
-
-BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot',
-                       'White Wind'}
-
-BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
-                     'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
+blu_bre = S {'Bad Breath', 'Poison Breath', 'Radiant Breath', 'Frost Breath', 'Heat Breath', 'Thunder Breath', 'Wind Breath'}
