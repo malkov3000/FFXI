@@ -287,14 +287,11 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
-		equip(sets.ws.standard) 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws.standard) --No!  Use the standard WS set!
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
-		equip(sets.ws[spell.english]) 
-	end
-	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-		equip(sets.ws.maxtp) 	
+	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
 	end
 	
 -- Job Ability
@@ -339,14 +336,11 @@ function midcast(spell)
 	end
 
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.tp <= 2999 then 
-		equip(sets.ws.standard) 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws.standard) --No!  Use the standard WS set!
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 and player.tp <= 2999 then 
-		equip(sets.ws[spell.english]) 
-	end
-	if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-		equip(sets.ws.maxtp) 	
+	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
 	end
 	
 -- Job Ability
