@@ -70,6 +70,7 @@ function get_sets()
 	
 	--
 	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c ws#" to WS!
 	--
 
 	WEP_Set_Names = {"Tizona","Maxentius","Naegling","Bunzi"}
@@ -80,7 +81,6 @@ function get_sets()
 	}	
 	WSLIST.Tizona = {"Expiacion","Chant du Cygne","Requiescat","Flat Blade"}
 
-	
 	sets.wep.Naegling = {    
 	main="Naegling",
     sub="Thibron",
@@ -222,7 +222,7 @@ function get_sets()
 
 	sets.ws['Seraph Blade'] = sets.ws.mab
 	
-	sets.ws['Requiescat'] = sets.ws.standard
+	sets.ws['Requiescat'] = sets.ws.standard --needs neck/belt upgrade
 
 
 ------------------- JOB ABILITY SETS -------------------
@@ -278,7 +278,7 @@ function get_sets()
 }
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
---	sets.fc['Blue Magic'] = {}
+	sets.fc['Blue Magic'] = sets.fc.standard
 --	sets.fc['Divine Magic'] = {}
 --	sets.fc['Healing Magic'] = {}
 --	sets.fc['Enhancing Magic'] = {}
@@ -404,7 +404,7 @@ function get_sets()
     left_ear="Alabaster Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="Murky Ring",
-    right_ring="Stikini ring",
+    right_ring="Stikini Ring",
     back="Aurist's Cape +1",
 }
 
@@ -465,9 +465,11 @@ function get_sets()
 end
 
 
+
 --------------------
 -----  SCRIPT  -----
 --------------------
+
 
 
 ---
@@ -652,6 +654,7 @@ function self_command(command)
 end
 
 
+
 -------------------
 --   AREA List   --
 -------------------
@@ -711,7 +714,6 @@ blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whi
 blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
 
 blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
-
 
 blu_rupt = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance', 'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat', 
 'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge', 'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
