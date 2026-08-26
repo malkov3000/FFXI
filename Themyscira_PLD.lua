@@ -148,42 +148,27 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"DT", "TP"}
+	TP_Set_Names = {"TP"}
 	
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
-	sets.tp.DT = {
-    ammo="Staunch Tathlum",
+	sets.tp.TP = {
+    ammo="Coiste Bodhar",
     head="Chev. Armet +3",
     body="Sakpata's Plate",
-    hands="Chev. Gauntlets +2", 
+    hands="Sakpata's Gauntlets", 
     legs="Chev. Cuisses +3", 
     feet="Rev. Leggings +4", 
     neck="Null loop",
     waist="Null Belt",
     left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Murky Ring",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
-}
-
-	sets.tp.TP = {
-    ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck="Null loop",
-    waist="Sailfi Belt +1",
-    left_ear="Alabaster Earring",
-    right_ear="Cessance Earring",
-    right_ring="Murky Ring",
+    right_ear="Crep. Earring",
+    right_ring="Chirich Ring",
     left_ring="Gelatinous Ring +1",
     back="Null Shawl",
 }
+
 
 	
 
@@ -207,7 +192,7 @@ function get_sets()
     right_ear="Ishvara Earring",
     right_ring="Epaminondas's Ring",
     left_ring="Cornelia's Ring",
-    back="Null Shawl",
+    back="Alabaster mantle",
 	}  
 
 
@@ -233,8 +218,39 @@ function get_sets()
 
 	sets.ja['Provoke'] = sets.hate.high
 	sets.ja['Majesty'] = sets.hate.high
-	sets.ja['Sentinal'] = sets.hate.high
-	sets.ja['Shield Bash'] = sets.hate.high
+	
+	sets.ja['Sentinel'] = {
+    ammo="Staunch Tathlum",
+    head="Rev. Coronet +3",
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Rev. Breeches +3",
+    feet="Cab. Leggings +2",
+    neck="Unmoving Collar +1",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
+}
+	
+	sets.ja['Shield Bash'] = {
+    ammo="Staunch Tathlum",
+    head="Rev. Coronet +3",
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands="Cab. Gauntlets +2",
+    legs="Rev. Breeches +3",
+    feet="Chev. Sabatons +2",
+    neck="Unmoving Collar +1",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
+}
+
 	sets.ja['Rampart'] = sets.hate.high
 	sets.ja['Fealty'] = sets.hate.high
 	sets.ja['Palisade'] = sets.hate.high
