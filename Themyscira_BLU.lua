@@ -45,12 +45,12 @@ function get_sets()
 
 	-- DT set here
 	sets.idle.dt = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Hashishin Tayt +3",
-    feet="Hashi. Basmak +2",
+    feet="Hashi. Basmak +3",
     neck="Elite Royal Collar",
     waist="Null Belt",
     left_ear="Alabaster Earring",
@@ -306,7 +306,7 @@ function get_sets()
 --	sets.ma['Ninjutsu'] = {}
 
 	sets.ma['White Wind'] = {
-    ammo="Ombre Tathlum +1",
+    ammo="Staunch Tathlum +1",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Hashi. Bazu. +3",
@@ -327,7 +327,7 @@ function get_sets()
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Luh. Shalwar +4",
-    feet="Hashi. Basmak +2",
+    feet="Hashi. Basmak +3",
     neck="Quanpur Necklace",
     waist="Eschan Stone",
     left_ear="Hecate's Earring",
@@ -344,7 +344,7 @@ function get_sets()
     
 	--Cure Potency / Spell Int Rate / HP
 	sets.blu.cure = {
-    ammo="Ombre Tathlum +1",
+    ammo="Staunch Tathlum +1",
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
@@ -353,7 +353,7 @@ function get_sets()
     neck="Elite Royal Collar",
     waist="Plat. Mog. Belt",
     left_ear="Alabaster Earring",
-    right_ear="Odnowa Earring +1",
+    right_ear="Etiolation Earring",
     left_ring="Lebeche Ring",
     right_ring="Menelaus's ring",
     back="Solemnity Cape",
@@ -366,7 +366,7 @@ function get_sets()
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Hashishin Tayt +3",
-    feet="Hashi. Basmak +2",
+    feet="Hashi. Basmak +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Alabaster Earring",
@@ -383,7 +383,7 @@ function get_sets()
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Luh. Shalwar +4",
-    feet="Hashi. Basmak +2",
+    feet="Hashi. Basmak +3",
     neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Hecate's Earring",
@@ -400,20 +400,20 @@ function get_sets()
     body="Assim. Jubbah +4",
     hands="Hashi. Bazu. +3",
     legs="Hashishin Tayt +3",
-    feet="Luhlaza Ch. +4",
+    feet="Hashi. Basmak +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Null Belt",
     left_ear="Alabaster Earring",
     right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="Murky Ring",
     right_ring="Stikini Ring",
-    back="Aurist's Cape +1",
+    back="Null shawl",
 }
 
 	--Blue Skill / Spell Int Rate	
 	sets.blu.skill = {
-    ammo="Ombre Tathlum +1",
-    head="Assim. Keffiyeh +4",
+    ammo="Mavi tathlum",
+    head="Luhlaza Keffiyeh +4",
     body="Assim. Jubbah +4",
     hands="Hashi. Bazu. +3",
     legs="Hashishin Tayt +3",
@@ -429,12 +429,12 @@ function get_sets()
 	
 	--inturruption rate for buffs no skill
 	sets.blu.rupt = {
-    ammo="Staunch Tathlum",
-    head="Luhlaza Keffiyeh +4",
-    body="Assim. Jubbah +4",
+    ammo="Staunch Tathlum +1",
+    head="Hashishin Kavuk +3",
+    body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
-    feet="Luhlaza Ch. +4",
+    feet="Hashi. Basmak +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sanctuary Obi",
     left_ear="Njordr Earring",
@@ -446,12 +446,12 @@ function get_sets()
 
 	--brrrrreath
 	sets.blu.bre = {
-    ammo="Ghastly Tathlum +1",
+    ammo="Mavi tathlum",
     head="Luhlaza Keffiyeh +4",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Luh. Shalwar +4",
-    feet="Hashi. Basmak +2",
+    feet="Hashi. Basmak +3",
     neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Hecate's Earring",
@@ -592,6 +592,8 @@ function aftercast(spell)
 	else
 		equip(sets.idle.dt) 
 	end
+	
+	equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
 
 end
 
