@@ -182,7 +182,7 @@ function get_sets()
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Unmoving Collar +1",
+    neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -227,7 +227,7 @@ function get_sets()
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Unmoving Collar +1",
+    neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -243,7 +243,7 @@ function get_sets()
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Cab. Leggings +2",
-    neck="Unmoving Collar +1",
+    neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -259,7 +259,7 @@ function get_sets()
     hands="Cab. Gauntlets +2",
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Unmoving Collar +1",
+    neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -275,7 +275,7 @@ function get_sets()
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Rev. Leggings +3",
-    neck="Unmoving Collar +1",
+    neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -428,6 +428,7 @@ function get_sets()
 
 
 end
+
 
 
 
