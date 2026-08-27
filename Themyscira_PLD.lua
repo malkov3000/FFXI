@@ -5,9 +5,9 @@
 ------------------------------------------------------------------
 
 
----------------
----Load Libs---
----------------
+----------------
+---- Load ------
+----------------
 
 include('organizer-lib')
 
@@ -65,32 +65,6 @@ function get_sets()
 	sets.idle.dt = sets.idle.town
 
 
-
------------------------ ENMITY SETS --------------------
-
-	sets.hate = {} --Leave Empty!
-	
-	-- Enmity +++
-	sets.hate.high = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +2",
-    neck="Unmoving Collar +1",
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
-}
-	
-	-- Enmity ---
-	--sets.hate.low = {}
-	
-	
 
 ----------------------- WEAPON SETS --------------------
 
@@ -169,10 +143,7 @@ function get_sets()
     back="Null Shawl",
 }
 
-
 	
-
-
 
 ----------------------- WS SETS ------------------------
 	
@@ -195,10 +166,34 @@ function get_sets()
     back="Alabaster mantle",
 	}  
 
-
-	
 	--sets.ws['x'] = {}  
+	
+	
+	
+----------------------- ENMITY SETS --------------------
 
+	sets.hate = {} --Leave Empty!
+	
+	-- Enmity +++
+	sets.hate.high = {
+    ammo="Staunch Tathlum",
+    head="Rev. Coronet +3",
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Rev. Breeches +3",
+    feet="Chev. Sabatons +2",
+    neck="Unmoving Collar +1",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
+}
+	
+	-- Enmity ---
+	--sets.hate.low = {}	
+	
 
 
 ------------------- JOB ABILITY SETS -------------------
@@ -218,6 +213,12 @@ function get_sets()
 
 	sets.ja['Provoke'] = sets.hate.high
 	sets.ja['Majesty'] = sets.hate.high
+	sets.ja['Sepulcher'] = sets.hate.high
+	sets.ja['Rampart'] = sets.hate.high
+	sets.ja['Fealty'] = sets.hate.high
+	sets.ja['Palisade'] = sets.hate.high
+	sets.ja['Invincible'] = sets.hate.high
+	sets.ja['Cover'] = sets.hate.high
 	
 	sets.ja['Sentinel'] = {
     ammo="Staunch Tathlum",
@@ -250,14 +251,23 @@ function get_sets()
     left_ring="Gelatinous Ring +1",
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
-
-	sets.ja['Rampart'] = sets.hate.high
-	sets.ja['Fealty'] = sets.hate.high
-	sets.ja['Palisade'] = sets.hate.high
-	sets.ja['Invincible'] = sets.hate.high
-	sets.ja['Cover'] = sets.hate.high
 	
-
+	sets.ja['Holy Circle'] = {
+    ammo="Staunch Tathlum",
+    head="Rev. Coronet +3",
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Rev. Breeches +3",
+    feet="Rev. Leggings +3",
+    neck="Unmoving Collar +1",
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
+}
+		
 
 
 --------------------- FASTCAST SETS --------------------
@@ -401,15 +411,13 @@ function get_sets()
 }
 
 
-
-	
 end
 
 
 
---------------------
------  SCRIPT  -----
---------------------
+----------------
+---- SCRIPT ----
+----------------
 
 
 ---
