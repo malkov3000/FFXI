@@ -28,58 +28,6 @@ send_command('input /blockhelp on') -- Prevents calling for help!
 
 
 
--------------------
---   AREA List   --
--------------------
-
-areas = {}
-
--- City areas for town gear
-areas.towns = S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-    "Norg",
-    "Eastern Adoulin",
-    "Western Adoulin",
-    "Kazham",
-    "Rabao",
-    "Chocobo Circuit",
-}
-
-
--------------------------
---   PET Spells Lists  --
--------------------------
--- Add your pet's physical and magical abilities inside the brackets below!
-
-Physical_PET = S{
-    'Footkick', 'Whirl Claws', 'Headbutt', 'Wild Oats', 'Razor Fang', 'Claw Cyclone'
-}
-
-Magical_PET = S{
-    'Fire IV', 'Ice IV', 'Thundaga III', 'Bio II', 'Meteor Strike', 'Geocrush'
-}
-
-
 ---------------------
 ------- SETS --------
 ---------------------
@@ -292,6 +240,60 @@ function get_sets()
 
 	
 end
+
+
+
+-------------------
+--   AREA List   --
+-------------------
+
+areas = {}
+
+-- City areas for town gear
+areas.towns = S{
+    "Ru'Lude Gardens",
+    "Upper Jeuno",
+    "Lower Jeuno",
+    "Port Jeuno",
+    "Port Windurst",
+    "Windurst Waters",
+    "Windurst Woods",
+    "Windurst Walls",
+    "Heavens Tower",
+    "Port San d'Oria",
+    "Northern San d'Oria",
+    "Southern San d'Oria",
+    "Port Bastok",
+    "Bastok Markets",
+    "Bastok Mines",
+    "Metalworks",
+    "Aht Urhgan Whitegate",
+    "Tavnazian Safehold",
+    "Nashmau",
+    "Selbina",
+    "Mhaura",
+    "Norg",
+    "Eastern Adoulin",
+    "Western Adoulin",
+    "Kazham",
+    "Rabao",
+    "Chocobo Circuit",
+}
+
+
+
+-------------------------
+--   PET Spells Lists  --
+-------------------------
+-- Add your pet's physical and magical abilities inside the brackets below!
+
+Physical_PET = S{
+    'Footkick', 'Whirl Claws', 'Headbutt', 'Wild Oats', 'Razor Fang', 'Claw Cyclone'
+}
+
+Magical_PET = S{
+    'Fire IV', 'Ice IV', 'Thundaga III', 'Bio II', 'Meteor Strike', 'Geocrush'
+}
 
 
 
