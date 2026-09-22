@@ -419,7 +419,7 @@ function midcast(spell)
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
 	end
 	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
+		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
 -- Weapon Skill
