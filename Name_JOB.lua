@@ -73,6 +73,7 @@ function get_sets()
 	-- We can have multiple different WEAPON sets!
 	--
 	--> Use "/console gs c togglewep" to cycle modes!
+		--> Use "/console gs c ws#" to WS!
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
@@ -83,13 +84,13 @@ function get_sets()
 	
 	--TP BONUS
 	sets.wep.TPBONUS = {}	
-
+	WSLIST.TPBONUS = {"WS NAME 1","WS NAME 2","WS NAME 3","WS NAME 4"}
 	--SKILL+
 	sets.wep.SKILL = {}
-
+	WSLIST.SKILL = {"WS NAME 1","WS NAME 2","WS NAME 3","WS NAME 4"}
 	--ACCURACY
 	sets.wep.ACC = {}
-
+	WSLIST.ACC = {"WS NAME 1","WS NAME 2","WS NAME 3","WS NAME 4"}
 
 	
 ----------------------- TP SETS ------------------------
@@ -220,8 +221,12 @@ function get_sets()
 --	sets.ma['Flash'] = sets.hate.high
 
 
+	-- na spells
+	sets.ma.na = {}
+	--bar spells
+	sets.ma.bar = {}
 
-
+	
 ----------------------- PET SETS ----------------------
 
 	sets.pet = {} --Leave Empty!
@@ -297,6 +302,41 @@ Magical_PET = S{
 }
 
 
+-------------------------
+--  NA and BAR spell   --
+-------------------------
+
+NaSpells = S {'Blindna', 'Esuna', 'Paralyna', 'Poisona', 'Silena', 'Stona', 'Viruna'}
+
+BarSpells = S {'Barblizzara','Baraera','Barfira','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'}
+
+
+-------------------------
+--   BLU Spells List   --
+-------------------------
+
+blu_cure = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot'} 
+
+blu_phy = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite', 'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash', 
+'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance', 'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut', 
+'Tourbillion', 'Thrashing Assault', 'Vertical Cleave', 'Whirl of Rage', 'Amorphic Spikes', 'Barbed Crescent', 'Claw Cyclone', 'Disseverment', 'Foot Kick', 'Frenetic Rip', 'Goblin Rush', 
+'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball', 'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack', 
+'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats', 'Sweeping Gouge', 'Sudden Lunge'}
+
+blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind', 'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage', 
+'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate', 'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse', 
+'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray', 'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush', 
+'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare', 'Sandspin', 'Vapor Spray'}
+				   
+blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
+
+blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
+
+blu_rupt = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance', 'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat', 
+'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge', 'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
+					 
+blu_bre = S {'Bad Breath', 'Poison Breath', 'Radiant Breath', 'Frost Breath', 'Heat Breath', 'Thunder Breath', 'Wind Breath'}
+
 
 ----------------
 ---- SCRIPT ----
@@ -317,6 +357,11 @@ function precast(spell)
 	if sets.fc[spell.skill] then 
 		equip(sets.fc[spell.skill]) 
 	end
+	
+-- Na Spells
+	if NaSpells:contains(spell.english) then
+		equip(sets.fc.na)  	
+	end  
 	
 -- Weapon Skill
 	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
@@ -373,6 +418,30 @@ function midcast(spell)
 	if sets.ja[spell.english] then 
 		equip(sets.ja[spell.english]) 
 	end
+
+	--  Na and Bar Spells
+	if NaSpells:contains(spell.english) then
+		equip(sets.ma.na)  
+	elseif BarSpells:contains(spell.english) then
+		equip(sets.ma.bar)
+	end  
+
+-- Blue Magic Midcast uses spell lists
+	if blu_cure:contains(spell.english) then
+		equip(sets.blu.cure)  
+	elseif blu_phy:contains(spell.english) then
+		equip(sets.blu.phy)
+	elseif blu_mab:contains(spell.english) then
+		equip(sets.blu.mab)
+	elseif blu_macc:contains(spell.english) then
+		equip(sets.blu.macc)
+	elseif blu_skill:contains(spell.english) then
+		equip(sets.blu.skill)
+	elseif blu_rupt:contains(spell.english) then
+		equip(sets.blu.rupt)
+	elseif blu_bre:contains(spell.english) then
+		equip(sets.blu.bre)		
+	end  
 		
 end
 
@@ -471,6 +540,26 @@ function self_command(command)
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	elseif command == 'ws1' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
+	elseif command == 'ws2' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][2]..'" <t>')
+	elseif command == 'ws3' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
+	elseif command == 'ws4' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
+	elseif command == 'togglebarelement' then 
+        BARELE_Index = BARELE_Index +1
+        if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
+        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
+	elseif command == 'castbarelement' then
+		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
+	elseif command == 'togglebarstatus' then 
+        BARSTA_Index = BARSTA_Index +1
+        if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
+        send_command('@input /echo ----- BAR STATUS SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
+	elseif command == 'castbarstatus' then
+		send_command('@input /ma "'..BAR_STA_Names[BARSTA_Index]..'" <me>')
     end
 end
 
