@@ -222,10 +222,6 @@ function get_sets()
 --	sets.ma['Flash'] = sets.hate.high
 
 
-	BARELE_Index = 1
-	BAR_ELE_Names = {"Barblizzara","Baraera","Barwatera","Barstonra","Barfira","Barthundra"}
-	BARSTA_Index = 1
-	BAR_STA_Names = {"Barparalyzra","Barsilencera","Barpoisonra","Barsleepra","Barblindra","Barpetra","Barvira","Baramnesra"}
 
 	-- na spells
 	sets.ma.na = {}
@@ -337,6 +333,12 @@ Magical_PET = S{
 -------------------------
 --  NA and BAR spell   --
 -------------------------
+
+
+	BARELE_Index = 1
+	BAR_ELE_Names = {"Barblizzara","Baraera","Barwatera","Barstonra","Barfira","Barthundra"}
+	BARSTA_Index = 1
+	BAR_STA_Names = {"Barparalyzra","Barsilencera","Barpoisonra","Barsleepra","Barblindra","Barpetra","Barvira","Baramnesra"}
 
 NaSpells = S {'Blindna', 'Esuna', 'Paralyna', 'Poisona', 'Silena', 'Stona', 'Viruna'}
 
