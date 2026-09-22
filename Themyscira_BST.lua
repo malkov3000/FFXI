@@ -1,6 +1,6 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
--- Themyscira_NIN ------------------------------------------------
+--Themyscira_BST -------------------------------------------------
 ----------------------------------------------------------d(^^d)--
 ------------------------------------------------------------------
 
@@ -13,7 +13,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 5 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 6 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,11 +21,10 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 5') -- Update # to desired starting macro book!
+send_command('input /macro book 6') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
---no help on
-send_command('input /blockhelp on')
+
 
 ---------------------
 ------- SETS --------
@@ -44,26 +43,11 @@ function get_sets()
 
 	sets.idle = {} --Leave Empty!
 
-	-- Town set here
-
-
 	-- DT set here
-	sets.idle.dt = {
-    head="Malignance Chapeau",
-    body="Mpaca's Doublet",
-    hands="Malignance Gloves",
-    legs="Mpaca's Hose",
-    feet="Malignance Boots",
-    neck={ name="Ninja Nodowa +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Alabaster Earring",
-    right_ear={ name="Hattori Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
-    left_ring="Murky Ring",
-    right_ring="Shneddick Ring",
-    back="Null Shawl",
-}
+	sets.idle.dt = {}  
 
- 	sets.idle.town = sets.idle.dt 
+	-- Town set here
+	sets.idle.town = {}  
 
 
 
@@ -90,21 +74,18 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"NAEGLING"}
+	WEP_Set_Names = {"TPBONUS","SKILL","ACC"}
 	
 	-- TP sets go below!
 	
 	--TP BONUS
-	sets.wep.NAEGLING = {    
-	main="Naegling",
-    sub="Heishi Shorinken",
-	}	
+	sets.wep.TPBONUS = {}	
 
 	--SKILL+
---	sets.wep.SKILL = {}
+	sets.wep.SKILL = {}
 
 	--ACCURACY
---	sets.wep.ACC = {}
+	sets.wep.ACC = {}
 
 
 	
@@ -119,49 +100,47 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"ACC"}
+	TP_Set_Names = {"TP"}
 	
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
---	sets.tp.DT = {}	
+	sets.tp.DT = {}	
 
 	--Accuracy
-	sets.tp.ACC = {
-    head="Malignance Chapeau",
-    body="Mpaca's Doublet",
-    hands="Malignance Gloves",
-    legs="Mpaca's Hose",
-    feet="Malignance Boots",
-    neck={ name="Ninja Nodowa +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Alabaster Earring",
-    right_ear={ name="Hattori Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
-    left_ring="Murky Ring",
-    right_ring="Epona's Ring",
-    back="Null Shawl",
-}
+	sets.tp.ACC = {}
 
-	sets.tp.SB = {
-    ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Brigandine",
-    hands="Kog. Tekko +1",
-    legs="Nyame Flanchard",
-    feet="Mummu Gamash. +2",
-    neck={ name="Ninja Nodowa +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Alabaster Earring",
-    right_ear={ name="Hattori Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
-    left_ring="Rajas Ring",
-    right_ring="Chirich Ring",
-    back="Null Shawl",
-}
 	--Multi-Hit, Store TP, Attack Speed
---	sets.tp.TP = {}
+	sets.tp.TP = {
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Null Loop",
+    waist="Sailfi Belt +1",
+    left_ear="Mache Earring +1",
+    right_ear="Alabaster Earring",
+    left_ring="Murky Ring",
+    right_ring="Chirich Ring",
+    back="Null shawl",
+}
 
 	--Treasure Hunter
 --	sets.tp.TH = {}		
+
+
+	
+--------------------- RANGED SETS ----------------------
+
+	sets.ra = {} --Leave Empty!
+	
+	-- PRESHOT goes here
+	sets.ra.preshot = {}
+
+	-- MIDSHOT goes here
+	sets.ra.midshot = {}
 
 
 
@@ -172,7 +151,7 @@ function get_sets()
 	-- WS set here
 	sets.ws.standard = {
     head="Mpaca's Cap",
-    body="Nyame Mail",
+    head="Nyame Helm",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -205,6 +184,7 @@ function get_sets()
 	sets.ja['BloodPactRage'] = {}
 	sets.ja['BloodPactWard'] = {}
 	sets.ja['PetCommand'] = {}
+	sets.ja['Monster'] = {}
 
 	-- Single Ability examples below!
 	-- Replace the x with desired Ability name!
@@ -214,41 +194,16 @@ function get_sets()
 	-- We can set an Ability to a set we already created!
 	-- See example below!
 
-	sets.ja['Provoke'] = sets.hate.high
+--	sets.ja['Provoke'] = sets.hate.high
 	
 	
-	
---------------------- RANGED SETS ----------------------
-
-	sets.ra = {} --Leave Empty!
-	
-	-- PRESHOT goes here
-	sets.ra.preshot = {}
-
-	-- MIDSHOT goes here
-	sets.ra.midshot = {}
-
-
 
 --------------------- FASTCAST SETS --------------------
 
 	sets.fc = {} --Leave Empty!
 
 	-- FC set here
-	sets.fc.standard = {
-	head="Malignance Chapeau",
-    body="Mpaca's Doublet",
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5',}},
-    legs="Mpaca's Hose",
-    feet="Malignance Boots",
-    neck="Voltsurge Torque",
-    waist="Sailfi Belt +1",
-    left_ear="Loquac. Earring",
-    right_ear={ name="Hattori Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Store TP"+5',}},
-    left_ring="Lebeche Ring",
-    right_ring="Naji's Loop",
-    back="Null Shawl",
-	}  
+	sets.fc.standard = {}  
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.fc['Blue Magic'] = {}
@@ -285,14 +240,16 @@ function get_sets()
 	-- We can set a Spell to a set we already created!
 	-- See example below!
 	
-	sets.ma['Flash'] = sets.hate.high
+--	sets.ma['Flash'] = sets.hate.high
 
 
 
 ------------------- BLUE MAGIC SETS --------------------
 
 	sets.blu = {} --Leave Empty!
-    
+
+	--Update BLU Spell List at end of file!
+	
 	--Accuracy / Str+Dex+Vit	
 	sets.blu.str = {}
 	
@@ -304,13 +261,14 @@ function get_sets()
 	
 	--Cure Potency / Spell Int Rate / HP
 	sets.blu.cure = {}	
-	
 
 
 ----------------------- PET SETS ----------------------
 
 	sets.pet = {} --Leave Empty!
-    
+
+	--Update PET Spell List near end of file!
+	
 	--Pet Mid Action Physical	
 	sets.pet.phy = {}
 
@@ -338,7 +296,10 @@ end
 
 function precast(spell)
 
-
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
 	
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
@@ -388,6 +349,15 @@ end
 
 function midcast(spell)
 
+-- Pet Midcast protection
+	if pet_midaction() then
+        return
+    end
+
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
 	
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
@@ -457,7 +427,10 @@ function aftercast(spell)
         return
     end
 	
-
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
 
 	if player.status == 'Engaged' then --Are we fighting?
         equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
@@ -469,6 +442,41 @@ function aftercast(spell)
 
 end
 
+
+
+---
+--- PET MIDCAST AND AFTERCAST
+---
+
+function pet_midcast(spell)
+
+-- PET MIDCAST - Uses the PET Spell list near bottom of file!
+	--Phy or Mab sets
+	if Physical_PET:contains(spell.english) then
+		equip(sets.pet.phy)  
+	elseif Magical_PET:contains(spell.english) then
+		equip(sets.pet.mab)
+	end
+
+	--Spell Specific Set
+	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
+		equip(sets.pet[spell.english]) --Yes!  Equip that set!
+	end
+
+end
+
+-- PET AFTERCAST
+function pet_aftercast(spell)
+
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
+	else
+		equip(sets.idle.dt) --Default to DT set!
+	end
+
+end
 
 
 
@@ -486,6 +494,25 @@ function status_change(new, old)
 	else
 		equip(sets.idle.dt) --Default to DT set!
 	end
+end
+
+-- Zone changes
+-- Storing the event registration in a global variable so Gearswap can track it
+my_zone_event = windower.register_event('zone change', function(new_zone_id, old_zone_id)
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
+	else
+		equip(sets.idle.dt) 
+	end
+end)
+
+-- This function runs automatically whenever you reload or change jobs!
+function file_unload()
+    if my_zone_event then
+        windower.unregister_event(my_zone_event)
+    end
 end
 
 
@@ -611,41 +638,3 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
-
--- Isolated Event Handler
--- This handles the zone change safely without nesting bugs or scope crashes
-function handle_zone_gear_swap(new_zone_id, old_zone_id)
-    -- Safety validation gate: prevents indexing nil 'areas' values
-    if areas and areas.towns and player then
-        if player.status == 'Engaged' then 
-            equip(sets.tp[TP_Set_Names[TP_Index]]) 
-        elseif areas.towns:contains(world.area) then 
-            equip(sets.idle.town) 
-        else
-            equip(sets.idle.dt) 
-        end
-        
-        -- Confirms weapon selections update through transitions safely
-        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
-            equip(sets.wep[WEP_Set_Names[WEP_Index]])
-        end
-    end
-end
-
--- Registers the zone change hook cleanly after all functions are fully loaded
-my_zone_event = windower.register_event('zone change', handle_zone_gear_swap)
-
--- Safely cleans up the background listener when changing jobs or reloading
-function file_unload()
-    if my_zone_event then
-        windower.unregister_event(my_zone_event)
-        my_zone_event = nil
-        -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
-        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
-    end
-end 
