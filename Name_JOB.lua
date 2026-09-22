@@ -244,6 +244,32 @@ function get_sets()
 	--This is NOT the name of YOUR Job Abilities!!
 	--It is the name of the PET's Spell/Ability!
 	sets.pet['x'] = {}
+	
+	
+------------------- BLUE MAGIC SETS --------------------
+
+	sets.blu = {} --Leave Empty!
+    
+	--Cure Potency / Spell Int Rate / HP
+	sets.blu.cure = {}
+	
+	--Accuracy / Str+Dex+Vit	
+	sets.blu.phy = {}
+	
+	--Magic Attack Bonus / Magic Accuracy / INT
+	sets.blu.mab = {}
+
+	--Blue Skill / Magic Accuracy 	
+	sets.blu.macc = {}
+
+	--Blue Skill / Spell Int Rate	
+	sets.blu.skill = {}
+	
+	--inturruption rate for buffs no skill
+	sets.blu.rupt = {}
+
+	--brrrrreath
+	sets.blu.bre = {}
 
 	
 end
