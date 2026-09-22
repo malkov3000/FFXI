@@ -431,7 +431,7 @@ end
 
 
 ---
---- Status and Zone change
+--- Status change
 ---
 
 function status_change(new, old)
