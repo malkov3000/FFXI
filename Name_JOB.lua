@@ -66,6 +66,20 @@ areas.towns = S{
 }
 
 
+-------------------------
+--   PET Spells Lists  --
+-------------------------
+-- Add your pet's physical and magical abilities inside the brackets below!
+
+Physical_PET = S{
+    'Footkick', 'Whirl Claws', 'Headbutt', 'Wild Oats', 'Razor Fang', 'Claw Cyclone'
+}
+
+Magical_PET = S{
+    'Fire IV', 'Ice IV', 'Thundaga III', 'Bio II', 'Meteor Strike', 'Geocrush'
+}
+
+
 ---------------------
 ------- SETS --------
 ---------------------
@@ -496,6 +510,5 @@ function file_unload()
         windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
     end
 end 
-
 
 
