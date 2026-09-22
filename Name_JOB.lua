@@ -555,6 +555,10 @@ end
 --- Toggle for TP and WEAPON set modes
 ---
 
+	BARELE_Index = 1
+	BAR_ELE_Names = {"Barblizzara","Baraera","Barwatera","Barstonra","Barfira","Barthundra"}
+	BARSTA_Index = 1
+	BAR_STA_Names = {"Barparalyzra","Barsilencera","Barpoisonra","Barsleepra","Barblindra","Barpetra","Barvira","Baramnesra"}
 function self_command(command)
     if command == 'toggletp' then 
         TP_Index = TP_Index +1 
