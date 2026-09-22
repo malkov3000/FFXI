@@ -7,13 +7,9 @@
 ------------------------------------------------------------------
 
 
----------------
----Load Libs---
----------------
-
-include('organizer-lib')
-
-
+----------------
+---- Load ------
+----------------
 
 ------------------------------------LOCKSTYLE------------------------------------------
 local lockstyle = 1 -- Uses the in-game gearsets! Set # to desired lockstyle look!
@@ -27,6 +23,47 @@ end
 send_command('input /macro book 1') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') -- Prevents calling for help!
+
+
+
+-------------------
+--   AREA List   --
+-------------------
+
+areas = {}
+
+-- City areas for town gear
+areas.towns = S{
+    "Ru'Lude Gardens",
+    "Upper Jeuno",
+    "Lower Jeuno",
+    "Port Jeuno",
+    "Port Windurst",
+    "Windurst Waters",
+    "Windurst Woods",
+    "Windurst Walls",
+    "Heavens Tower",
+    "Port San d'Oria",
+    "Northern San d'Oria",
+    "Southern San d'Oria",
+    "Port Bastok",
+    "Bastok Markets",
+    "Bastok Mines",
+    "Metalworks",
+    "Aht Urhgan Whitegate",
+    "Tavnazian Safehold",
+    "Nashmau",
+    "Selbina",
+    "Mhaura",
+    "Norg",
+    "Eastern Adoulin",
+    "Western Adoulin",
+    "Kazham",
+    "Rabao",
+    "Chocobo Circuit",
+}
 
 
 ---------------------
@@ -262,9 +299,9 @@ end
 
 
 
---------------------
------  SCRIPT  -----
---------------------
+----------------
+---- SCRIPT ----
+----------------
 
 
 ---
@@ -273,42 +310,36 @@ end
 
 function precast(spell)
 
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end
 	
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
 	end
+	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+	--	equip(sets.ws.maxtp) 	
+	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 	
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.preshot) --Yes!  Equip PRESHOT!
-	end
 	
 end
-
 
 
 ---
@@ -316,63 +347,52 @@ end
 ---
 
 function midcast(spell)
-
--- Pet Midcast protection
-	if pet_midaction() then
-        return
-    end
-
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end
 	
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
 
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+		equip(sets.ws[spell.english]) 
 	end
+	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
+	--	equip(sets.ws.maxtp) 	
+	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
-	end
-	
 -- Blue Magic Midcast uses spell lists at bottom of file!
-	if PhysicalSpells:contains(spell.english) then
-		equip(sets.blu.str)  
-	elseif MagicalSpells:contains(spell.english) then
+	if blu_cure:contains(spell.english) then
+		equip(sets.blu.cure)  
+	elseif blu_phy:contains(spell.english) then
+		equip(sets.blu.phy)
+	elseif blu_mab:contains(spell.english) then
 		equip(sets.blu.mab)
-	elseif BlueMagic_Buffs:contains(spell.english) then
-		equip(sets.idle.dt)
-	elseif BlueMagic_Debuffs:contains(spell.english) then
+	elseif blu_macc:contains(spell.english) then
+		equip(sets.blu.macc)
+	elseif blu_skill:contains(spell.english) then
 		equip(sets.blu.skill)
-	elseif BlueMagic_Healing:contains(spell.english) then
-		equip(sets.blu.cure)
-	elseif BlueMagic_Skill:contains(spell.english) then
-		equip(sets.blu.skill)	
+	elseif blu_rupt:contains(spell.english) then
+		equip(sets.blu.rupt)
+	elseif blu_bre:contains(spell.english) then
+		equip(sets.blu.bre)		
 	end  
 		
 end
-
 
 
 ---
@@ -381,62 +401,19 @@ end
 
 function aftercast(spell)
 
--- Pet Midcast protection
-	if pet_midaction() then
-        return
-    end
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
+	else
+		equip(sets.idle.dt) 
+	end
 	
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
 	end
 
 end
-
-
-
----
---- PET MIDCAST AND AFTERCAST
----
-
-function pet_midcast(spell)
-
--- PET MIDCAST - Uses the PET Spell list near bottom of file!
-	--Phy or Mab sets
-	if Physical_PET:contains(spell.english) then
-		equip(sets.pet.phy)  
-	elseif Magical_PET:contains(spell.english) then
-		equip(sets.pet.mab)
-	end
-
-	--Spell Specific Set
-	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
-		equip(sets.pet[spell.english]) --Yes!  Equip that set!
-	end
-
-end
-
--- PET AFTERCAST
-function pet_aftercast(spell)
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
-	end
-
-end
-
 
 
 ---
@@ -446,154 +423,79 @@ end
 function status_change(new, old)
 
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+	
 end
 
--- Zone changes
-windower.register_event('zone change', function(new_zone_id, old_zone_id)
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
-	end
-end)
-
-
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- Toggle for TP and WEAPON set modes
 ---
-	BARELE_Index = 1
-	BAR_ELE_Names = {"Barfira","Barblizzara","Baraera","Barstonra","Barthundra","Barwatera"}
-	BARSTA_Index = 1
-	BAR_STA_Names = {"Barsleepra","Barpoisonra","Barparalyzra","Barblindra","Barsilencera","Barpetra","Barvira","Baramnesra"}
+
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
+		equip({sub = "empty"}) 
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
-	elseif command == 'togglebarelement' then 
-        BARELE_Index = BARELE_Index +1
-        if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
-		--Let me know which mode I'm in!
-        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
-	elseif command == 'castbarelement' then
-		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
-	elseif command == 'togglebarstatus' then 
-        BARSTA_Index = BARSTA_Index +1
-        if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
-		--Let me know which mode I'm in!
-        send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
-	elseif command == 'castbarstatus' then
-		send_command('@input /ma "'..BAR_STA_Names[BARSTA_Index]..'" <me>')
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
     end
 end
 
 
 
--------------------
---   AREA List   --
--------------------
 
-areas = {}
+------------------------------------------------------------------
+-- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
+------------------------------------------------------------------
 
--- City areas for town gear
-areas.towns = S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-    "Norg",
-    "Eastern Adoulin",
-    "Western Adoulin",
-    "Kazham",
-    "Rabao",
-    "Chocobo Circuit",
-}
+-- Isolated Event Handler
+-- This handles the zone change safely without nesting bugs or scope crashes
+function handle_zone_gear_swap(new_zone_id, old_zone_id)
+    -- Safety validation gate: prevents indexing nil 'areas' values
+    if areas and areas.towns and player then
+        if player.status == 'Engaged' then 
+            equip(sets.tp[TP_Set_Names[TP_Index]]) 
+        elseif areas.towns:contains(world.area) then 
+            equip(sets.idle.town) 
+        else
+            equip(sets.idle.dt) 
+        end
+        
+        -- Confirms weapon selections update through transitions safely
+        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+            equip(sets.wep[WEP_Set_Names[WEP_Index]])
+        end
+    end
+end
 
+-- Registers the zone change hook cleanly after all functions are fully loaded
+my_zone_event = windower.register_event('zone change', handle_zone_gear_swap)
 
-
-
-
--------------------------
---   PET Spells List   --
--------------------------
-
-Physical_PET = S{"Example1","Example2","Volt Strike"}
-
-Magical_PET = S{"Example1","Example2","Conflag Strike"}
-
-
-
--------------------------
---   BLU Spells List   --
--------------------------
-
-PhysicalSpells = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite',
-                    'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash',
-                    'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance',
-                    'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut',
-                    'Tourbillion', 'Thrashing Assault', 'Vertical Cleave', 'Whirl of Rage', 'Amorphic Spikes',
-                    'Barbed Crescent', 'Claw Cyclone', 'Disseverment', 'Foot Kick', 'Frenetic Rip', 'Goblin Rush',
-                    'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball',
-                    'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack',
-                    'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats',
-                    'Sweeping Gouge'}
-
-MagicalSpells = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind',
-                   'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage',
-                   'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate',
-                   'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse',
-                   'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray',
-                   'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush',
-                   'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare',
-                   'Embalming Earth', 'Entomb', 'Sandspin', 'Vapor Spray'}
-
-BlueMagic_Buffs = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance',
-                     'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat',
-                     'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge',
-                     'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
-					 
-BlueMagic_Debuffs = S {'Dream Flower', 'Sheep Song'}
-
-BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot',
-                       'White Wind'}
-
-BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
-                     'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
+-- Safely cleans up the background listener when changing jobs or reloading
+function file_unload()
+    if my_zone_event then
+        windower.unregister_event(my_zone_event)
+        my_zone_event = nil
+        -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
+        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+    end
+end 
 
 
 
