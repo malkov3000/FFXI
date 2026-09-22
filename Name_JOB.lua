@@ -258,24 +258,6 @@ function get_sets()
 
 
 
-------------------- BLUE MAGIC SETS --------------------
-
-	sets.blu = {} --Leave Empty!
-
-	--Update BLU Spell List at end of file!
-	
-	--Accuracy / Str+Dex+Vit	
-	sets.blu.str = {}
-	
-	--Magic Attack Bonus / Magic Accuracy
-	sets.blu.mab = {}
-	
-	--Blue Skill / Magic Accuracy / Spell Int Rate	
-	sets.blu.skill = {}
-	
-	--Cure Potency / Spell Int Rate / HP
-	sets.blu.cure = {}	
-
 
 ----------------------- PET SETS ----------------------
 
@@ -394,6 +376,41 @@ function aftercast(spell)
 	
     if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
         equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+
+end
+
+
+---
+--- PET MIDCAST AND AFTERCAST
+---
+
+function pet_midcast(spell)
+
+-- PET MIDCAST - Uses the PET Spell list near bottom of file!
+	--Phy or Mab sets
+	if Physical_PET:contains(spell.english) then
+		equip(sets.pet.phy)  
+	elseif Magical_PET:contains(spell.english) then
+		equip(sets.pet.mab)
+	end
+
+	--Spell Specific Set
+	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
+		equip(sets.pet[spell.english]) --Yes!  Equip that set!
+	end
+
+end
+
+-- PET AFTERCAST
+function pet_aftercast(spell)
+
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
+	else
+		equip(sets.idle.dt) --Default to DT set!
 	end
 
 end
