@@ -1,6 +1,6 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
---Themyscira_WAR -------------------------------------------------
+--Themyscira_BST -------------------------------------------------
 ----------------------------------------------------------d(^^d)--
 ------------------------------------------------------------------
 
@@ -13,7 +13,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 7 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 6 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,12 +21,10 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 7') -- Update # to desired starting macro book!
+send_command('input /macro book 6') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
 
---no help on
-send_command('input /blockhelp on')
 
 ---------------------
 ------- SETS --------
@@ -47,24 +45,10 @@ function get_sets()
 	sets.idle = {} --Leave Empty!
 
 	-- DT set here
-	sets.idle.dt = {
-    ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Pumm. Cuisses +2",
-    feet="Pumm. Calligae +2",
-    neck={ name="War. Beads +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Cessance earring",
-    right_ear={ name="Boii Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Crit.hit rate+4',}},
-    left_ring="Murky Ring",
-    right_ring="Shneddick Ring",
-    back={ name="Cichol's Mantle", augments={'Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
+	sets.idle.dt = {}  
 
 	-- Town set here
-	sets.idle.town = sets.idle.dt 
+	sets.idle.town = {}  
 
 
 
@@ -82,9 +66,8 @@ function get_sets()
 
 ----------------------- WEAPON SETS --------------------
 
-	WEP_Index = 1 
-	sets.wep = {} 
-	WSLIST = {}
+	WEP_Index = 1 --Don't Change!
+	sets.wep = {} --Leave Empty!
 
 	-- We can have multiple different WEAPON sets!
 	--
@@ -92,23 +75,18 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"Naegling","Chango"}
+	WEP_Set_Names = {"TPBONUS","SKILL","ACC"}
 	
 	-- TP sets go below!
 	
-	sets.wep.Naegling = {    
-    main="Naegling",
-    sub="Blurred shield +1",
-	}	
-	WSLIST.Naegling = {"Savage Blade","Chant du Cygne","Sanguine Blade","Flat Blade"}
+	--TP BONUS
+	sets.wep.TPBONUS = {}	
 
-	sets.wep.Chango = {    
-    main="Chango",
-    sub="Kaja Grip",
-	}	
-	WSLIST.Naegling = {"Savage Blade","Chant du Cygne","Sanguine Blade","Flat Blade"}
+	--SKILL+
+	sets.wep.SKILL = {}
 
-
+	--ACCURACY
+	sets.wep.ACC = {}
 
 
 	
@@ -123,32 +101,32 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"DT"}
+	TP_Set_Names = {"TP"}
 	
 	-- TP sets go below!
 	
 	--Damage Taken Reduction
-	sets.tp.DT = {
-    ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Pumm. Cuisses +2",
-    feet="Pumm. Calligae +2",
-    neck={ name="War. Beads +1", augments={'Path: A',}},
-    waist="Sailfi Belt +1",
-    left_ear="Cessance earring",
-    right_ear={ name="Boii Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Crit.hit rate+4',}},
-    left_ring="Murky Ring",
-    right_ring="Niqmaddu ring",
-    back={ name="Cichol's Mantle", augments={'Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}	
+	sets.tp.DT = {}	
 
 	--Accuracy
 	sets.tp.ACC = {}
 
 	--Multi-Hit, Store TP, Attack Speed
-	sets.tp.TP = {}
+	sets.tp.TP = {
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Null Loop",
+    waist="Sailfi Belt +1",
+    left_ear="Mache Earring +1",
+    right_ear="Alabaster Earring",
+    left_ring="Murky Ring",
+    right_ring="Chirich Ring",
+    back="Null shawl",
+}
 
 	--Treasure Hunter
 --	sets.tp.TH = {}		
@@ -173,20 +151,19 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
-    ammo="Oshasha's Treatise",
-    head="Agoge Mask +3",
-    body="Pumm. Lorica +2",
-    hands="Boii Mufflers +3",
-    legs="Nyame flanchard",
-    feet="Sulev. Leggings +2",
-    neck={ name="War. Beads +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
+    head="Nyame Helm",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
     waist="Sailfi Belt +1",
-    left_ear="Ishvara Earring",
-    right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Cornelia's Ring",
-    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-}
+    left_ear="Moonshade Earring",
+    right_ear="Ishvara Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Epaminondas's Ring",
+    back="Alabaster Mantle",
+}  
 
 	-- WS specific sets! Replace the x with the WS name!
 	-- Like this--->> sets.ws['Savage Blade'] = {}
@@ -213,13 +190,7 @@ function get_sets()
 	-- Single Ability examples below!
 	-- Replace the x with desired Ability name!
 
-	sets.ja['Berserk'] = {
-    body="Pumm. Lorica +2",
-	}
-	
-	sets.ja['Warcry'] = {
-    head="Agoge Mask +3",
-	}
+	sets.ja['x'] = {}
 
 	-- We can set an Ability to a set we already created!
 	-- See example below!
@@ -233,7 +204,7 @@ function get_sets()
 	sets.fc = {} --Leave Empty!
 
 	-- FC set here
-	--sets.fc.standard = {}  
+	sets.fc.standard = {}  
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.fc['Blue Magic'] = {}
@@ -326,6 +297,11 @@ end
 
 function precast(spell)
 
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
+	
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
 		equip(sets.fc.standard) --Yes! Equip FC
@@ -335,11 +311,20 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
-	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
+		if sets.ws[spell.english] then --Do we have a WS set for this WS?
+			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+		else
+			equip(sets.ws.standard) --No!  Use the standard WS set!
+		end
+	else
+		if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
+			if sets.ws[spell.english] then --Do we have a WS set for this WS?
+				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+			else
+				equip(sets.ws.standard) --No!  Use the standard WS set!
+			end
+		end
 	end
 	
 -- Job Ability
@@ -365,22 +350,40 @@ end
 
 function midcast(spell)
 
+-- Pet Midcast protection
+	if pet_midaction() then
+        return
+    end
+
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
 	
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
 	end
 	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if weaponskills.ranged:contains(spell.english) then --Ranged WS?
+		if sets.ws[spell.english] then --Do we have a WS set for this WS?
+			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+		else
+			equip(sets.ws.standard) --No!  Use the standard WS set!
+		end
+	else
+		if spell.type == 'WeaponSkill' then
+			if sets.ws[spell.english] then --Do we have a WS set for this WS?
+				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
+			else
+				equip(sets.ws.standard) --No!  Use the standard WS set!
+			end
+		end
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
-	end	
 	
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
@@ -395,6 +398,20 @@ function midcast(spell)
 		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
 	end
 	
+-- Blue Magic Midcast uses spell lists at bottom of file!
+	if PhysicalSpells:contains(spell.english) then
+		equip(sets.blu.str)  
+	elseif MagicalSpells:contains(spell.english) then
+		equip(sets.blu.mab)
+	elseif BlueMagic_Buffs:contains(spell.english) then
+		equip(sets.idle.dt)
+	elseif BlueMagic_Debuffs:contains(spell.english) then
+		equip(sets.blu.skill)
+	elseif BlueMagic_Healing:contains(spell.english) then
+		equip(sets.blu.cure)
+	elseif BlueMagic_Skill:contains(spell.english) then
+		equip(sets.blu.skill)	
+	end  
 		
 end
 
@@ -406,7 +423,15 @@ end
 
 function aftercast(spell)
 
+-- Pet Midcast protection
+	if pet_midaction() then
+        return
+    end
 	
+-- Cancel
+	if canceled then --Spell cancelled?
+		return --Exit the function!
+	end
 
 	if player.status == 'Engaged' then --Are we fighting?
         equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
@@ -419,6 +444,40 @@ function aftercast(spell)
 end
 
 
+
+---
+--- PET MIDCAST AND AFTERCAST
+---
+
+function pet_midcast(spell)
+
+-- PET MIDCAST - Uses the PET Spell list near bottom of file!
+	--Phy or Mab sets
+	if Physical_PET:contains(spell.english) then
+		equip(sets.pet.phy)  
+	elseif Magical_PET:contains(spell.english) then
+		equip(sets.pet.mab)
+	end
+
+	--Spell Specific Set
+	if sets.pet[spell.english] then --Do we have a set for this Pet Ability?
+		equip(sets.pet[spell.english]) --Yes!  Equip that set!
+	end
+
+end
+
+-- PET AFTERCAST
+function pet_aftercast(spell)
+
+	if player.status == 'Engaged' then --Are we fighting?
+        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
+	elseif areas.towns:contains(world.area) then --In town?
+		equip(sets.idle.town) --Use town set!
+	else
+		equip(sets.idle.dt) --Default to DT set!
+	end
+
+end
 
 
 
@@ -438,10 +497,28 @@ function status_change(new, old)
 	end
 end
 
+-- Zone changes
+-- Storing the event registration in a global variable so Gearswap can track it
+my_zone_event = windower.register_event('zone change', function(new_zone_id, old_zone_id)
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
+	else
+		equip(sets.idle.dt) 
+	end
+end)
+
+-- This function runs automatically whenever you reload or change jobs!
+function file_unload()
+    if my_zone_event then
+        windower.unregister_event(my_zone_event)
+    end
+end
 
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- Toggle for TP and WEAPON set modes
 ---
 
 function self_command(command)
@@ -452,7 +529,6 @@ function self_command(command)
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
     elseif command == 'togglewep' then --Set Command WEP
-		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 --Cycle variable
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
 		--Let me know which mode I'm in!
@@ -502,39 +578,64 @@ areas.towns = S{
 
 
 
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
+-------------------------------
+-- Mappings for weaponskills --
+-------------------------------
 
--- Isolated Event Handler
--- This handles the zone change safely without nesting bugs or scope crashes
-function handle_zone_gear_swap(new_zone_id, old_zone_id)
-    -- Safety validation gate: prevents indexing nil 'areas' values
-    if areas and areas.towns and player then
-        if player.status == 'Engaged' then 
-            equip(sets.tp[TP_Set_Names[TP_Index]]) 
-        elseif areas.towns:contains(world.area) then 
-            equip(sets.idle.town) 
-        else
-            equip(sets.idle.dt) 
-        end
-        
-        -- Confirms weapon selections update through transitions safely
-        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
-            equip(sets.wep[WEP_Set_Names[WEP_Index]])
-        end
-    end
-end
+weaponskills = {}
 
--- Registers the zone change hook cleanly after all functions are fully loaded
-my_zone_event = windower.register_event('zone change', handle_zone_gear_swap)
+-- Weaponskills that can be used at range
+weaponskills.ranged = S{"Flaming Arrow", "Piercing Arrow", "Dulling Arrow", "Sidewinder", "Arching Arrow",
+    "Empyreal Arrow", "Refulgent Arrow", "Apex Arrow", "Namas Arrow", "Jishnu's Radiance",
+    "Hot Shot", "Split Shot", "Sniper Shot", "Slug Shot", "Heavy Shot", "Detonator", "Last Stand",
+    "Coronach", "Trueflight", "Leaden Salute", "Wildfire",
+    "Myrkr"}
 
--- Safely cleans up the background listener when changing jobs or reloading
-function file_unload()
-    if my_zone_event then
-        windower.unregister_event(my_zone_event)
-        my_zone_event = nil
-        -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
-        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
-    end
-end 
+
+
+-------------------------
+--   PET Spells List   --
+-------------------------
+
+Physical_PET = S{"Example1","Example2","Volt Strike"}
+
+Magical_PET = S{"Example1","Example2","Conflag Strike"}
+
+
+
+-------------------------
+--   BLU Spells List   --
+-------------------------
+
+PhysicalSpells = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite',
+                    'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash',
+                    'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance',
+                    'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut',
+                    'Tourbillion', 'Thrashing Assault', 'Vertical Cleave', 'Whirl of Rage', 'Amorphic Spikes',
+                    'Barbed Crescent', 'Claw Cyclone', 'Disseverment', 'Foot Kick', 'Frenetic Rip', 'Goblin Rush',
+                    'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball',
+                    'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack',
+                    'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats',
+                    'Sweeping Gouge'}
+
+MagicalSpells = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind',
+                   'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage',
+                   'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate',
+                   'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse',
+                   'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray',
+                   'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush',
+                   'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare',
+                   'Embalming Earth', 'Entomb', 'Sandspin', 'Vapor Spray'}
+
+BlueMagic_Buffs = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance',
+                     'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat',
+                     'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge',
+                     'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
+					 
+BlueMagic_Debuffs = S {'Dream Flower', 'Sheep Song'}
+
+BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot',
+                       'White Wind'}
+
+BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
+                     'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}

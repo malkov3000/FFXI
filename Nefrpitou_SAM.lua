@@ -30,6 +30,8 @@ send_command('input /blockhelp on') -- Prevents calling for help!
 
 function get_sets()
 
+	sets = {}
+
 -- Use "//gs export" in-game to export a file with your currently equiped gear!
 -- Find the file in Windower>addons>GearSwap>data>export folder!
 -- Copy the gear inside the {} and paste it into the correct set below!
@@ -368,6 +370,44 @@ end
 
 
 
+-------------------
+--   AREA List   --
+-------------------
+
+areas = {}
+
+-- City areas for town gear
+areas.towns = S{
+    "Ru'Lude Gardens",
+    "Upper Jeuno",
+    "Lower Jeuno",
+    "Port Jeuno",
+    "Port Windurst",
+    "Windurst Waters",
+    "Windurst Woods",
+    "Windurst Walls",
+    "Heavens Tower",
+    "Port San d'Oria",
+    "Northern San d'Oria",
+    "Southern San d'Oria",
+    "Port Bastok",
+    "Bastok Markets",
+    "Bastok Mines",
+    "Metalworks",
+    "Aht Urhgan Whitegate",
+    "Tavnazian Safehold",
+    "Nashmau",
+    "Selbina",
+    "Mhaura",
+    "Norg",
+    "Eastern Adoulin",
+    "Western Adoulin",
+    "Kazham",
+    "Rabao",
+    "Chocobo Circuit",
+}
+
+
 --------------------
 -----  SCRIPT  -----
 --------------------
@@ -526,42 +566,7 @@ end
 
 
 
--------------------
---   AREA List   --
--------------------
 
-areas = {}
-
--- City areas for town gear
-areas.towns = S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-    "Norg",
-    "Eastern Adoulin",
-    "Western Adoulin",
-    "Kazham",
-    "Rabao",
-    "Chocobo Circuit",
-}
 
 
 

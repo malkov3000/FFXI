@@ -33,6 +33,8 @@ send_command('input /blockhelp on')
 
 function get_sets()
 
+	sets = {}
+
 -- Use "//gs export" in-game to export a file with your currently equiped gear!
 -- Find the file in Windower>addons>GearSwap>data>export folder!
 -- Copy the gear inside the {} and paste it into the correct set below!
