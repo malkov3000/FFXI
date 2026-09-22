@@ -275,7 +275,7 @@ function get_sets()
     feet="Vanya clogs",
     neck="Reti pendant",
     waist="Shinjutsu-no-obi +1",
-    left_ear="Gifted' Earring",
+    left_ear="Gifted Earring",
     right_ear="Calamitous Earring",
     left_ring="Prolix Ring",
     right_ring="Inyanga Ring",
