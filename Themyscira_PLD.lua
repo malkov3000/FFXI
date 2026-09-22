@@ -9,8 +9,6 @@
 ---- Load ------
 ----------------
 
-include('organizer-lib')
-
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
@@ -46,10 +44,10 @@ function get_sets()
 
 	-- Town set here
 	sets.idle.town = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
     body="Sakpata's Plate",
-    hands="Chev. Gauntlets +2", 
+    hands="Chev. Gauntlets +3", 
     legs={ name="Chev. Cuisses +3", priority = 141},
     feet={ name="Rev. Leggings +4", priority = 127},
     neck={ name="Unmoving Collar +1", priority = 200},
@@ -77,7 +75,7 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"PDT","MDT","WS","STUN"}
+	WEP_Set_Names = {"PDT","MDT","WS","STUN","DW"}
 	
 	-- TP sets go below!
 	
@@ -100,6 +98,11 @@ function get_sets()
 	sets.wep.WS = {
     main="Naegling",
     sub="Blurred Shield +1",
+}	
+
+	sets.wep.DW = {
+    main="Naegling",
+    sub="Thibron",
 }	
 	
 
@@ -152,11 +155,11 @@ function get_sets()
 	-- WS set here
 	sets.ws.standard = {   
 	ammo="Oshasha's Treatise",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sulev. Leggings +2",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
     neck="Rep. Plat. Medal",
     waist="Sailfi Belt +1",
     left_ear="Moonshade Earring",
@@ -176,13 +179,13 @@ function get_sets()
 	
 	-- Enmity +++
 	sets.hate.high = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Moonbeam Necklace",
+    neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -210,24 +213,39 @@ function get_sets()
 	--sets.ja['BloodPactWard'] = {}
 	--sets.ja['PetCommand'] = {}
 
-
+	sets.ja['Accession'] = sets.hate.high
 	sets.ja['Provoke'] = sets.hate.high
 	sets.ja['Majesty'] = sets.hate.high
 	sets.ja['Sepulcher'] = sets.hate.high
-	sets.ja['Rampart'] = sets.hate.high
 	sets.ja['Fealty'] = sets.hate.high
 	sets.ja['Palisade'] = sets.hate.high
 	sets.ja['Invincible'] = sets.hate.high
 	sets.ja['Cover'] = sets.hate.high
 	
-	sets.ja['Divine Emblem'] = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
+	sets.ja['Rampart'] = {
+    ammo="Staunch Tathlum +1",
+    head="Cab. Coronet +1",
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Moonbeam Necklace",
+    neck={ name="Unmoving Collar +1", priority = 200},
+    waist={ name="Plat. Mog. Belt", priority = 1000},
+    left_ear="Alabaster Earring",
+    right_ear="Etiolation Earring",
+    right_ring="Apeile Ring +1",
+    left_ring="Gelatinous Ring +1",
+    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
+}
+	
+	sets.ja['Divine Emblem'] = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Rev. Breeches +3",
+    feet="Chev. Sabatons +2",
+    neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -237,13 +255,13 @@ function get_sets()
 }
 	
 	sets.ja['Sentinel'] = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
     feet="Cab. Leggings +2",
-    neck="Moonbeam Necklace",
+    neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -253,13 +271,13 @@ function get_sets()
 }
 	
 	sets.ja['Shield Bash'] = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands="Cab. Gauntlets +2",
     legs="Rev. Breeches +3",
     feet="Chev. Sabatons +2",
-    neck="Moonbeam Necklace",
+    neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -269,13 +287,13 @@ function get_sets()
 }
 	
 	sets.ja['Holy Circle'] = {
-    ammo="Staunch Tathlum",
-    head="Rev. Coronet +3",
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
-    feet="Rev. Leggings +3",
-    neck="Moonbeam Necklace",
+    feet="Rev. Leggings +4",
+    neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Etiolation Earring",
@@ -314,7 +332,7 @@ function get_sets()
     ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Rev. Surcoat +3",
-    hands="Chev. Gauntlets +2",
+    hands="Chev. Gauntlets +3",
     legs="Enif Cosciales",
     feet="Chev. Sabatons +2",
     neck="Voltsurge torque",
@@ -340,7 +358,7 @@ function get_sets()
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.ma['Divine Magic'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands="Cab. Gauntlets +2",
@@ -356,7 +374,7 @@ function get_sets()
 }
 
 	sets.ma['Healing Magic'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands="Macabre Gaunt. +1",
@@ -365,17 +383,17 @@ function get_sets()
     neck="Moonbeam Necklace",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Knightly Earring",
-    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','Damage taken-5%',}},
+    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','Damage taken-5%',}},
     right_ring="Murky Ring",
     left_ring="Gelatinous Ring +1",
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
 
 	sets.ma['Enhancing Magic'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Chev. Cuirass +2",
-    hands="Chev. Gauntlets +2",
+    hands="Chev. Gauntlets +3",
     legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
     feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
@@ -392,10 +410,10 @@ function get_sets()
 --	sets.ma['Summoning Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 	sets.ma['Blue Magic'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Chev. Cuirass +2",
-    hands="Chev. Gauntlets +2",
+    hands="Chev. Gauntlets +3",
     legs={ name="Carmine Cuisses +1", augments={'HP+80','STR+12','INT+12',}},
     feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Moonbeam Necklace",
@@ -407,11 +425,10 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
 
-	
 	sets.ma['Phalanx'] = {
     main="Sakpata's sword",
     sub="Priwen",
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Chev. Cuirass +2",
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -442,10 +459,7 @@ end
 ---
 
 function precast(spell)
--- Cancel
-	if canceled then 
-		return 
-	end
+
 -- Magic
 	if spell.action_type == 'Magic' then 
 		equip(sets.fc.standard) 
@@ -476,10 +490,7 @@ end
 ---
 
 function midcast(spell)
--- Cancel
-	if canceled then 
-		return 
-	end	
+
 -- Magic
 	if sets.ma[spell.skill] then 
 		equip(sets.ma[spell.skill]) 
@@ -510,10 +521,7 @@ end
 ---
 
 function aftercast(spell)
--- Cancel
-	if canceled then 
-		return 
-	end
+
 
 	if player.status == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
@@ -532,7 +540,6 @@ end
 ---
 --- Status and Zone change
 ---
-
 function status_change(new, old)
 -- Status changes
 	if new == 'Engaged' then 
@@ -543,16 +550,8 @@ function status_change(new, old)
 		equip(sets.idle.dt) 
 	end
 end
--- Zone changes
-windower.register_event('zone change', function(new_zone_id, old_zone_id)
-	if player.status == 'Engaged' then 
-        equip(sets.tp[TP_Set_Names[TP_Index]]) 
-	elseif areas.towns:contains(world.area) then 
-		equip(sets.idle.town) 
-	else
-		equip(sets.idle.dt) 
-	end
-end)
+
+
 
 
 
@@ -614,4 +613,43 @@ areas.towns = S{
     "Rabao",
     "Chocobo Circuit",
 }
+
+
+
+------------------------------------------------------------------
+-- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
+------------------------------------------------------------------
+
+-- Isolated Event Handler
+-- This handles the zone change safely without nesting bugs or scope crashes
+function handle_zone_gear_swap(new_zone_id, old_zone_id)
+    -- Safety validation gate: prevents indexing nil 'areas' values
+    if areas and areas.towns and player then
+        if player.status == 'Engaged' then 
+            equip(sets.tp[TP_Set_Names[TP_Index]]) 
+        elseif areas.towns:contains(world.area) then 
+            equip(sets.idle.town) 
+        else
+            equip(sets.idle.dt) 
+        end
+        
+        -- Confirms weapon selections update through transitions safely
+        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+            equip(sets.wep[WEP_Set_Names[WEP_Index]])
+        end
+    end
+end
+
+-- Registers the zone change hook cleanly after all functions are fully loaded
+my_zone_event = windower.register_event('zone change', handle_zone_gear_swap)
+
+-- Safely cleans up the background listener when changing jobs or reloading
+function file_unload()
+    if my_zone_event then
+        windower.unregister_event(my_zone_event)
+        my_zone_event = nil
+        -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
+        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+    end
+end 
 
