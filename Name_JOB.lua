@@ -69,6 +69,7 @@ function get_sets()
 
 	WEP_Index = 1 --Don't Change!
 	sets.wep = {} --Leave Empty!
+	WSLIST = {}
 
 	-- We can have multiple different WEAPON sets!
 	--
