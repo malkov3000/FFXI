@@ -224,7 +224,7 @@ function get_sets()
     head="Blistering sallet +1",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
-    legs="Gleti's breeeches",
+    legs="Gleti's breeches",
     feet="Gleti's boots",
     neck="Light gorget",
     waist="Light belt",
