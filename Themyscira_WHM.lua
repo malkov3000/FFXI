@@ -9,7 +9,6 @@
 ---Load Libs---
 ---------------
 
-include('organizer-lib')
 
 
 
@@ -25,7 +24,8 @@ end
 send_command('input /macro book 3') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
-
+--no help on
+send_command('input /blockhelp on')
 
 ---------------------
 ------- SETS --------
@@ -51,16 +51,16 @@ function get_sets()
     head="Ebers Cap +2",
     body="Ebers Bliaut +3",
     hands="Ebers Mitts +2",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Ebers Duckbills +2",
-    neck={ name="Clr. Torque +1", augments={'Path: A',}},
-    waist="Slipor Sash",
+    neck="Elite Royal Collar",
+    waist="Null Belt",
     left_ear="Etiolation Earring",
     right_ear="Alabaster Earring",
     left_ring="Murky Ring",
     right_ring="Shneddick Ring",
-    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
-}  
+    back="Null Shawl",
+}
 
 	-- Town set here
 	sets.idle.town = sets.idle.dt
@@ -94,10 +94,10 @@ function get_sets()
 	
 ----------------------- TP SETS ------------------------
 
-	TP_Index = 1 --Don't Change!
-	sets.tp = {} --Leave Empty!
+	TP_Index = 1 
+	sets.tp = {} 
 
-	-- We can have multiple different TP sets!
+
 	--
 	--> Use "/console gs c toggletp" to cycle modes!
 	--
@@ -105,31 +105,21 @@ function get_sets()
 	-- Make sure to also create a TP set for it below!
 	TP_Set_Names = {"DT"}
 	
-	-- TP sets go below!
+
 	
 	--Damage Taken Reduction
 	sets.tp.DT = sets.idle.dt	
 
-	--Accuracy
-	--sets.tp.ACC = {}
 
-	--Multi-Hit, Store TP, Attack Speed
-	--sets.tp.TP = {}
-
-	--Treasure Hunter
---	sets.tp.TH = {}		
 
 
 
 ----------------------- WS SETS ------------------------
 	
-	sets.ws = {} --Leave Empty!
+	sets.ws = {} 
 
-	-- WS set here
 	sets.ws.standard = {}  
 
-	-- WS specific sets! Replace the x with the WS name!
-	-- Like this--->> sets.ws['Savage Blade'] = {}
 	
 	--sets.ws['x'] = {}  
 
@@ -137,7 +127,7 @@ function get_sets()
 
 ------------------- JOB ABILITY SETS -------------------
 
-	sets.ja = {} --Leave Empty!
+	sets.ja = {} 
 
 	--Uses: Windower>res>job_abilities
 	--sets.ja['CorsairRoll'] = {}
@@ -149,8 +139,6 @@ function get_sets()
 	--sets.ja['BloodPactWard'] = {}
 	--sets.ja['PetCommand'] = {}
 
-	-- Single Ability examples below!
-	-- Replace the x with desired Ability name!
 
 	sets.ja['Divine Caress'] = {hands="Ebers Mitts +2",}
 	sets.ja['Benediction'] = {body="Piety Bliaut +2",}	
@@ -160,7 +148,7 @@ function get_sets()
 
 --------------------- FASTCAST SETS --------------------
 
-	sets.fc = {} --Leave Empty!
+	sets.fc = {} 
 
 	-- FC set here
 	sets.fc.standard = {
@@ -176,9 +164,9 @@ function get_sets()
     waist="Witful Belt",
     left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
-    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
 }
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
@@ -190,15 +178,15 @@ function get_sets()
     head={ name="Kaykaus Mitra +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
     body="Inyanga Jubbah +2",
     hands="Ebers Mitts +2",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet={ name="Kaykaus Boots +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Witful Belt",
     left_ear="Nourish. Earring +1",
     right_ear="Malignance Earring",
-    left_ring="Murky Ring",
-    right_ring="Shneddick Ring",
-    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
 }
 
 --	sets.fc['Enhancing Magic'] = {}
@@ -215,9 +203,9 @@ function get_sets()
     waist="Witful Belt",
     left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
-    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
 }
 --	sets.fc['Elemental Magic'] = {}
 --	sets.fc['Dark Magic'] = {}
@@ -230,15 +218,15 @@ function get_sets()
     head="Ebers Cap +2",
     body="Inyanga Jubbah +2",
     hands="Ebers Mitts +2",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Ebers Duckbills +2",
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Witful Belt",
     left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
-    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
 }
 
 	sets.fc.na = {
@@ -248,39 +236,39 @@ function get_sets()
     head="Ebers Cap +2",
     body="Inyanga Jubbah +2",
     hands="Ebers Mitts +2",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Ebers Duckbills +2",
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Witful Belt",
     left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
-    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+    back="Fi Follet Cape +1",
 }
 
 
 
 --------------------- MAGIC SETS -----------------------
 
-	sets.ma = {} --Leave Empty!
+	sets.ma = {} 
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.ma['Divine Magic'] = {
-    main="Daybreak",
+    main="Bunzi's Rod",
     sub="Ammurapi Shield",
     ammo="Ghastly Tathlum +1",
-    head="Ebers Cap +2",
-    body="Ebers Bliaut +3",
+    head="Bunzi's Hat",
+    body="Bunzi's Robe",
     hands="Piety Mitts +4",
-    legs="Th. Pantaloons +2",
-    feet="Ebers Duckbills +2",
-    neck="Erra Pendant",
+    legs="Bunzi's Pants",
+    feet="Bunzi's Sabots",
+    neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
     right_ear="Hecate's Earring",
     left_ring="Metamor. Ring +1",
-    right_ring="Stikini Ring",
+    right_ring="Mephitas's Ring +1",
     back="Aurist's Cape +1",
 }
 	sets.ma['Healing Magic'] = {
@@ -292,12 +280,12 @@ function get_sets()
     head={ name="Kaykaus Mitra +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
     body="Ebers Bliaut +3",
     hands="Theophany Mitts +4",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet={ name="Kaykaus Boots +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Korin Obi",
     left_ear="Nourish. Earring +1",
-    right_ear={ name="Ebers Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    right_ear="Ebers Earring +1",
     left_ring="murky ring",
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
@@ -320,23 +308,39 @@ function get_sets()
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
 }
 	sets.ma['Enfeebling Magic'] = {
-    main="Maxentius",
+    main="Bunzi's Rod",
     sub="Ammurapi Shield",
     ammo="Hydrocera",
     head="Ebers Cap +2",
     body="Theo. Bliaut +2",
     hands="Piety Mitts +4",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Theo. Duckbills +4",
-    neck="Erra Pendant",
-    waist="Eschan Stone",
-    left_ear="Vor Earring",
-    right_ear={ name="Ebers Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Vor Earring",
     left_ring="Metamor. Ring +1",
     right_ring="Stikini Ring",
     back="Aurist's Cape +1",
 }
---	sets.ma['Elemental Magic'] = {}
+	sets.ma['Elemental Magic'] = {
+    main="Bunzi's Rod",
+    sub="Ammurapi Shield",
+    ammo="Ghastly Tathlum +1",
+    head="Bunzi's Hat",
+    body="Bunzi's Robe",
+    hands="Bunzi's Gloves",
+    legs="Bunzi's Pants",
+    feet="Bunzi's Sabots",
+    neck="Sibyl Scarf",
+    waist="Eschan Stone",
+    left_ear="Malignance Earring",
+    right_ear="Hecate's Earring",
+    left_ring="Metamor. Ring +1",
+    right_ring="Mephitas's Ring +1",
+    back="Aurist's Cape +1",
+}
 --	sets.ma['Dark Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 
@@ -347,12 +351,12 @@ function get_sets()
     head="Ebers Cap +2",
     body="Theo. Bliaut +2",
     hands="Piety Mitts +4",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Theo. Duckbills +4",
-    neck="Erra Pendant",
-    waist="Eschan Stone",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Vor Earring",
-    right_ear={ name="Ebers Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    right_ear="Ebers Earring +1",
     left_ring="Metamor. Ring +1",
     right_ring="Stikini Ring",
     back="Aurist's Cape +1",
@@ -388,7 +392,7 @@ function get_sets()
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Korin Obi",
     left_ear="Meili Earring",
-    right_ear={ name="Ebers Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    right_ear="Ebers Earring +1",
     left_ring="Menelaus's Ring",
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
@@ -401,7 +405,7 @@ function get_sets()
     head="Ebers Cap +2",
     body="Ebers Bliaut +3",
     hands="Ebers Mitts +2",
-    legs="Ebers Pant. +2",
+    legs="Ebers Pant. +3",
     feet="Ebers Duckbills +2",
     neck={ name="Clr. Torque +1", augments={'Path: A',}},
     waist="Korin Obi",
@@ -430,6 +434,30 @@ function get_sets()
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
 }
 	
+	sets.ma.aga = {
+    --main="Chatoyant Staff",
+    --sub="Enki Strap",
+    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sub="Sors Shield",
+    ammo="Ombre Tathlum +1",
+    head={ name="Kaykaus Mitra +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
+    body="Theo. Bliaut +2",
+    hands="Theophany Mitts +4",
+    legs="Ebers Pant. +3",
+    feet={ name="Kaykaus Boots +1", augments={'MP+80','Spell interruption rate down +12%','"Cure" spellcasting time -7%',}},
+    neck={ name="Clr. Torque +1", augments={'Path: A',}},
+    waist="Korin Obi",
+    left_ear="Nourish. Earring +1",
+    right_ear="Ebers Earring +1",
+    left_ring="murky ring",
+    right_ring="Stikini Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
+}
+
+	sets.ma['Curaga III'] = sets.ma.aga
+	sets.ma['Curaga IV'] = sets.ma.aga
+
+
 end
 
 
@@ -444,34 +472,31 @@ end
 ---
 
 function precast(spell)
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end
+
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
 	end
 -- Na Spells
 	if NaSpells:contains(spell.english) then
 		equip(sets.fc.na)  	
 	end  
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 end
 
@@ -482,30 +507,27 @@ end
 ---
 
 function midcast(spell)
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end	
+
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 --  Na and Bar Spells
 	if NaSpells:contains(spell.english) then
@@ -522,17 +544,13 @@ end
 ---
 
 function aftercast(spell)
--- Cancel
-	if canceled then --Spell cancelled?
-		return --Exit the function!
-	end
 
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end
 
@@ -544,24 +562,15 @@ end
 
 function status_change(new, old)
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
 end
--- Zone changes
-windower.register_event('zone change', function(new_zone_id, old_zone_id)
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
-	else
-		equip(sets.idle.dt) --Default to DT set!
-	end
-end)
+
 
 
 
@@ -570,33 +579,29 @@ end)
 ---
 
 	BARELE_Index = 1
-	BAR_ELE_Names = {"Barfira","Barblizzara","Baraera","Barstonra","Barthundra","Barwatera"}
+	BAR_ELE_Names = {"Barblizzara","Baraera","Barwatera","Barstonra","Barfira","Barthundra"}
 	BARSTA_Index = 1
-	BAR_STA_Names = {"Barsleepra","Barpoisonra","Barparalyzra","Barblindra","Barsilencera","Barpetra","Barvira","Baramnesra"}
+	BAR_STA_Names = {"Barparalyzra","Barsilencera","Barpoisonra","Barsleepra","Barblindra","Barpetra","Barvira","Baramnesra"}
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
 	elseif command == 'togglebarelement' then 
         BARELE_Index = BARELE_Index +1
         if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
-		--Let me know which mode I'm in!
         send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
 	elseif command == 'castbarelement' then
 		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
 	elseif command == 'togglebarstatus' then 
         BARSTA_Index = BARSTA_Index +1
         if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
-		--Let me know which mode I'm in!
         send_command('@input /echo ----- BAR STATUS SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
 	elseif command == 'castbarstatus' then
 		send_command('@input /ma "'..BAR_STA_Names[BARSTA_Index]..'" <me>')
@@ -650,4 +655,42 @@ areas.towns = S{
 
 NaSpells = S {'Blindna', 'Esuna', 'Paralyna', 'Poisona', 'Silena', 'Stona', 'Viruna'}
 
-BarSpells = S {'Barfira','Barblizzara','Baraera','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'}
+BarSpells = S {'Barblizzara','Baraera','Barfira','Barstonra','Barthundra','Barwatera','Barsleepra','Barpoisonra','Barparalyzra','Barblindra','Barsilencera','Barpetra','Barvira','Baramnesra'}
+
+
+------------------------------------------------------------------
+-- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
+------------------------------------------------------------------
+
+-- Isolated Event Handler
+-- This handles the zone change safely without nesting bugs or scope crashes
+function handle_zone_gear_swap(new_zone_id, old_zone_id)
+    -- Safety validation gate: prevents indexing nil 'areas' values
+    if areas and areas.towns and player then
+        if player.status == 'Engaged' then 
+            equip(sets.tp[TP_Set_Names[TP_Index]]) 
+        elseif areas.towns:contains(world.area) then 
+            equip(sets.idle.town) 
+        else
+            equip(sets.idle.dt) 
+        end
+        
+        -- Confirms weapon selections update through transitions safely
+        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+            equip(sets.wep[WEP_Set_Names[WEP_Index]])
+        end
+    end
+end
+
+-- Registers the zone change hook cleanly after all functions are fully loaded
+my_zone_event = windower.register_event('zone change', handle_zone_gear_swap)
+
+-- Safely cleans up the background listener when changing jobs or reloading
+function file_unload()
+    if my_zone_event then
+        windower.unregister_event(my_zone_event)
+        my_zone_event = nil
+        -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
+        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+    end
+end 
