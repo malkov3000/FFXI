@@ -27,71 +27,6 @@ send_command('input /blockhelp on') -- Prevents calling for help!
 
 
 
--------------------
---   AREA List   --
--------------------
-
-areas = {}
-
--- City areas for town gear
-areas.towns = S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-    "Norg",
-    "Eastern Adoulin",
-    "Western Adoulin",
-    "Kazham",
-    "Rabao",
-    "Chocobo Circuit",
-}
-
--------------------------
---   BLU Spells List   --
--------------------------
-
-blu_cure = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot'} 
-
-blu_phy = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite', 'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash', 
-'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance', 'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut', 
-'Tourbillion', 'Thrashing Assault', 'Vertical Cleave', 'Whirl of Rage', 'Amorphic Spikes', 'Barbed Crescent', 'Claw Cyclone', 'Disseverment', 'Foot Kick', 'Frenetic Rip', 'Goblin Rush', 
-'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball', 'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack', 
-'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats', 'Sweeping Gouge', 'Sudden Lunge'}
-
-blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind', 'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage', 
-'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate', 'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse', 
-'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray', 'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush', 
-'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare', 'Sandspin', 'Vapor Spray'}
-				   
-blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
-
-blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
-
-blu_rupt = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance', 'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat', 
-'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge', 'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
-					 
-blu_bre = S {'Bad Breath', 'Poison Breath', 'Radiant Breath', 'Frost Breath', 'Heat Breath', 'Thunder Breath', 'Wind Breath'}
-
-
-
 ----------------
 ---- SETS ------
 ----------------
@@ -525,10 +460,72 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
 }
 
-
-
 end
 
+
+-------------------
+--   AREA List   --
+-------------------
+
+areas = {}
+
+-- City areas for town gear
+areas.towns = S{
+    "Ru'Lude Gardens",
+    "Upper Jeuno",
+    "Lower Jeuno",
+    "Port Jeuno",
+    "Port Windurst",
+    "Windurst Waters",
+    "Windurst Woods",
+    "Windurst Walls",
+    "Heavens Tower",
+    "Port San d'Oria",
+    "Northern San d'Oria",
+    "Southern San d'Oria",
+    "Port Bastok",
+    "Bastok Markets",
+    "Bastok Mines",
+    "Metalworks",
+    "Aht Urhgan Whitegate",
+    "Tavnazian Safehold",
+    "Nashmau",
+    "Selbina",
+    "Mhaura",
+    "Norg",
+    "Eastern Adoulin",
+    "Western Adoulin",
+    "Kazham",
+    "Rabao",
+    "Chocobo Circuit",
+}
+
+
+-------------------------
+--   BLU Spells List   --
+-------------------------
+
+blu_cure = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Pollen', 'Restoral', 'Wild Carrot'} 
+
+blu_phy = S {'Asuran Claws', 'Bilgestorm', 'Bludgeon', 'Body Slam', 'Feather Storm', 'Mandibular Bite', 'Queasyshroom', 'Power Attack', 'Ram Charge', 'Saurian Slide', 'Screwdriver', 'Sickle Slash', 
+'Smite of Rage', 'Spinal Cleave', 'Spiral Spin', 'Sweeping Gouge', 'Terror Touch', 'Battle Dance', 'Bloodrake', 'Death Scissors', 'Dimensional Death', 'Empty Thrash', 'Quadrastrike', 'Uppercut', 
+'Tourbillion', 'Thrashing Assault', 'Vertical Cleave', 'Whirl of Rage', 'Amorphic Spikes', 'Barbed Crescent', 'Claw Cyclone', 'Disseverment', 'Foot Kick', 'Frenetic Rip', 'Goblin Rush', 
+'Hysteric Barrage', 'Paralyzing Triad', 'Seedspray', 'Sinker Drill', 'Vanity Dive', 'Cannonball', 'Delta Thrust', 'Glutinous Dart', 'Grand Slam', 'Quad. Continuum', 'Sprout Smack', 
+'Benthic Typhoon', 'Helldive', 'Hydro Shot', 'Jet Stream', 'Pinecone Bomb', 'Wild Oats', 'Sweeping Gouge', 'Sudden Lunge'}
+
+blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whisker', 'Droning Whirlwind', 'Firespit', 'Foul Waters', 'Gates of Hades', 'Leafstorm', 'Molting Plumage', 
+'Nectarous Deluge', 'Polar Roar', 'Regurgitation', 'Rending Deluge', 'Scouring Spate', 'Searing Tempest', 'Silent Storm', 'Spectral Floe', 'Subduction', 'Tem. Upheaval', 'Thermal Pulse', 
+'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray', 'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush', 
+'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare', 'Sandspin', 'Vapor Spray'}
+				   
+blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
+
+blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
+
+blu_rupt = S {'Barrier Tusk', 'Cocoon', 'Erratic Flutter', 'Harden Shell', 'Orcish Counterstance', 'Plasma Charge', 'Pyric Bulwark', 'Memento Mori', 'Nat. Meditation', 'Reactor Cool', 'Saline Coat', 
+'Feather Barrier', 'Refueling', 'Warm-Up', 'Zephyr Mantle', 'Reactor Cool', 'Plasma Charge', 'Amplification', 'Mighty Guard', 'Carcharian Verve', 'Magic Barrier'}
+					 
+blu_bre = S {'Bad Breath', 'Poison Breath', 'Radiant Breath', 'Frost Breath', 'Heat Breath', 'Thunder Breath', 'Wind Breath'}
 
 
 ----------------
