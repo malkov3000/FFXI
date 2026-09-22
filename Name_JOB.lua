@@ -374,23 +374,6 @@ function midcast(spell)
 	if sets.ja[spell.english] then 
 		equip(sets.ja[spell.english]) 
 	end
-
--- Blue Magic Midcast uses spell lists at bottom of file!
-	if blu_cure:contains(spell.english) then
-		equip(sets.blu.cure)  
-	elseif blu_phy:contains(spell.english) then
-		equip(sets.blu.phy)
-	elseif blu_mab:contains(spell.english) then
-		equip(sets.blu.mab)
-	elseif blu_macc:contains(spell.english) then
-		equip(sets.blu.macc)
-	elseif blu_skill:contains(spell.english) then
-		equip(sets.blu.skill)
-	elseif blu_rupt:contains(spell.english) then
-		equip(sets.blu.rupt)
-	elseif blu_bre:contains(spell.english) then
-		equip(sets.blu.bre)		
-	end  
 		
 end
 
