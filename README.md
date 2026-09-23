@@ -5,8 +5,11 @@ Name_JOB.lua has all the features included.  The other examples only contain wha
 Place in ...\Windower\addons\GearSwap\data folder.  Open with Notepad++ and read the comments to see where to add your gear sets.  Use "//gs export" in game to export your current quipped gear into a file (...\Windower\addons\GearSwap\data\export) that can be copied into the correct gearswap set.
 
 
+There are very few custom commands included in some of the examples that can be used with the commands below::
 
-You can make macros to swap TP sets and Weapon sets:
+
+
+Macros to swap TP sets and Weapon sets:
 
 Use "/console gs c toggletp" to cycle TP
 
@@ -22,7 +25,7 @@ Use "/console gs c ws4" to use 4th WS for that Wep set
 
 
 
-You can make macro to cycle Bar spells and cast to save macro space:
+Macro to cycle Bar spells and cast to save macro space:
 
 Use "/console gs c togglebarelement" to cycle bar element list
 
