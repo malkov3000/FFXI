@@ -9,10 +9,15 @@ Place in Windower>addons>GearSwap>data folder.  Open with Notepad++ and read the
 You can make macros to swap TP sets and Weapon sets:
 
 Use "/console gs c toggletp" to cycle TP
+
 Use "/console gs c togglewep" to cycle Weps
+
 Use "/console gs c ws1" to use 1st WS for that Wep set
+
 Use "/console gs c ws2" to use 2nd WS for that Wep set
+
 Use "/console gs c ws3" to use 3rd WS for that Wep set
+
 Use "/console gs c ws4" to use 4th WS for that Wep set
 
 
@@ -20,6 +25,9 @@ Use "/console gs c ws4" to use 4th WS for that Wep set
 You can make macro to cycle Bar spells and cast to save macro space:
 
 Use "/console gs c togglebarelement" to cycle bar element list
+
 Use "/console gs c castbarelement" to cast current bar element
+
 Use "/console gs c togglebarstatus" to cycle bar status list
+
 Use "/console gs c castbarstatus" to cast current bar status
