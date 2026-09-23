@@ -5,7 +5,7 @@ Name_JOB.lua has all the features included.  The other examples only contain wha
 Place in ...\Windower\addons\GearSwap\data folder.  Open with Notepad++ and read the comments to see where to add your gear sets.  Use "//gs export" in game to export your current quipped gear into a file (...\Windower\addons\GearSwap\data\export) that can be copied into the correct gearswap set.
 
 
-There are custom commands included in some of the examples that can be used with the commands below v
+There are custom commands included in some of the examples that can be used with these macros:
 
 
 
