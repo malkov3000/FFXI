@@ -1,5 +1,5 @@
 Intended to be a standard GearSwap LUA template as a starting point for newbies.
 
-Place in Windower>addons>GearSwap>data folder.
+Name_JOB.lua has all the features included.  The other examples only contain what the need for that specific job.
 
-Open with Notepad++ or similar and read the comments to see where to add your gear sets.
+Place in Windower>addons>GearSwap>data folder.  Open with Notepad++ or similar and read the comments to see where to add your gear sets.
