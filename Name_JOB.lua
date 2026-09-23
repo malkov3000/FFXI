@@ -422,6 +422,11 @@ end
 ---
 
 function midcast(spell)
+
+--Pet Midcast protection!
+	if pet_midaction() then
+        return
+    end
 	
 -- Magic
 	if sets.ma[spell.skill] then 
@@ -483,6 +488,11 @@ end
 
 function aftercast(spell)
 
+--Pet Midcast protection!
+	if pet_midaction() then
+        return
+    end
+	
 	if player.status == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
 	elseif areas.towns:contains(world.area) then 
