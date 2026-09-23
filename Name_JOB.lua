@@ -195,6 +195,9 @@ function get_sets()
 	sets.fc['Summoning Magic'] = {}
 	sets.fc['Ninjutsu'] = {}
 
+	-- na spell fc
+	sets.fc.na = {}
+
 
 
 --------------------- MAGIC SETS -----------------------
@@ -571,17 +574,20 @@ end
 
 
 function self_command(command)
+	-- TP set cycle
     if command == 'toggletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	-- weapon cycle
     elseif command == 'togglewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	-- WS list cycle
 	elseif command == 'ws1' then
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
 	elseif command == 'ws2' then
@@ -590,6 +596,7 @@ function self_command(command)
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
 	elseif command == 'ws4' then
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
+	-- bar spell cycle
 	elseif command == 'togglebarelement' then 
         BARELE_Index = BARELE_Index +1
         if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
