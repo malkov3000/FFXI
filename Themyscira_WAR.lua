@@ -91,21 +91,42 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"Naegling","Chango"}
+	WEP_Set_Names = {"Chango","Dolichenus","Naegling","Loxotic","ShiningOne"}
 	
 	-- TP sets go below!
+	
+	sets.wep.Chango = {    
+    main="Chango",
+    sub="Kaja Grip",
+	}	
+	WSLIST.Chango = {"","","",""}
+	
+	sets.wep.Dolichenus = {    
+    main="Dolichenus",
+    sub="Blurred shield +1",
+	}	
+	WSLIST.Dolichenus = {"","","",""}
 	
 	sets.wep.Naegling = {    
     main="Naegling",
     sub="Blurred shield +1",
 	}	
-	WSLIST.Naegling = {"Savage Blade","Chant du Cygne","Sanguine Blade","Flat Blade"}
-
-	sets.wep.Chango = {    
-    main="Chango",
+	WSLIST.Naegling = {"","","",""}
+	
+	sets.wep.Loxotic = {    
+    main="Loxotic mace +1",
+    sub="Blurred shield +1",
+	}	
+	WSLIST.Loxotic = {"","","",""}
+	
+	sets.wep.ShiningOne = {    
+    main="Kaja lance",
     sub="Kaja Grip",
 	}	
-	WSLIST.Naegling = {"Savage Blade","Chant du Cygne","Sanguine Blade","Flat Blade"}
+	WSLIST.ShiningOne = {"","","",""}
+	
+
+
 
 
 
@@ -172,7 +193,7 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
-    ammo="Oshasha's Treatise",
+    ammo="Crepuscular Pebble",
     head="Agoge Mask +3",
     body="Pumm. Lorica +2",
     hands="Boii Mufflers +3",
@@ -180,7 +201,7 @@ function get_sets()
     feet="Sulev. Leggings +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
-    left_ear="Ishvara Earring",
+    left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
     right_ring="Cornelia's Ring",
@@ -214,6 +235,7 @@ function get_sets()
 
 	sets.ja['Berserk'] = {
     body="Pumm. Lorica +2",
+    feet="Agoge Calligae +2",
 	}
 	
 	sets.ja['Warcry'] = {
@@ -440,7 +462,7 @@ end
 
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- Toggle for TP and WEAPON set modes
 ---
 
 function self_command(command)

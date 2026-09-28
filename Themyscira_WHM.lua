@@ -71,6 +71,7 @@ function get_sets()
 
 	WEP_Index = 1 --Don't Change!
 	sets.wep = {} --Leave Empty!
+	WSLIST = {}
 
 	-- We can have multiple different WEAPON sets!
 	--
@@ -678,10 +679,7 @@ function handle_zone_gear_swap(new_zone_id, old_zone_id)
             equip(sets.idle.dt) 
         end
         
-        -- Confirms weapon selections update through transitions safely
-        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
-            equip(sets.wep[WEP_Set_Names[WEP_Index]])
-        end
+
     end
 end
 
