@@ -195,9 +195,6 @@ function get_sets()
 	sets.fc['Summoning Magic'] = {}
 	sets.fc['Ninjutsu'] = {}
 
-	-- na spell fc
-	sets.fc.na = {}
-
 
 
 --------------------- MAGIC SETS -----------------------
@@ -425,11 +422,6 @@ end
 ---
 
 function midcast(spell)
-
---Pet Midcast protection!
-	if pet_midaction() then
-        return
-    end
 	
 -- Magic
 	if sets.ma[spell.skill] then 
@@ -491,11 +483,6 @@ end
 
 function aftercast(spell)
 
---Pet Midcast protection!
-	if pet_midaction() then
-        return
-    end
-	
 	if player.status == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
 	elseif areas.towns:contains(world.area) then 
@@ -574,20 +561,17 @@ end
 
 
 function self_command(command)
-	-- TP set cycle
     if command == 'toggletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-	-- weapon cycle
     elseif command == 'togglewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
-	-- WS list cycle
 	elseif command == 'ws1' then
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
 	elseif command == 'ws2' then
@@ -596,7 +580,6 @@ function self_command(command)
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
 	elseif command == 'ws4' then
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
-	-- bar spell cycle
 	elseif command == 'togglebarelement' then 
         BARELE_Index = BARELE_Index +1
         if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
@@ -648,7 +631,7 @@ function file_unload()
         windower.unregister_event(my_zone_event)
         my_zone_event = nil
         -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
-       -- windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+        windower.add_to_chat(121, '--- Gearswap cleanup successful! ---')
     end
 end 
 
