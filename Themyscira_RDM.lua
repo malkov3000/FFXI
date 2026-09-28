@@ -648,6 +648,6 @@ function file_unload()
         windower.unregister_event(my_zone_event)
         my_zone_event = nil
         -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
-        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+        windower.add_to_chat(121, '--- Gearswap cleanup successful! ---')
     end
 end 
