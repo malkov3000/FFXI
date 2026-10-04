@@ -346,6 +346,7 @@ function get_sets()
 	
 	sets.ma['Healing Magic'] = { 
 	main="Daybreak",
+--	ammo="@???",  --can put ammo slot item here
     head="Vanya hood",
     body="Kaykaus bilaut +1",
     hands="Kaykaus cuffs +1",
