@@ -8,7 +8,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 2 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 3 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -16,7 +16,7 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 2') -- Update # to desired starting macro book!
+send_command('input /macro book 3') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 2') -- Update # to desired starting macro set!
 
 -------------------------------------NO HELP ON----------------------------------------
@@ -43,6 +43,8 @@ function get_sets()
 
 	-- DT set here
 	sets.idle.dt = {
+	sub="Genmei shield",
+--	ammo="@???",  --can put defensive ammo slot item here
     head="Fili Calot +2",
     body="Fili hongreline +2",
     hands="Fili Manchettes +2",
@@ -61,23 +63,14 @@ function get_sets()
 	sets.idle.town = sets.idle.dt  
 
 
-
------------------------ ENMITY SETS --------------------
-
-	sets.hate = {} --Leave Empty!
-	
-	-- Enmity +++
-	sets.hate.high = {}
-	
-	-- Enmity ---
-	sets.hate.low = {}
 	
 	
 
 ----------------------- WEAPON SETS --------------------
 
-	WEP_Index = 1 --Don't Change!
-	sets.wep = {} --Leave Empty!
+	WEP_Index = 1 
+	sets.wep = {} 
+	WSLIST = {}
 
 	-- We can have multiple different WEAPON sets!
 	--
@@ -86,18 +79,39 @@ function get_sets()
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
 	-- You can remove sets from this list too!
-	WEP_Set_Names = {"TPBONUS","SKILL","ACC"}
+	WEP_Set_Names = {"NeagTP","NeagAcc","TwashTP","TwashAcc","Tauret",}
 	
 	-- Weapon sets go below! Here are samples!
 	
-	--TP BONUS
-	sets.wep.TPBONUS = {}	
+	--Neagling with 1000TP bonus
+	sets.wep.NeagTP = {
+	main="Naegling",
+    sub="Fusetto +2",}	
+	WSLIST.NeagTP = {"Savage Blade","@???","@???","@???"}  --Fill out the WSs you want here!
 
-	--SKILL+
-	sets.wep.SKILL = {}
+	--Neagling with ACC dagger
+	sets.wep.NeagAcc = {
+	main="Naegling",
+    sub="Gleti's knife",}
+	WSLIST.NeagAcc = {"Savage Blade","@???","@???","@???"}
 
-	--ACCURACY
-	sets.wep.ACC = {}
+	--Twash with 1000TP bonus
+	sets.wep.TwashTP = {
+	main="Twashtar",
+    sub="Fusetto +2",}
+	WSLIST.TwashTP = {"Rudra's Storm","@???","@???","@???"}
+	
+	--Twash with ACC dagger
+	sets.wep.TwashACC = {
+	main="Twashtar",
+    sub="Gleti's knife",}
+	WSLIST.TwashACC = {"Rudra's Storm","@???","@???","@???"}
+	
+	--Tauret
+	sets.wep.Tauret = {
+	main="Tauret",
+    sub="Gleti's knife",}
+	WSLIST.Tauret = {"Evisceration","@???","@???","@???"}
 
 
 	
@@ -113,12 +127,13 @@ function get_sets()
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
 	-- You can remove sets from this list too!
-	TP_Set_Names = {"DT","ACC","TP", "TH"}
+	TP_Set_Names = {"DT","TP","MaxDT","TH",}
 	
 	-- TP sets go below! Here are samples!
 	
 	--Damage Taken Reduction
 	sets.tp.DT = {
+--	ammo="@???",  --can put offensive ammo slot item here
 	head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Fili Manchettes +2",
@@ -132,52 +147,55 @@ function get_sets()
     right_ring="Shneddick Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}	
 
-	--Accuracy
-	sets.tp.ACC = {}
-
 	--Multi-Hit, Store TP, Attack Speed
 	sets.tp.TP = {
-	main="Naegling",
-    sub="Kartika",
+--	ammo="@???",  --can put offensive ammo slot item here
 	head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Fili Manchettes +2",
     legs="Fili Rhingrave +2",
     feet="Fili Cothurnes +2",
-    neck="Ocachi gorget",
+    neck="Bard's charm +1",
     waist="Sailfi belt +1",
     left_ear="Dedition earring",
     right_ear="Brutal earring",
     left_ring="Chirich ring +1",
     right_ring="Ilabrat ring",			
     back="Null belt",}
+	
+	--Max DT+MEVA ----------careful, may lose a lot of HP on switch due to Nyame-- have to check!!!---
+	sets.tp.MaxDT = {
+	ammo="Aurgelmir orb",
+    head="Nyame helm",
+    body="Nyame mail",
+    hands="Nyame gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
+    neck="Sanctity necklace",
+    waist="Null belt",
+    left_ear="Alabaster earring",
+    right_ear="Dominance Earring",
+    left_ring="Murky Ring",
+    right_ring="Shneddick Ring",
+    back="Null shawl"}
 
 	--Treasure Hunter
 	sets.tp.TH = {
 	ammo="Perfect lucky egg",
 	head="Wh. rarab cap +1",
+    body="Inyanga Jubbah +2",
     hands="Fili Manchettes +2",
     legs="Fili Rhingrave +2",
     feet="Fili Cothurnes +2",
-    neck="Sanctity necklace",
-    waist="Null belt",
-    left_ear="Alabaster Earring",
-    right_ear="Dominance Earring",
-    left_ring="Murky Ring",
-    right_ring="Shneddick Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}		
+    neck="Bard's charm +1",
+    waist="Sailfi belt +1",
+    left_ear="Dedition earring",
+    right_ear="Brutal earring",
+    left_ring="Chirich ring +1",
+    right_ring="Ilabrat ring",			
+    back="Null belt",}	
 
 
-	
---------------------- RANGED SETS ----------------------
-
-	sets.ra = {} --Leave Empty!
-	
-	-- PRESHOT goes here
-	sets.ra.preshot = {}
-
-	-- MIDSHOT goes here
-	sets.ra.midshot = {}
 
 
 
@@ -186,12 +204,65 @@ function get_sets()
 	sets.ws = {} --Leave Empty!
 
 	-- WS set here
-	sets.ws.standard = {}  
-
-	-- WS specific sets! Replace the x with the WS name!
-	-- Like this--->> sets.ws['Savage Blade'] = {}
+	sets.ws.standard = {
+--	ammo="@???",  --can put offensive ammo slot item here
+	head="Nyame helm",
+    body="bihu justaucorps +2",
+    hands="Nyame gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
+    neck="Bard's charm +1",
+    waist="Sailfi belt +1",
+    left_ear="Alabaster Earring",
+    right_ear="Moonshade earring",
+    left_ring="Cornelia's ring",
+    right_ring="Ilabrat ring",			
+    back="Null shawl",}  
 	
-	sets.ws['x'] = {}  
+	sets.ws['Savage blade'] = {
+--	ammo="@???",  --can put offensive ammo slot item here
+	head="Nyame helm",
+    body="bihu justaucorps +2",
+    hands="Nyame gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
+    neck="Bard's charm +1",
+    waist="Sailfi belt +1",
+    left_ear="Alabaster Earring",
+    right_ear="Moonshade earring",
+    left_ring="Cornelia's ring",
+    right_ring="Ilabrat ring",			
+    back="Null shawl",}
+
+	sets.ws['Evisceration'] = { 
+--	ammo="@???",  --can put offensive ammo slot item here
+    head="Nyame helm",
+    body="bihu justaucorps +2",
+    hands="Nyame gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
+    neck="Bard's charm +1",
+    waist="light belt",
+    left_ear="Alabaster Earring",
+    right_ear="Moonshade earring",
+    left_ring="Cornelia's ring",
+    right_ring="Ilabrat ring",			
+    back="Null shawl",}
+	
+	sets.ws["Rudra's storm"] = {
+--	ammo="@???",  --can put offensive ammo slot item here
+    head="Nyame helm",
+    body="bihu justaucorps +2",
+    hands="Nyame gauntlets",
+    legs="Nyame flanchard",
+    feet="Nyame sollerets",
+    neck="Bard's charm +1",
+    waist="light belt",
+    left_ear="Alabaster Earring",
+    right_ear="Moonshade earring",
+    left_ring="Cornelia's ring",
+    right_ring="Ilabrat ring",			
+    back="Null shawl",} 
 
 
 
@@ -200,28 +271,23 @@ function get_sets()
 	sets.ja = {} --Leave Empty!
 
 	--Uses: Windower>res>job_abilities
-	sets.ja['CorsairRoll'] = {}
-	sets.ja['CorsairShot'] = {}
-	sets.ja['Waltz'] = {}
-	sets.ja['Jig'] = {}
-	sets.ja['Step'] = {}
-	sets.ja['BloodPactRage'] = {}
-	sets.ja['BloodPactWard'] = {}
-	sets.ja['PetCommand'] = {}
-	sets.ja['Monster'] = {}
+	--sets.ja['CorsairRoll'] = {}
+	--sets.ja['CorsairShot'] = {}
+	
+--	sets.ja['Waltz'] = {'@???'}  --Waltz potency gear?
+	
+	--sets.ja['Jig'] = {}
+	--sets.ja['Step'] = {}
+	--sets.ja['BloodPactRage'] = {}
+	--sets.ja['BloodPactWard'] = {}
+	--sets.ja['PetCommand'] = {}
+	--sets.ja['Monster'] = {}
 
-	-- Single Ability examples below!
-	-- Replace the x with desired Ability name!
-
-	sets.ja['x'] = {}
 	sets.ja['Soul Voice'] = {legs="Bihu Cannions +2"}
 	sets.ja['Nightingale'] = {feet="Bihu Slippers +2"}
 	sets.ja['Troubadour'] = {body="Bihu jstcorps. +2"}
 
-	-- We can set an Ability to a set we already created!
-	-- See example below!
 
---	sets.ja['Provoke'] = sets.hate.high
 	
 	
 
@@ -229,10 +295,26 @@ function get_sets()
 
 	sets.fc = {} --Leave Empty!
 
-	-- FC set here
+	-- FC set here (this is a catch all for any spell type you don't have a dedicated FC set for i.e. ninjutsu or cures or whatever)
 	sets.fc.standard = {
-	main={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+	ammo="Impatiens",
+    body="Inyanga Jubbah +2",
+    hands="Gende. Gages +1",
+    legs="Aya. Cosciales +2",
+    feet="Fili Cothurnes +2",
+    waist="Embla Sash",
+    right_ear="Loquac. Earring",
+    left_ring="Prolix Ring",
+    right_ring="Naji's Loop",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+}
+	
+	--  FC set for ONLY bard songs 
+	sets.fc['Singing'] = {
+    ammo = empty,
+	range="Gjallarhorn",
     head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Gende. Gages +1",
@@ -243,19 +325,62 @@ function get_sets()
     left_ear="Aoidos' Earring",
     right_ear="Loquac. Earring",
     left_ring="Prolix Ring",
-    right_ring="Inyanga Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}  
+    right_ring="Naji's Loop",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+}
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
-	sets.fc['Blue Magic'] = {}
-	sets.fc['Divine Magic'] = {}
-	sets.fc['Healing Magic'] = {}
-	sets.fc['Enhancing Magic'] = {}
-	sets.fc['Enfeebling Magic'] = {}
-	sets.fc['Elemental Magic'] = {}
-	sets.fc['Dark Magic'] = {}
-	sets.fc['Summoning Magic'] = {}
-	sets.fc['Ninjutsu'] = {}
+	sets.fc['Stringed Instrument'] = sets.fc['Singing'] 
+	
+	sets.fc['Wind Instrument'] = sets.fc['Singing']
+	
+	
+	
+	--  FC set for ONLY Honor March - MUST INCLUDE MARSYAS OR YOU WON"T BE ABLE TO HONOR MARCH  
+	sets.fc['Honor March'] = set_combine(sets.fc['Singing'], {
+    range="Marsyas",
+    head="Fili Calot +2",
+    body="Inyanga Jubbah +2",
+    hands="Gende. Gages +1",
+    legs="Aya. Cosciales +2",
+    feet="Fili Cothurnes +2",
+    neck="Aoidos' Matinee",
+    waist="Embla Sash",
+    left_ear="Aoidos' Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Prolix Ring",
+    right_ring="Naji's Loop",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+})  
+	
+	--  FC set for ONLY DUMMY songs - MUST INCLUDE 4 song instrument OR YOU WON"T BE ABLE TO OPEN SLOT  
+	sets.fc.dummy = set_combine(sets.fc['Singing'], {
+    range="Daurdabla",
+    head="Fili Calot +2",
+    body="Inyanga Jubbah +2",
+    hands="Gende. Gages +1",
+    legs="Aya. Cosciales +2",
+    feet="Fili Cothurnes +2",
+    neck="Aoidos' Matinee",
+    waist="Embla Sash",
+    left_ear="Aoidos' Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Prolix Ring",
+    right_ring="Naji's Loop",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+})
+	
+	
+	
+	--Uses: Windower>res>spells AND Windower>res>skills    (Need to make FC set for other spells)
+	--sets.fc['Blue Magic'] = {}
+	--sets.fc['Divine Magic'] = {}
+	--sets.fc['Healing Magic'] = {}
+	sets.fc['Enhancing Magic'] = set_combine(sets.fc.standard, { waist = 'Siegel Sash'})
+	--sets.fc['Enfeebling Magic'] = {}
+	--sets.fc['Elemental Magic'] = {}
+	--sets.fc['Dark Magic'] = {}
+	--sets.fc['Summoning Magic'] = {}
+	--sets.fc['Ninjutsu'] = {}
 
 
 
@@ -264,9 +389,11 @@ function get_sets()
 	sets.ma = {} --Leave Empty!
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
-	sets.ma['Divine Magic'] = {}
+	--sets.ma['Divine Magic'] = {}
+	
 	sets.ma['Healing Magic'] = { 
 	main="Daybreak",
+--	ammo="@???",  --can put ammo slot item here
     head="Vanya hood",
     body="Kaykaus bilaut +1",
     hands="Kaykaus cuffs +1",
@@ -277,39 +404,66 @@ function get_sets()
     left_ear="Gifted Earring",
     right_ear="Calamitous Earring",
     left_ring="Prolix Ring",
-    right_ring="Inyanga Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}
+    right_ring="Naji's Loop",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+	}
 	
-	sets.ma['Enhancing Magic'] = {}
-	sets.ma['Enfeebling Magic'] = {}
-	sets.ma['Elemental Magic'] = {}
-	sets.ma['Dark Magic'] = {}
-	sets.ma['Summoning Magic'] = {}
-	sets.ma['Ninjutsu'] = {}
-	
-	sets.ma['Singing'] = {
-	main={ 
-	name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot +2",
-    body="Fili hongreline +2",
-    hands="Fili manchettes +2",
-    legs="Aya. Cosciales +2",
-    feet="Brioso Slippers +3",
-    neck="Moonbow Whistle +1",
-    waist="Embla Sash",
-    left_ear="Aoidos' Earring",
-    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+	sets.ma['Enhancing Magic'] = {
+	main="Daybreak",
+    head="Vanya hood",
+    body="Kaykaus bilaut +1",
+    hands="Kaykaus cuffs +1",
+    legs="Shedir seraweels",
+    feet="Vanya clogs",
+    neck="Reti pendant",
+    waist="Olympus sash",
+    left_ear="Gifted Earring",
+    right_ear="Loquac. Earring",
     left_ring="Prolix Ring",
     right_ring="Inyanga Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}
+	
+	--sets.ma['Enfeebling Magic'] = {}
+	--sets.ma['Elemental Magic'] = {}
+	--sets.ma['Dark Magic'] = {}
+	--sets.ma['Summoning Magic'] = {}
+	--sets.ma['Ninjutsu'] = {}
+	
+	sets.ma['Singing'] = {
+    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+    ammo = empty,
+	range="Gjallarhorn",
+    head="Fili Calot +2",
+    body="Fili Hongreline +2",
+    hands="Fili Manchettes +2",
+    legs="Aya. Cosciales +2",
+    feet="Brioso slippers +3",
+    neck="Mnbw. Whistle +1",
+    waist="Null Belt",
+    left_ear="Aoidos' Earring",
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    left_ring="Murky Ring",
+    right_ring="Inyanga Ring",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+}
+	
+	sets.ma['Stringed Instrument'] = sets.ma['Singing'] 
+	
+	sets.ma['Wind Instrument'] = sets.ma['Singing']
+
 
 	-- Single Spell examples below!
-	-- Replace the x with desired Spell name!
 
-	sets.ma['Horde Lullaby II'] = {
-	main={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+	
+	sets.ma["Honor March"] = set_combine(sets.ma['Singing'], { range = 'Marsyas'})
+	
+	--Lullaby--
+	sets.ma['Foe lullaby'] = {
+    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+	ammo = empty,
+	range="Gjallarhorn", 
     head="Brioso Roundlet +3",
     body="Fili hongreline +2",
     hands="Brioso Cuffs +3",
@@ -323,35 +477,147 @@ function get_sets()
     right_ring="Inyanga Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}
 	
-	sets.ma['Foe Lullaby II'] = sets.ma['Horde Lullaby II']
+	sets.ma['Foe Lullaby II'] = sets.ma['Foe Lullaby']
 	
-	sets.ma['Stoneskin'] = {
-	main="Daybreak",
-    head="Vanya hood",
-    body="Kaykaus bilaut +1",
-    hands="Kaykaus cuffs +1",
-    legs="Shedir seraweels",
-    feet="Vanya clogs",
-    neck="Reti pendant",
-    waist="Siegel sash",
-    left_ear="Gifted' Earring",
-    right_ear="Loquac. Earring",
+	sets.ma['Horde Lullaby'] = {
+    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+    ammo = empty,
+	range="Blurred Harp +1",
+    head="Brioso Roundlet +3",
+    body="Fili hongreline +2",
+    hands="Brioso Cuffs +3",
+    legs="Aya. Cosciales +2",
+    feet="Brioso Slippers +3",
+    neck="Moonbow Whistle +1",
+    waist="Eschan Stone",
+    left_ear="Hermetic Earring",
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
     left_ring="Prolix Ring",
     right_ring="Inyanga Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}
 	
-	sets.ma['Aquaveil'] = sets.ma['Stoneskin']
-
-	-- We can set a Spell to a set we already created!
-	-- See example below!
+	sets.ma['Horde Lullaby II'] = sets.ma['Horde Lullaby']
 	
---	sets.ma['Flash'] = sets.hate.high
+	sets.ma['Stoneskin'] = set_combine(sets.ma['Enhancing Magic'], { waist = 'Siegel Sash'})
+	
+	
+
+	
+------------------- SONG SETS --------------------
+
+	sets.brd = {} --Leave Empty!
+
+	
+	--[[Buff set + gear item--
+	Minne - 	Mousai seraweels +1 (only)
+	Threnody -	Mousai Manteel/+1
+	Scherzo - 	Fili Cothurnes +2
+	Carol - 	Mousai Gages/+1
+	Mambo - 	Mousai Crackows/+1
+	Etude - 	Mousai Turban/+1
+	Paeon - 	Brioso Roundlet +3	
+]]
+
+
+
+	--buffs
+	sets.brd.buff = sets.ma['Singing']
+
+	sets.brd.Minne = sets.brd.buff -- set_combine(sets.brd.buff, {'@???'})
+	
+	sets.brd.scherzo = set_combine(sets.brd.buff, {Feet='Fili Cothurnes +2'})
+	
+	sets.brd.Carol = sets.brd.buff -- set_combine(sets.brd.buff, {'@???'})
+	
+	sets.brd.mambo = sets.brd.buff -- set_combine(sets.brd.buff, {'@???'})
+	
+	sets.brd.Etude = sets.brd.buff -- set_combine(sets.brd.buff, {'@???'})
+	
+	sets.brd.paeon = set_combine(sets.brd.buff, {Head='Brioso Roundlet +3'})	
+	
+	--debuffs
+	sets.brd.debuff = set_combine(sets.ma['Singing'], {
+	sub={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+    Main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    ammo = empty,
+	range="Gjallarhorn", 
+    head="Brioso Roundlet +3",
+    body="Fili hongreline +2",
+    hands="Brioso Cuffs +3",
+    legs="Aya. Cosciales +2",
+    feet="Brioso Slippers +3",
+    neck="Moonbow Whistle +1",
+    waist="Eschan Stone",
+    left_ear="Hermetic Earring",
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    left_ring="Prolix Ring",
+    right_ring="Inyanga Ring",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},})	
+	
+	sets.brd.Threnody = sets.brd.debuff--set_combine(sets.brd.debuff, {'@???'})
+		
+	--dummy
+	sets.brd.dummy = set_combine(sets.idle.dt, { range = 'Daurdabla'})	
 
 
 
 
 	
 end
+
+
+
+--[[
+-------------------------
+--   BRD Song List   --
+-------------------------
+--Ballad -	Mage's ballad, Mage's ballad II, Mage's ballad III
+--Minne - 	Knight's Minne, Knight's Minne II, Knight's Minne III, Knight's Minne IV, Knight's Minne V
+--Minuet - 	Valor Minuet, Valor Minuet II, Valor Minuet III, Valor Minuet IV, Valor Minuet V
+--Madrigal - 	Sword madrigal, Blade madrigal
+--Prelude - 	hunter's prelude, Archer's prelude
+March - 	Victory march, Advancing march, Honor march
+--Lullaby - 	Foe lullaby, Foe lullaby II, Horde lullaby, Horde lullaby II
+--Threnody - 	fire Threnody, ice Threnody, wind Threnody, earth Threnody, lightning Threnody, water Threnody, light Threnody, dark Threnody, 
+			fire Threnody II, ice Threnody II, wind Threnody II, earth Threnody II, lightning Threnody II, water Threnody II, light Threnody II, dark Threnody II
+--Scherzo - 	Sentinel's scherzo
+--Carol - 	fire Carol, ice Carol, wind Carol, earth Carol, lightning Carol, water Carol, light Carol, dark Carol II
+--Carol - 	fire Carol II, ice Carol II, wind Carol II, earth Carol II, lightning Carol II, water Carol II, light Carol II, dark Carol II
+--Mambo - 	Sheepfoe, Dragonfoe
+--Etude - 	Sinewy, dextrous, vivacious, quick, learned, spirited, enchanting, herculean, uncanny, vital, swift, sage, logical, bewitching
+--Paeon - 	Army's Paeon I-VI
+--Dummy - 	probablly use Paeon
+]]
+
+-- @????  You gotta stick these songs from above into the spots below please!
+
+-------------------------
+--   BRD Spells List   --
+-------------------------
+
+--Do NOT include lullabys or honor march in any of these lists below!  Each song should only be in a single list!
+brd_buff = S {"Mage's Ballad", "Mage's Ballad II", "Mage's Ballad III", "Valor Minuet", "Valor Minuet II", "Valor Minuet III", "Valor Minuet IV", "Valor Minuet V", "Sword Madrigal", "Blade Madrigal", "Hunter's Prelude", "Archer's Prelude", "Valor Minuet", "Advancing March", "Victory March",} 
+
+brd_debuff = S {"Foe Requiem", "Foe Requiem I", "Foe Requiem II", "Foe Requiem III", "Foe Requiem IV", "Foe Requiem V", "Foe Requiem VI", "Foe Requiem VII","Knight's Elegy", "Magic Finale", "Battlefield Elegy", "Carnage Elegy", "Maiden's Virelai", "Pine Nocturne",} 
+
+brd_Minne = S {"Knight's Minne", "Knight's Minne II", "Knight's Minne III", "Knight's Minne IV", "Knight's Minne V",} 
+
+brd_Threnody = S {"Fire Threnody", "Fire Threnody II", "Ice Threnody", "Ice Threnody II", "Wind Threnody", "Wind Threnody II", "Earth Threnody", "Earth Threnody II", "Lightning Threnody", "Lightning Threnody II", "Water Threnody", "Water Threnody II", "Light Threnody", "Light Threnody II", "Dark Threnody", "Dark Threnody II",} 
+
+brd_scherzo = S {"Sentinel's Scherzo",} 
+
+brd_Carol = S {"Fire Carol", "Fire Carol II", "Ice Carol", "Ice Carol II", "Wind Carol", "Wind Carol II", "Earth Carol", "Earth Carol II", "Lightning Carol", "Lightning Carol II", "Water Carol", "Water Carol II", "Light Carol", "Light Carol II", "Dark Carol", "Dark Carol II",} 
+
+brd_mambo = S {"Sheepfoe Mamba", "Dragonfoe Mambo",} 
+
+brd_Etude = S {"Sinewy Etude", "Dextrous Etude", "Vivacious Etude"," Quick Etude", "Learned Etude", "Spirited Etude", "Enchanting Etude", "Herculean Etude", "Uncanny Etude", "Vital Etude", "Swift Etude", "Sage Etude", "Logical Etude", "Bewitching Etude",} 
+
+brd_paeon = S {"Army's Paeon V", "Army's Paeon VI",} 
+
+--Do not include your dummy songs in any of the above lists!
+brd_dummy = S {"Army's Paeon", "Army's Paeon II", "Army's Paeon III", "Army's Paeon IV"}
+
 
 
 -------------------
@@ -408,35 +674,33 @@ function precast(spell)
 
 	
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
+	end
+	if sets.fc[spell.english] then 
+		equip(sets.fc[spell.english]) 
+	end
+	if brd_dummy:contains(spell.english) then
+		equip(sets.fc.dummy) 
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then  
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then  
 		equip(sets.ws[spell.english]) 
 	end
-	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-	--	equip(sets.ws.maxtp) 	
-	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
-	end
-	
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.preshot) --Yes!  Equip PRESHOT!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 	
 end
@@ -448,42 +712,53 @@ end
 ---
 
 function midcast(spell)
-
-
 	
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
-
+	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then  
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then  
 		equip(sets.ws[spell.english]) 
 	end
-	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-	--	equip(sets.ws.maxtp) 	
-	--end
 	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
-	end
-
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
 	
-
+-- Songs lists
+	if brd_buff:contains(spell.english) then
+		equip(sets.brd.buff)  
+	elseif brd_debuff:contains(spell.english) then
+		equip(sets.brd.debuff)	
+	elseif brd_Minne:contains(spell.english) then
+		equip(sets.brd.Minne)	
+	elseif brd_Threnody:contains(spell.english) then
+		equip(sets.brd.Threnody)	
+	elseif brd_scherzo:contains(spell.english) then
+		equip(sets.brd.scherzo)	
+	elseif brd_Carol:contains(spell.english) then
+		equip(sets.brd.Carol)	
+	elseif brd_mambo:contains(spell.english) then
+		equip(sets.brd.mambo)	
+	elseif brd_Etude:contains(spell.english) then
+		equip(sets.brd.Etude)	
+	elseif brd_paeon:contains(spell.english) then
+		equip(sets.brd.paeon)				
+	elseif brd_dummy:contains(spell.english) then
+		equip(sets.brd.dummy)		
+	end  
 		
 end
 
@@ -495,36 +770,40 @@ end
 
 function aftercast(spell)
 
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
+	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
 	end
 
 end
 
 
-
-
-
-
 ---
---- Status and Zone change
+--- Status change
 ---
 
 function status_change(new, old)
 
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+	
 end
 
 
@@ -535,19 +814,25 @@ end
 ---
 
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
 		equip({sub = "empty"}) 
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	elseif command == 'ws1' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
+	elseif command == 'ws2' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][2]..'" <t>')
+	elseif command == 'ws3' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
+	elseif command == 'ws4' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
     end
 end
 
@@ -590,6 +875,6 @@ function file_unload()
         windower.unregister_event(my_zone_event)
         my_zone_event = nil
         -- THIS LINE CONFIRMS THE UNLOAD HAPPENED:
-        windower.add_to_chat(121, '--- Gearswap cleanup: Zone event successfully removed! ---')
+        windower.add_to_chat(121, '--- Gearswap cleanup successful! ---')
     end
 end 
