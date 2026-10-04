@@ -321,10 +321,6 @@ function get_sets()
 	
 	--  FC set for ONLY DUMMY songs - MUST INCLUDE 4 song instrument OR YOU WON"T BE ABLE TO OPEN SLOT  
 	sets.fc.dummy = set_combine(sets.fc['Singing'], { range = '@??? relic'})
-	sets.fc.['dumm1 @???'] = sets.fc.dummy  
-	sets.fc.['dumm2 @???'] = sets.fc.dummy
-	sets.fc.['dumm3 @???'] = sets.fc.dummy
-	sets.fc.['dumm4 @???'] = sets.fc.dummy
 	
 	
 	
@@ -565,6 +561,9 @@ function precast(spell)
 	end
 	if sets.fc[spell.english] then 
 		equip(sets.fc[spell.english]) 
+	end
+	if brd_dummy:contains(spell.english) then
+		equip(sets.fc.dummy) 
 	end
 	
 -- Weapon Skill
