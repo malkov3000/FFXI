@@ -164,7 +164,7 @@ function get_sets()
     back="Null belt",}
 	
 	--Max DT+MEVA ----------careful, may lose a lot of HP on switch due to Nyame-- have to check!!!---
-	sets.idle.MaxDT = {
+	sets.tp.MaxDT = {
 	ammo="Aurgelmir orb",
     head="Nyame helm",
     body="Nyame mail",
