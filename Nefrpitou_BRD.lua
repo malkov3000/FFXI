@@ -329,10 +329,6 @@ function get_sets()
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
 	
-	sets.fc['Stringed Instrument'] = sets.fc['Singing'] 
-	
-	sets.fc['Wind Instrument'] = sets.fc['Singing']
-	
 	
 	
 	--  FC set for ONLY Honor March - MUST INCLUDE MARSYAS OR YOU WON"T BE ABLE TO HONOR MARCH  
@@ -447,10 +443,6 @@ function get_sets()
     right_ring="Inyanga Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
-	
-	sets.ma['Stringed Instrument'] = sets.ma['Singing'] 
-	
-	sets.ma['Wind Instrument'] = sets.ma['Singing']
 
 
 	-- Single Spell examples below!
