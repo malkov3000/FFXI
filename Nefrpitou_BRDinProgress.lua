@@ -441,7 +441,7 @@ function get_sets()
 	sets.brd.threnody = set_combine(sets.brd.debuff, {'@???'})
 		
 	--dummy
-	sets.brd.dummy = = set_combine(sets.ma['Singing'], { range = '@??? relic'})	
+	sets.brd.dummy = set_combine(sets.ma['Singing'], { range = '@??? relic'})	
 
 
 
