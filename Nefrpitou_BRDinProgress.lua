@@ -320,10 +320,11 @@ function get_sets()
 	sets.fc['Honor March'] = set_combine(sets.fc['Singing'], { range = '@??? aeonic'})  
 	
 	--  FC set for ONLY DUMMY songs - MUST INCLUDE 4 song instrument OR YOU WON"T BE ABLE TO OPEN SLOT  
-	sets.fc.['dumm1 @???'] = set_combine(sets.fc['Singing'], { range = '@??? relic'})  
-	sets.fc.['dumm2 @???'] = sets.fc.['dumm1 @???']
-	sets.fc.['dumm3 @???'] = sets.fc.['dumm1 @???']
-	sets.fc.['dumm4 @???'] = sets.fc.['dumm1 @???'] 
+	sets.fc.dummy = set_combine(sets.fc['Singing'], { range = '@??? relic'})
+	sets.fc.['dumm1 @???'] = sets.fc.dummy  
+	sets.fc.['dumm2 @???'] = sets.fc.dummy
+	sets.fc.['dumm3 @???'] = sets.fc.dummy
+	sets.fc.['dumm4 @???'] = sets.fc.dummy
 	
 	
 	
@@ -396,6 +397,12 @@ function get_sets()
 	sets.ma['Horde Lullaby II'] = {}
 	
 	sets.ma['Foe Lullaby II'] = {}
+	
+	sets.ma.dummy = set_combine(sets.ma['Singing'], { range = '@??? relic'})
+	sets.ma.['dumm1 @???'] = sets.ma.dummy  
+	sets.ma.['dumm2 @???'] = sets.ma.dummy
+	sets.ma.['dumm3 @???'] = sets.ma.dummy
+	sets.ma.['dumm4 @???'] = sets.ma.dummy
 	
 
 	
