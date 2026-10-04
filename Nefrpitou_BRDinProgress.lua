@@ -390,19 +390,16 @@ function get_sets()
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},}
 
 	-- Single Spell examples below!
-	-- Replace the x with desired Spell name!
+
 	
-	sets.ma.["Honor march"] = {}
+	sets.ma.["Honor march"] = set_combine(sets.ma['Singing'], { range = '@??? aeonic'})
 	
 	sets.ma['Horde Lullaby II'] = {}
 	
 	sets.ma['Foe Lullaby II'] = {}
 	
-	sets.ma.dummy = set_combine(sets.ma['Singing'], { range = '@??? relic'})
-	sets.ma.['dumm1 @???'] = sets.ma.dummy  
-	sets.ma.['dumm2 @???'] = sets.ma.dummy
-	sets.ma.['dumm3 @???'] = sets.ma.dummy
-	sets.ma.['dumm4 @???'] = sets.ma.dummy
+
+	
 	
 
 	
@@ -424,7 +421,7 @@ function get_sets()
 
 
 	--buffs
-	sets.brd.buff = {'@???'}	
+	sets.brd.buff = set_combine(sets.ma['Singing'], { '@???'})	
 
 	sets.brd.minne = set_combine(sets.brd.buff, {'@???'})
 	
@@ -439,12 +436,12 @@ function get_sets()
 	sets.brd.paeon = set_combine(sets.brd.buff, {'@???'})	
 	
 	--debuffs
-	sets.brd.debuff = {'@???'}
+	sets.brd.debuff = set_combine(sets.ma['Singing'], { '@???'})	
 	
 	sets.brd.threnody = set_combine(sets.brd.debuff, {'@???'})
 		
 	--dummy
-	sets.brd.dummy = {'@???'}	
+	sets.brd.dummy = = set_combine(sets.ma['Singing'], { range = '@??? relic'})	
 
 
 
