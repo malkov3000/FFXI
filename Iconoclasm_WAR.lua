@@ -107,7 +107,12 @@ function get_sets()
 	TP_Index = 1 --Don't Change!
 	sets.tp = {} --Leave Empty!
 
-
+	-- We can have multiple different TP sets!
+	--
+	--> Use "/console gs c toggletp" to cycle modes!
+	--
+	-- New modes can be added here!
+	-- Make sure to also create a TP set for it below!
 	TP_Set_Names = {"TP", "DT"}
 	
 	-- TP sets go below!
