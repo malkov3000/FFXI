@@ -44,7 +44,7 @@ function get_sets()
 	-- DT set here
 	sets.idle.dt = {
 	sub="Genmei shield",
---	ammo="@???",  --can put defensive ammo slot item here
+	ammo="Staunch tathlum",
     head="Fili Calot +2",
     body="Fili hongreline +2",
     hands="Fili Manchettes +2",
@@ -79,39 +79,45 @@ function get_sets()
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
 	-- You can remove sets from this list too!
-	WEP_Set_Names = {"NeagTP","NeagAcc","TwashTP","TwashAcc","Tauret",}
+	WEP_Set_Names = {"NeagShield","NeagTP","NeagAcc","TwashTP","TwashAcc","Tauret",}
 	
 	-- Weapon sets go below! Here are samples!
+	
+	--Neagling with shield
+	sets.wep.NeagShield = {
+	main="Naegling",
+    sub="Genmei shield",}	
+	WSLIST.NeagTP = {"Circle Blade","Burning Blade","Flat Blade","Savage Blade"}
 	
 	--Neagling with 1000TP bonus
 	sets.wep.NeagTP = {
 	main="Naegling",
     sub="Fusetto +2",}	
-	WSLIST.NeagTP = {"Savage Blade","@???","@???","@???"}  --Fill out the WSs you want here!
+	WSLIST.NeagTP = {"Circle Blade","Burning Blade","Flat Blade","Savage Blade"}  
 
 	--Neagling with ACC dagger
 	sets.wep.NeagAcc = {
 	main="Naegling",
     sub="Gleti's knife",}
-	WSLIST.NeagAcc = {"Savage Blade","@???","@???","@???"}
+	WSLIST.NeagAcc = {"Circle Blade","Burning Blade","Flat Blade","Savage Blade"}
 
 	--Twash with 1000TP bonus
 	sets.wep.TwashTP = {
 	main="Twashtar",
     sub="Fusetto +2",}
-	WSLIST.TwashTP = {"Rudra's Storm","@???","@???","@???"}
+	WSLIST.TwashTP = {"Aeolian Edge","Evisceration","Mordant Rime","Rudra's Storm"}
 	
 	--Twash with ACC dagger
-	sets.wep.TwashACC = {
+	sets.wep.TwashAcc = {
 	main="Twashtar",
     sub="Gleti's knife",}
-	WSLIST.TwashACC = {"Rudra's Storm","@???","@???","@???"}
+	WSLIST.TwashAcc = {"Aeolian Edge","Evisceration","Mordant Rime","Rudra's Storm"}
 	
 	--Tauret
 	sets.wep.Tauret = {
 	main="Tauret",
     sub="Gleti's knife",}
-	WSLIST.Tauret = {"Evisceration","@???","@???","@???"}
+	WSLIST.Tauret = {"Aeolian Edge","Evisceration","Mordant Rime","Rudra's Storm"}
 
 
 	
@@ -127,13 +133,13 @@ function get_sets()
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
 	-- You can remove sets from this list too!
-	TP_Set_Names = {"DT","TP","MaxDT","TH",}
+	TP_Set_Names = {"TP","DT","MaxDT","TH",}
 	
 	-- TP sets go below! Here are samples!
 	
 	--Damage Taken Reduction
 	sets.tp.DT = {
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Aurgelmir orb", 
 	head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Fili Manchettes +2",
@@ -149,7 +155,7 @@ function get_sets()
 
 	--Multi-Hit, Store TP, Attack Speed
 	sets.tp.TP = {
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Aurgelmir orb", 
 	head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Fili Manchettes +2",
@@ -163,9 +169,9 @@ function get_sets()
     right_ring="Ilabrat ring",			
     back="Null belt",}
 	
-	--Max DT+MEVA 
+	--Max DT+MEVA ----------careful, may lose a lot of HP on switch due to Nyame-- have to check!!!---
 	sets.tp.MaxDT = {
-	ammo="Aurgelmir orb",
+	ammo="Staunch tathlum",
     head="Nyame helm",
     body="Nyame mail",
     hands="Nyame gauntlets",
@@ -205,7 +211,7 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Oshasha's treatise",  
 	head="Nyame helm",
     body="bihu justaucorps +2",
     hands="Nyame gauntlets",
@@ -220,7 +226,7 @@ function get_sets()
     back="Null shawl",}  
 	
 	sets.ws['Savage blade'] = {
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Oshasha's treatise",
 	head="Nyame helm",
     body="bihu justaucorps +2",
     hands="Nyame gauntlets",
@@ -235,7 +241,7 @@ function get_sets()
     back="Null shawl",}
 
 	sets.ws['Evisceration'] = { 
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Oshasha's treatise",
     head="Nyame helm",
     body="bihu justaucorps +2",
     hands="Nyame gauntlets",
@@ -250,7 +256,7 @@ function get_sets()
     back="Null shawl",}
 	
 	sets.ws["Rudra's storm"] = {
---	ammo="@???",  --can put offensive ammo slot item here
+	ammo="Oshasha's treatise",
     head="Nyame helm",
     body="bihu justaucorps +2",
     hands="Nyame gauntlets",
@@ -328,12 +334,14 @@ function get_sets()
     right_ring="Naji's Loop",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
+
 	
 	
 	
 	--  FC set for ONLY Honor March - MUST INCLUDE MARSYAS OR YOU WON"T BE ABLE TO HONOR MARCH  
 	sets.fc['Honor March'] = set_combine(sets.fc['Singing'], {
-    range="Marsyas",
+    ammo = empty,
+	range="Marsyas",
     head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Gende. Gages +1",
@@ -350,7 +358,8 @@ function get_sets()
 	
 	--  FC set for ONLY DUMMY songs - MUST INCLUDE 4 song instrument OR YOU WON"T BE ABLE TO OPEN SLOT  
 	sets.fc.dummy = set_combine(sets.fc['Singing'], {
-    range="Daurdabla",
+    ammo = empty,
+	range="Daurdabla",
     head="Fili Calot +2",
     body="Inyanga Jubbah +2",
     hands="Gende. Gages +1",
@@ -391,7 +400,7 @@ function get_sets()
 	main="Daybreak",
 --	ammo="@???",  --can put ammo slot item here
     head="Vanya hood",
-    body="Kaykaus bilaut +1",
+    body="Kaykaus bliaut +1",
     hands="Kaykaus cuffs +1",
     legs="Vanya slops",
     feet="Vanya clogs",
@@ -401,13 +410,13 @@ function get_sets()
     right_ear="Calamitous Earring",
     left_ring="Prolix Ring",
     right_ring="Naji's Loop",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
+    back="Aurist's cape +1",
 	}
 	
 	sets.ma['Enhancing Magic'] = {
 	main="Daybreak",
     head="Vanya hood",
-    body="Kaykaus bilaut +1",
+    body="Kaykaus bliaut +1",
     hands="Kaykaus cuffs +1",
     legs="Shedir seraweels",
     feet="Vanya clogs",
@@ -443,6 +452,7 @@ function get_sets()
     right_ring="Inyanga Ring",
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Damage taken-5%',}},
 }
+
 
 
 	-- Single Spell examples below!
@@ -500,6 +510,19 @@ function get_sets()
 
 	sets.brd = {} --Leave Empty!
 
+	
+	--[[Buff set + gear item--
+	Minne - 	Mousai seraweels +1 (only)
+	Threnody -	Mousai Manteel/+1
+	Scherzo - 	Fili Cothurnes +2
+	Carol - 	Mousai Gages/+1
+	Mambo - 	Mousai Crackows/+1
+	Etude - 	Mousai Turban/+1
+	Paeon - 	Brioso Roundlet +3	
+]]
+
+
+
 	--buffs
 	sets.brd.buff = sets.ma['Singing']
 
@@ -537,7 +560,7 @@ function get_sets()
 	sets.brd.Threnody = sets.brd.debuff--set_combine(sets.brd.debuff, {'@???'})
 		
 	--dummy
-	sets.brd.dummy = set_combine(sets.idle.dt, { range = 'Daurdabla'})	
+	sets.brd.dummy = set_combine(sets.idle.dt, { ammo = empty, range = 'Daurdabla'})	
 
 
 
@@ -547,6 +570,29 @@ end
 
 
 
+--[[
+-------------------------
+--   BRD Song List   --
+-------------------------
+--Ballad -	Mage's ballad, Mage's ballad II, Mage's ballad III
+--Minne - 	Knight's Minne, Knight's Minne II, Knight's Minne III, Knight's Minne IV, Knight's Minne V
+--Minuet - 	Valor Minuet, Valor Minuet II, Valor Minuet III, Valor Minuet IV, Valor Minuet V
+--Madrigal - 	Sword madrigal, Blade madrigal
+--Prelude - 	hunter's prelude, Archer's prelude
+March - 	Victory march, Advancing march, Honor march
+--Lullaby - 	Foe lullaby, Foe lullaby II, Horde lullaby, Horde lullaby II
+--Threnody - 	fire Threnody, ice Threnody, wind Threnody, earth Threnody, lightning Threnody, water Threnody, light Threnody, dark Threnody, 
+			fire Threnody II, ice Threnody II, wind Threnody II, earth Threnody II, lightning Threnody II, water Threnody II, light Threnody II, dark Threnody II
+--Scherzo - 	Sentinel's scherzo
+--Carol - 	fire Carol, ice Carol, wind Carol, earth Carol, lightning Carol, water Carol, light Carol, dark Carol II
+--Carol - 	fire Carol II, ice Carol II, wind Carol II, earth Carol II, lightning Carol II, water Carol II, light Carol II, dark Carol II
+--Mambo - 	Sheepfoe, Dragonfoe
+--Etude - 	Sinewy, dextrous, vivacious, quick, learned, spirited, enchanting, herculean, uncanny, vital, swift, sage, logical, bewitching
+--Paeon - 	Army's Paeon I-VI
+--Dummy - 	probablly use Paeon
+]]
+
+-- @????  You gotta stick these songs from above into the spots below please!
 
 -------------------------
 --   BRD Spells List   --
