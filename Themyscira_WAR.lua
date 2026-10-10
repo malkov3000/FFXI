@@ -6,14 +6,12 @@
 
 
 ---------------
----Load Libs---
+--- Load ------
 ---------------
 
 
-
-
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 7 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 8 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,12 +19,12 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 7') -- Update # to desired starting macro book!
+send_command('input /macro book 8') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
-
 
 --no help on
 send_command('input /blockhelp on')
+
 
 ---------------------
 ------- SETS --------
@@ -49,17 +47,17 @@ function get_sets()
 	sets.idle.dt = {
     ammo="Coiste Bodhar",
     head="Sakpata's Helm",
-    body="Sakpata's Plate",
+    body="Boii Lorica +3",
     hands="Sakpata's Gauntlets",
     legs="Pumm. Cuisses +2",
-    feet="Pumm. Calligae +2",
+    feet="Pumm. Calligae +3",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
-    left_ear="Cessance earring",
+    left_ear="Schere Earring",
     right_ear={ name="Boii Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Crit.hit rate+4',}},
-    left_ring="Murky Ring",
-    right_ring="Shneddick Ring",
+    left_ring="Niqmaddu Ring",
     back={ name="Cichol's Mantle", augments={'Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    right_ring="Shneddick Ring",
 }
 
 	-- Town set here
@@ -67,15 +65,6 @@ function get_sets()
 
 
 
------------------------ ENMITY SETS --------------------
-
-	sets.hate = {} --Leave Empty!
-	
-	-- Enmity +++
-	sets.hate.high = {}
-	
-	-- Enmity ---
-	sets.hate.low = {}
 	
 	
 
@@ -97,33 +86,33 @@ function get_sets()
 	
 	sets.wep.Chango = {    
     main="Chango",
-    sub="Kaja Grip",
+    sub="Utu Grip",
 	}	
-	WSLIST.Chango = {"","","",""}
+	WSLIST.Chango = {"Upheaval","Ukko's Fury","Fell Cleave","Full Break"}
 	
 	sets.wep.Dolichenus = {    
     main="Dolichenus",
     sub="Blurred shield +1",
 	}	
-	WSLIST.Dolichenus = {"","","",""}
+	WSLIST.Dolichenus = {"Decimation","Ruinator","Mistral Axe","Smash Axe"}
 	
 	sets.wep.Naegling = {    
     main="Naegling",
     sub="Blurred shield +1",
 	}	
-	WSLIST.Naegling = {"","","",""}
+	WSLIST.Naegling = {"Savage Blade","Requiescat","Circle Blade","Flat Blade"}
 	
 	sets.wep.Loxotic = {    
     main="Loxotic mace +1",
     sub="Blurred shield +1",
 	}	
-	WSLIST.Loxotic = {"","","",""}
+	WSLIST.Loxotic = {"Judgment","Realmrazer","Moonlight","Brainshaker"}
 	
 	sets.wep.ShiningOne = {    
-    main="Kaja lance",
-    sub="Kaja Grip",
+    main="Shining One",
+    sub="Utu Grip",
 	}	
-	WSLIST.ShiningOne = {"","","",""}
+	WSLIST.ShiningOne = {"Impulse Drive","Stardiver","Sonic Thrust","Leg Sweep"}
 	
 
 
@@ -143,47 +132,27 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"DT"}
+	TP_Set_Names = {"TP"}
 	
 	-- TP sets go below!
 	
-	--Damage Taken Reduction
-	sets.tp.DT = {
+	sets.tp.TP = {
     ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
+    head="Boii Mask +3",
+    body="Boii Lorica +3",
     hands="Sakpata's Gauntlets",
     legs="Pumm. Cuisses +2",
-    feet="Pumm. Calligae +2",
+    feet="Pumm. Calligae +3",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
-    left_ear="Cessance earring",
+    left_ear="Schere Earring",
     right_ear={ name="Boii Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Crit.hit rate+4',}},
-    left_ring="Murky Ring",
-    right_ring="Niqmaddu ring",
+    right_ring="Chirich Ring",
+    left_ring="Niqmaddu Ring",
     back={ name="Cichol's Mantle", augments={'Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }	
 
-	--Accuracy
-	sets.tp.ACC = {}
 
-	--Multi-Hit, Store TP, Attack Speed
-	sets.tp.TP = {}
-
-	--Treasure Hunter
---	sets.tp.TH = {}		
-
-
-	
---------------------- RANGED SETS ----------------------
-
-	sets.ra = {} --Leave Empty!
-	
-	-- PRESHOT goes here
-	sets.ra.preshot = {}
-
-	-- MIDSHOT goes here
-	sets.ra.midshot = {}
 
 
 
@@ -193,25 +162,25 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
-    ammo="Crepuscular Pebble",
-    head="Agoge Mask +3",
-    body="Pumm. Lorica +2",
+    ammo="Knobkierrie",
+    head="Agoge Mask +4",
+    body="Pumm. Lorica +3",
     hands="Boii Mufflers +3",
-    legs="Nyame flanchard",
+    legs="Boii Cuisses +3",
     feet="Sulev. Leggings +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
     right_ring="Cornelia's Ring",
+    left_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 
 	-- WS specific sets! Replace the x with the WS name!
 	-- Like this--->> sets.ws['Savage Blade'] = {}
 	
-	sets.ws['x'] = {}  
+
 
 
 
@@ -219,33 +188,30 @@ function get_sets()
 
 	sets.ja = {} --Leave Empty!
 
-	--Uses: Windower>res>job_abilities
-	sets.ja['CorsairRoll'] = {}
-	sets.ja['CorsairShot'] = {}
-	sets.ja['Waltz'] = {}
-	sets.ja['Jig'] = {}
-	sets.ja['Step'] = {}
-	sets.ja['BloodPactRage'] = {}
-	sets.ja['BloodPactWard'] = {}
-	sets.ja['PetCommand'] = {}
-	sets.ja['Monster'] = {}
+
 
 	-- Single Ability examples below!
 	-- Replace the x with desired Ability name!
 
 	sets.ja['Berserk'] = {
-    body="Pumm. Lorica +2",
+    body="Pumm. Lorica +3",
     feet="Agoge Calligae +2",
 	}
 	
 	sets.ja['Warcry'] = {
     head="Agoge Mask +3",
 	}
+	
+	sets.ja['Tomahawk'] = {
+    ammo="Thr. Tomahawk",
+    feet="Agoge Calligae +2",
+	}
+	
+	sets.ja['Mighty Strikes'] = {
+    hands="Agoge Mufflers +1",
+	}
 
-	-- We can set an Ability to a set we already created!
-	-- See example below!
 
---	sets.ja['Provoke'] = sets.hate.high
 	
 	
 
@@ -254,85 +220,74 @@ function get_sets()
 	sets.fc = {} --Leave Empty!
 
 	-- FC set here
-	--sets.fc.standard = {}  
+	sets.fc.standard = {
+    ammo="Impatiens",
+    feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
+    neck="Voltsurge Torque",
+    right_ear="Loquac. Earring",
+    left_ring="Lebeche Ring",
+    right_ring="Naji's Loop",
+}  
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
-	sets.fc['Blue Magic'] = {}
-	sets.fc['Divine Magic'] = {}
-	sets.fc['Healing Magic'] = {}
-	sets.fc['Enhancing Magic'] = {}
-	sets.fc['Enfeebling Magic'] = {}
-	sets.fc['Elemental Magic'] = {}
-	sets.fc['Dark Magic'] = {}
-	sets.fc['Summoning Magic'] = {}
-	sets.fc['Ninjutsu'] = {}
-
-
 
 --------------------- MAGIC SETS -----------------------
 
-	sets.ma = {} --Leave Empty!
+	sets.ma = {} 
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
-	sets.ma['Divine Magic'] = {}
-	sets.ma['Healing Magic'] = {}
-	sets.ma['Enhancing Magic'] = {}
-	sets.ma['Enfeebling Magic'] = {}
-	sets.ma['Elemental Magic'] = {}
-	sets.ma['Dark Magic'] = {}
-	sets.ma['Summoning Magic'] = {}
-	sets.ma['Ninjutsu'] = {}
-
-	-- Single Spell examples below!
-	-- Replace the x with desired Spell name!
-
-	sets.ma['x'] = {}  
-
-	-- We can set a Spell to a set we already created!
-	-- See example below!
-	
---	sets.ma['Flash'] = sets.hate.high
-
-
-
-------------------- BLUE MAGIC SETS --------------------
-
-	sets.blu = {} --Leave Empty!
-
-	--Update BLU Spell List at end of file!
-	
-	--Accuracy / Str+Dex+Vit	
-	sets.blu.str = {}
-	
-	--Magic Attack Bonus / Magic Accuracy
-	sets.blu.mab = {}
-	
-	--Blue Skill / Magic Accuracy / Spell Int Rate	
-	sets.blu.skill = {}
-	
-	--Cure Potency / Spell Int Rate / HP
-	sets.blu.cure = {}	
-
-
------------------------ PET SETS ----------------------
-
-	sets.pet = {} --Leave Empty!
-
-	--Update PET Spell List near end of file!
-	
-	--Pet Mid Action Physical	
-	sets.pet.phy = {}
-
-	--Pet Mid Action Magic
-	sets.pet.mab = {}
-	
-	--Pet Specifc Ability
-	--This is NOT the name of YOUR Job Abilities!!
-	--It is the name of the PET's Spell/Ability!
-	sets.pet['x'] = {}
+--	sets.ma['Divine Magic'] = {}
+--	sets.ma['Healing Magic'] = {}
+--	sets.ma['Enhancing Magic'] = {}
+--	sets.ma['Enfeebling Magic'] = {}
+--	sets.ma['Elemental Magic'] = {}
+--	sets.ma['Dark Magic'] = {}
+--	sets.ma['Summoning Magic'] = {}
+--	sets.ma['Ninjutsu'] = {}
 
 	
 end
+
+
+
+
+-------------------
+--   AREA List   --
+-------------------
+
+areas = {}
+
+-- City areas for town gear
+areas.towns = S{
+    "Ru'Lude Gardens",
+    "Upper Jeuno",
+    "Lower Jeuno",
+    "Port Jeuno",
+    "Port Windurst",
+    "Windurst Waters",
+    "Windurst Woods",
+    "Windurst Walls",
+    "Heavens Tower",
+    "Port San d'Oria",
+    "Northern San d'Oria",
+    "Southern San d'Oria",
+    "Port Bastok",
+    "Bastok Markets",
+    "Bastok Mines",
+    "Metalworks",
+    "Aht Urhgan Whitegate",
+    "Tavnazian Safehold",
+    "Nashmau",
+    "Selbina",
+    "Mhaura",
+    "Norg",
+    "Eastern Adoulin",
+    "Western Adoulin",
+    "Kazham",
+    "Rabao",
+    "Chocobo Circuit",
+}
+
+
 
 
 
@@ -427,36 +382,40 @@ end
 
 function aftercast(spell)
 
-	
-
-	if player.status == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if player.status == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
+	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
 	end
 
 end
 
 
-
-
-
 ---
---- Status and Zone change
+--- Status change
 ---
 
 function status_change(new, old)
 
 -- Status changes
-	if new == 'Engaged' then --Are we fighting?
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Use current TP set!
-	elseif areas.towns:contains(world.area) then --In town?
-		equip(sets.idle.town) --Use town set!
+	if new == 'Engaged' then 
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+	elseif areas.towns:contains(world.area) then 
+		equip(sets.idle.town) 
 	else
-		equip(sets.idle.dt) --Default to DT set!
+		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+	
 end
 
 
@@ -481,46 +440,6 @@ function self_command(command)
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
     end
 end
-
-
-
--------------------
---   AREA List   --
--------------------
-
-areas = {}
-
--- City areas for town gear
-areas.towns = S{
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-    "Tavnazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-    "Norg",
-    "Eastern Adoulin",
-    "Western Adoulin",
-    "Kazham",
-    "Rabao",
-    "Chocobo Circuit",
-}
-
 
 
 ------------------------------------------------------------------
