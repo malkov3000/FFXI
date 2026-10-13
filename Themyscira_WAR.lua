@@ -46,7 +46,7 @@ function get_sets()
 	-- DT set here
 	sets.idle.dt = {
     ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
+    head="Boii Mask +3",
     body="Boii Lorica +3",
     hands="Sakpata's Gauntlets",
     legs="Pumm. Cuisses +2",
@@ -88,7 +88,7 @@ function get_sets()
     main="Chango",
     sub="Utu Grip",
 	}	
-	WSLIST.Chango = {"Upheaval","Ukko's Fury","Fell Cleave","Full Break"}
+	WSLIST.Chango = {"Upheaval","Ukko's Fury","King's Justice","Full Break"}
 	
 	sets.wep.Dolichenus = {    
     main="Dolichenus",
@@ -164,10 +164,10 @@ function get_sets()
 	sets.ws.standard = {
     ammo="Knobkierrie",
     head="Agoge Mask +4",
-    body="Pumm. Lorica +3",
+    body="Pumm. Lorica +4",
     hands="Boii Mufflers +3",
     legs="Boii Cuisses +3",
-    feet="Sulev. Leggings +2",
+    feet="Nyame sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Thrud Earring",
@@ -194,7 +194,7 @@ function get_sets()
 	-- Replace the x with desired Ability name!
 
 	sets.ja['Berserk'] = {
-    body="Pumm. Lorica +3",
+    body="Pumm. Lorica +4",
     feet="Agoge Calligae +2",
 	}
 	
@@ -425,19 +425,25 @@ end
 ---
 
 function self_command(command)
-    if command == 'toggletp' then --Set Command TP
-        TP_Index = TP_Index +1 --Cycle variable
-        if TP_Index > #TP_Set_Names then TP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+    if command == 'toggletp' then 
+        TP_Index = TP_Index +1 
+        if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
-        equip(sets.tp[TP_Set_Names[TP_Index]]) --Equip current mode tp set
-    elseif command == 'togglewep' then --Set Command WEP
+        equip(sets.tp[TP_Set_Names[TP_Index]]) 
+    elseif command == 'togglewep' then 
 		equip({sub = "empty"}) 
-        WEP_Index = WEP_Index +1 --Cycle variable
-        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end --Restart at end of list
-		--Let me know which mode I'm in!
+        WEP_Index = WEP_Index +1 
+        if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
-        equip(sets.wep[WEP_Set_Names[WEP_Index]]) --Equip current mode wep set
+        equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
+	elseif command == 'ws1' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][1]..'" <t>')
+	elseif command == 'ws2' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][2]..'" <t>')
+	elseif command == 'ws3' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
+	elseif command == 'ws4' then
+		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
     end
 end
 

@@ -13,7 +13,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 5 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 6 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,7 +21,7 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 5') -- Update # to desired starting macro book!
+send_command('input /macro book 6') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
 --no help on
@@ -67,15 +67,6 @@ function get_sets()
 
 
 
------------------------ ENMITY SETS --------------------
-
-	sets.hate = {} --Leave Empty!
-	
-	-- Enmity +++
-	sets.hate.high = {}
-	
-	-- Enmity ---
-	sets.hate.low = {}
 	
 	
 
@@ -214,7 +205,7 @@ function get_sets()
 	-- We can set an Ability to a set we already created!
 	-- See example below!
 
-	sets.ja['Provoke'] = sets.hate.high
+
 	
 	
 	
@@ -285,7 +276,7 @@ function get_sets()
 	-- We can set a Spell to a set we already created!
 	-- See example below!
 	
-	sets.ma['Flash'] = sets.hate.high
+
 
 
 
@@ -308,7 +299,6 @@ end
 function precast(spell)
 
 
-	
 -- Magic
 	if spell.action_type == 'Magic' then --Is the spell magic?
 		equip(sets.fc.standard) --Yes! Equip FC
@@ -318,20 +308,11 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) and player.tp >= 1000 then --Ranged WS?  Do we have TP?
-		if sets.ws[spell.english] then --Do we have a WS set for this WS?
-			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-		else
-			equip(sets.ws.standard) --No!  Use the standard WS set!
-		end
-	else
-		if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-			if sets.ws[spell.english] then --Do we have a WS set for this WS?
-				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-			else
-				equip(sets.ws.standard) --No!  Use the standard WS set!
-			end
-		end
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws.standard) --No!  Use the standard WS set!
+	end
+	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
 	end
 	
 -- Job Ability
@@ -357,31 +338,23 @@ end
 
 function midcast(spell)
 
+
 	
 -- Magic
 	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
 		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
 	end
 	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(set.ma[spell.english]) --Yes! Use that spell name specific MC set!
+		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
 	end
 
 -- Weapon Skill
-	if weaponskills.ranged:contains(spell.english) then --Ranged WS?
-		if sets.ws[spell.english] then --Do we have a WS set for this WS?
-			equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-		else
-			equip(sets.ws.standard) --No!  Use the standard WS set!
-		end
-	else
-		if spell.type == 'WeaponSkill' then
-			if sets.ws[spell.english] then --Do we have a WS set for this WS?
-				equip(sets.ws[spell.english]) --Yes!  Use that WS set!
-			else
-				equip(sets.ws.standard) --No!  Use the standard WS set!
-			end
-		end
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws.standard) --No!  Use the standard WS set!
 	end
+	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
+		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	end	
 	
 -- Job Ability
 	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
@@ -396,10 +369,8 @@ function midcast(spell)
 		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
 	end
 	
-
 		
 end
-
 
 
 ---

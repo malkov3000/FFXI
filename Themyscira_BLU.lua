@@ -5,13 +5,12 @@
 ------------------------------------------------------------------
 
 
-
 ----------------
 ---- Load ------
 ----------------
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 1 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 1 
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -19,12 +18,11 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 1') -- Update # to desired starting macro book!
-send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
+send_command('input /macro book 1') 
+send_command('wait 4; input /macro set 1') 
 
 -------------------------------------NO HELP ON----------------------------------------
-send_command('input /blockhelp on') -- Prevents calling for help!
-
+send_command('input /blockhelp on') 
 
 
 ----------------
@@ -33,16 +31,10 @@ send_command('input /blockhelp on') -- Prevents calling for help!
 
 function get_sets()
 
-
--- Use "//gs export" in-game to export a file with your currently equiped gear!
--- Find the file in Windower>addons>GearSwap>data>export folder!
--- Copy the gear inside the {} and paste it into the correct set below!
-
 ----------------------- IDLE SETS ----------------------
 
-	sets.idle = {} --Leave Empty!
+	sets.idle = {} 
 
-	-- DT set here
 	sets.idle.dt = {
     ammo="Staunch Tathlum +1",
     head="Hashishin Kavuk +3",
@@ -59,7 +51,6 @@ function get_sets()
     back="Null Shawl",
 }  
 
-	-- Town set here
 	sets.idle.town = sets.idle.dt
 	
 	
@@ -96,7 +87,7 @@ function get_sets()
 	
 	sets.wep.Bunzi = {    
 	main="Bunzi's Rod",
-    sub="Maxentius",
+    sub="Iris",
 	}
 	WSLIST.Bunzi = {"Judgment","Realmrazer","Starlight","Brainshaker"}
 	
@@ -112,10 +103,8 @@ function get_sets()
 
 	TP_Set_Names = {"TP","DW0","DT","LEARN"}
 	
-	-- TP, DT, 0DW, LEARN
-	
 	sets.tp.TP = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -132,7 +121,7 @@ function get_sets()
 }
 
 	sets.tp.DW0 = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -147,7 +136,8 @@ function get_sets()
     back="Null shawl",
 }
 
-	--Learning Blu spells
+	sets.tp.DT = sets.idle.dt
+
 	sets.tp.LEARN = {
     ammo="Mavi Tathlum",
     head="Luhlaza Keffiyeh +4",
@@ -158,13 +148,11 @@ function get_sets()
     neck="Mirage Stole +2",
     waist="Null Belt",
     left_ear="Njordr Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Hashishin Earring +1",
     left_ring="murky ring",
     right_ring="Stikini Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}},
 }
-
-	sets.tp.DT = sets.idle.dt
 
 
 ----------------------- WS SETS ------------------------
@@ -173,7 +161,7 @@ function get_sets()
 
 	-- WS set here
 	sets.ws.standard = {
-    ammo="Oshasha's Treatise",
+    ammo="Coiste Bodhar",
     head="Hashishin Kavuk +3",
     body="Assim. Jubbah +4",
     hands="Jhakri Cuffs +2",
@@ -206,15 +194,15 @@ function get_sets()
 	
 	sets.ws['Chant du Cygne'] = {
     ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head="Blistering sallet +1",
     body="Abnoba Kaftan",
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands="Gleti's gauntlets",
     legs="Gleti's Breeches",
     feet="Thereoid Greaves",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Light Belt",
     left_ear="Odr Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Mache Earring +1",
     left_ring="Ilabrat Ring",
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10',}},
@@ -262,7 +250,6 @@ function get_sets()
 
 	sets.fc = {} 
 
-	-- FC set here
 	sets.fc.standard = {
     ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
@@ -275,7 +262,7 @@ function get_sets()
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Lebeche Ring",
-    right_ring="Naji's Loop",
+    right_ring="Kishar Ring",
     back="Fi Follet Cape +1",
 }
 	
@@ -349,7 +336,7 @@ function get_sets()
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
     legs="Hashishin Tayt +3",
-    feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+    feet="Hashishin basmak +3",
     neck="Elite Royal Collar",
     waist="Plat. Mog. Belt",
     left_ear="Alabaster Earring",
@@ -361,7 +348,7 @@ function get_sets()
 	
 	--Accuracy / Str+Dex+Vit	
 	sets.blu.phy = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Hashishin Kavuk +3",
     body="Hashishin Mintan +3",
     hands="Hashi. Bazu. +3",
@@ -370,7 +357,7 @@ function get_sets()
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sailfi Belt +1",
     left_ear="Alabaster Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Hashishin Earring +1",
     left_ring="Ilabrat Ring",
     right_ring="Rajas Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -404,7 +391,7 @@ function get_sets()
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Null Belt",
     left_ear="Alabaster Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Hashishin Earring +1",
     left_ring="Murky Ring",
     right_ring="Stikini Ring",
     back="Null shawl",
@@ -421,7 +408,7 @@ function get_sets()
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sanctuary Obi",
     left_ear="Njordr Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Hashishin Earring +1",
     left_ring="Murky Ring",
     right_ring="Stikini Ring",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
@@ -438,7 +425,7 @@ function get_sets()
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Sanctuary Obi",
     left_ear="Njordr Earring",
-    right_ear={ name="Hashishin Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    right_ear="Hashishin Earring +1",
     left_ring="Murky Ring",
     right_ring="Stikini Ring",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}},
@@ -470,7 +457,6 @@ end
 
 areas = {}
 
--- City areas for town gear
 areas.towns = S{
     "Ru'Lude Gardens",
     "Upper Jeuno",
@@ -519,7 +505,7 @@ blu_mab = S {'Acrid Stream', 'Anvil Lightning', 'Crashing Thunder', 'Charged Whi
 'Thunderbolt', 'Uproot', 'Water Bomb', 'Atra. Libations', 'Blood Saber', 'Dark Orb', 'Death Ray', 'Eyes On Me', 'Blazing Bound', 'Evryone. Grudge', 'Palling Salvo', 'Tenebral Crush', 
 'Blinding Fulgor', 'Diffusion Ray', 'Ice Break', 'Magic Hammer', 'Rail Cannon', 'Retinal Glare', 'Sandspin', 'Vapor Spray'}
 				   
-blu_macc = S {'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
+blu_macc = S {'Blastbomb', 'Dream Flower', 'Sheep Song','Feather Tickle','Light of Penance', 'MP Drainkiss', 'Entomb'}
 
 blu_skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare'}
 
@@ -550,15 +536,12 @@ function precast(spell)
 	end
 	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then  
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then  
 		equip(sets.ws[spell.english]) 
 	end
-	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-	--	equip(sets.ws.maxtp) 	
-	--end
 	
 -- Job Ability
 	if sets.ja[spell.type] then 
@@ -567,8 +550,7 @@ function precast(spell)
 	if sets.ja[spell.english] then 
 		equip(sets.ja[spell.english]) 
 	end
-	
-	
+		
 end
 
 
@@ -585,17 +567,14 @@ function midcast(spell)
 	if sets.ma[spell.english] then 
 		equip(sets.ma[spell.english]) 
 	end
-
+	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then  
 		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --and player.tp <= 2999 then 
+	if sets.ws[spell.english] and player.tp >= 1000 then  
 		equip(sets.ws[spell.english]) 
 	end
-	--if spell.type == 'WeaponSkill' and player.tp >= 3000 then 
-	--	equip(sets.ws.maxtp) 	
-	--end
 	
 -- Job Ability
 	if sets.ja[spell.type] then 
@@ -696,10 +675,9 @@ function self_command(command)
 end
 
 
-
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
+--------------------------------------------
+---- (Must stay at the absolute bottom) ----
+--------------------------------------------
 
 -- Isolated Event Handler
 -- This handles the zone change safely without nesting bugs or scope crashes

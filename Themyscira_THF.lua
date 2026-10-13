@@ -13,7 +13,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 4 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 5 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,7 +21,7 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 4') -- Update # to desired starting macro book!
+send_command('input /macro book 5') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
 --no help on
@@ -95,7 +95,7 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"Tauret","Naegling"}
+	WEP_Set_Names = {"Dagger","Sword"}
 	
 	-- TP sets go below!
 	
@@ -106,7 +106,7 @@ function get_sets()
 
 	sets.wep.Dagger = {  
 	main="Tauret",
-    sub="Gleti's knife",
+    sub="Gleti's Knife",
 	}
 	
 
@@ -224,10 +224,10 @@ function get_sets()
 	
 	sets.ws['Evisceration'] = {
 	ammo="Yetshila",
-    head="Adhemar Bonnet +1",
+    head="Blistering sallet +1",
     --body="Plunderer's Vest +3",
     body="Pillager's Vest +4",
-    hands="Adhemar wrist. +1",
+    hands="Gleti's gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's boots",
     neck="Light Gorget",

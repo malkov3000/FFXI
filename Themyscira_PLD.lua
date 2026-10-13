@@ -126,7 +126,7 @@ function get_sets()
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
-	TP_Set_Names = {"TP"}
+	TP_Set_Names = {"TP","TP2"}
 	
 	-- TP sets go below!
 	
@@ -138,6 +138,22 @@ function get_sets()
     hands="Sakpata's Gauntlets", 
     legs="Chev. Cuisses +3", 
     feet="Rev. Leggings +4", 
+    neck="Null loop",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Crep. Earring",
+    right_ring="Chirich Ring",
+    left_ring="Gelatinous Ring +1",
+    back="Null Shawl",
+}
+
+	sets.tp.TP2 = {
+    ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets", 
+    legs="Sakpata's Cuisses", 
+    feet="Sakpata's Leggings", 
     neck="Null loop",
     waist="Null Belt",
     left_ear="Alabaster Earring",
@@ -185,7 +201,7 @@ function get_sets()
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
@@ -229,7 +245,7 @@ function get_sets()
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
@@ -245,7 +261,7 @@ function get_sets()
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
@@ -277,7 +293,7 @@ function get_sets()
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands="Cab. Gauntlets +2",
     legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Unmoving Collar +1", priority = 200},
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
@@ -316,12 +332,12 @@ function get_sets()
     body="Rev. Surcoat +3",
     hands="Rev. Gauntlets +3",
     legs="Enif Cosciales",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck="Voltsurge torque",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Alabaster Earring",
     right_ear="Loquac. Earring",
-    right_ring="Naji's Loop",
+    right_ring="Kishar Ring",
     left_ring="Lebeche ring",
     back={ name="Rudianos's Mantle", augments={'"Fast Cast"+10',}},
 }
@@ -335,7 +351,7 @@ function get_sets()
     body="Rev. Surcoat +3",
     hands="Chev. Gauntlets +3",
     legs="Enif Cosciales",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck="Voltsurge torque",
     waist={ name="Plat. Mog. Belt", priority = 1000},
     left_ear="Nourish. Earring +1",

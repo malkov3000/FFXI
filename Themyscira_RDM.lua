@@ -15,7 +15,7 @@
 
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 8 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 4 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -23,7 +23,7 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 8') -- Update # to desired starting macro book!
+send_command('input /macro book 4') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
 --no help on
@@ -137,7 +137,7 @@ function get_sets()
 
 	--Multi-Hit, Store TP, Attack Speed
 	sets.tp.TP = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
