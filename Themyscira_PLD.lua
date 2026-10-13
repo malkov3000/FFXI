@@ -60,7 +60,7 @@ function get_sets()
 	sets.wep = {} 
 
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 	--
 
 	WEP_Set_Names = {"PDT","MDT","WS","STUN","DW"}
@@ -97,7 +97,7 @@ function get_sets()
 	sets.tp = {} --Leave Empty!
 
 	--
-	--> Use "/console gs c toggletp" to cycle modes!
+	--> Use "/console gs c cycletp" to cycle modes!
 	--
 
 	TP_Set_Names = {"TP","TP2"}
@@ -486,16 +486,16 @@ end
 
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- cycle for TP and WEAPON set modes + Bar modes
 ---
 
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 

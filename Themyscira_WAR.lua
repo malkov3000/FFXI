@@ -9,7 +9,6 @@
 --- Load ------
 ---------------
 
-
 ------------------------------------LOCKSTYLE------------------------------------------
 local lockstyle = 8 -- Uses the in-game gearsets! Set # to desired lockstyle look!
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
@@ -22,8 +21,8 @@ end
 send_command('input /macro book 8') -- Update # to desired starting macro book!
 send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
 
---no help on
-send_command('input /blockhelp on')
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') 
 
 
 ---------------------
@@ -32,18 +31,10 @@ send_command('input /blockhelp on')
 
 function get_sets()
 
-
--- Use "//gs export" in-game to export a file with your currently equiped gear!
--- Find the file in Windower>addons>GearSwap>data>export folder!
--- Copy the gear inside the {} and paste it into the correct set below!
--- It might work best to only include weapons in the WEAPON sets!
-
-
 ----------------------- IDLE SETS ----------------------
 
 	sets.idle = {} --Leave Empty!
 
-	-- DT set here
 	sets.idle.dt = {
     ammo="Coiste Bodhar",
     head="Boii Mask +3",
@@ -60,13 +51,8 @@ function get_sets()
     right_ring="Shneddick Ring",
 }
 
-	-- Town set here
 	sets.idle.town = sets.idle.dt 
 
-
-
-	
-	
 
 ----------------------- WEAPON SETS --------------------
 
@@ -74,15 +60,11 @@ function get_sets()
 	sets.wep = {} 
 	WSLIST = {}
 
-	-- We can have multiple different WEAPON sets!
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a WEP set for it below!
+
 	WEP_Set_Names = {"Chango","Dolichenus","Naegling","Loxotic","ShiningOne"}
-	
-	-- TP sets go below!
 	
 	sets.wep.Chango = {    
     main="Chango",
@@ -115,26 +97,16 @@ function get_sets()
 	WSLIST.ShiningOne = {"Impulse Drive","Stardiver","Sonic Thrust","Leg Sweep"}
 	
 
-
-
-
-
-
-	
 ----------------------- TP SETS ------------------------
 
-	TP_Index = 1 --Don't Change!
-	sets.tp = {} --Leave Empty!
+	TP_Index = 1 
+	sets.tp = {} 
 
-	-- We can have multiple different TP sets!
 	--
-	--> Use "/console gs c toggletp" to cycle modes!
+	--> Use "/console gs c cycletp" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a TP set for it below!
+
 	TP_Set_Names = {"TP"}
-	
-	-- TP sets go below!
 	
 	sets.tp.TP = {
     ammo="Coiste Bodhar",
@@ -153,14 +125,10 @@ function get_sets()
 }	
 
 
-
-
-
 ----------------------- WS SETS ------------------------
 	
-	sets.ws = {} --Leave Empty!
+	sets.ws = {} 
 
-	-- WS set here
 	sets.ws.standard = {
     ammo="Knobkierrie",
     head="Agoge Mask +4",
@@ -181,17 +149,9 @@ function get_sets()
 	-- Like this--->> sets.ws['Savage Blade'] = {}
 	
 
-
-
-
 ------------------- JOB ABILITY SETS -------------------
 
-	sets.ja = {} --Leave Empty!
-
-
-
-	-- Single Ability examples below!
-	-- Replace the x with desired Ability name!
+	sets.ja = {} 
 
 	sets.ja['Berserk'] = {
     body="Pumm. Lorica +4",
@@ -212,14 +172,10 @@ function get_sets()
 	}
 
 
-	
-	
-
 --------------------- FASTCAST SETS --------------------
 
-	sets.fc = {} --Leave Empty!
+	sets.fc = {} 
 
-	-- FC set here
 	sets.fc.standard = {
     ammo="Impatiens",
     feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
@@ -244,10 +200,7 @@ function get_sets()
 --	sets.ma['Summoning Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 
-	
 end
-
-
 
 
 -------------------
@@ -256,7 +209,6 @@ end
 
 areas = {}
 
--- City areas for town gear
 areas.towns = S{
     "Ru'Lude Gardens",
     "Upper Jeuno",
@@ -288,12 +240,9 @@ areas.towns = S{
 }
 
 
-
-
-
---------------------
------  SCRIPT  -----
---------------------
+----------------
+---- SCRIPT ----
+----------------
 
 
 ---
@@ -303,36 +252,27 @@ areas.towns = S{
 function precast(spell)
 
 -- Magic
-	if spell.action_type == 'Magic' then --Is the spell magic?
-		equip(sets.fc.standard) --Yes! Equip FC
+	if spell.action_type == 'Magic' then 
+		equip(sets.fc.standard) 
 	end
-	if sets.fc[spell.skill] then --Do we have a specific FC set for this school of magic?
-		equip(sets.fc[spell.skill]) --Yes! Use that school-specific FC set!
+	if sets.fc[spell.skill] then 
+		equip(sets.fc[spell.skill]) 
 	end
-	
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end
-	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
 	end
-	
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.preshot) --Yes!  Equip PRESHOT!
-	end
-	
 end
-
 
 
 ---
@@ -341,39 +281,28 @@ end
 
 function midcast(spell)
 
-	
 -- Magic
-	if sets.ma[spell.skill] then --Do we have a specific MC set for this school of magic?
-		equip(sets.ma[spell.skill]) --Yes! Use that school-specific MC set!
+	if sets.ma[spell.skill] then 
+		equip(sets.ma[spell.skill]) 
 	end
-	if sets.ma[spell.english] then --Do we have a specific MC set for this spell name?
-		equip(sets.ma[spell.english]) --Yes! Use that spell name specific MC set!
+	if sets.ma[spell.english] then 
+		equip(sets.ma[spell.english]) 
 	end
-
 -- Weapon Skill
-	if spell.type == 'WeaponSkill' and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws.standard) --No!  Use the standard WS set!
+	if spell.type == 'WeaponSkill' and player.tp >= 1000 then 
+		equip(sets.ws.standard) 
 	end
-	if sets.ws[spell.english] and player.tp >= 1000 then --Do We Have TP?
-		equip(sets.ws[spell.english]) --Yes!  Use that WS set!	
+	if sets.ws[spell.english] and player.tp >= 1000 then 
+		equip(sets.ws[spell.english]) 	
 	end	
-	
 -- Job Ability
-	if sets.ja[spell.type] then --Do we have a set for this 'type' of ability?
-		equip(sets.ja[spell.type]) --Yes!  Equip that set!
+	if sets.ja[spell.type] then 
+		equip(sets.ja[spell.type]) 
 	end
-	if sets.ja[spell.english] then --Do we have a set for this Job Ability?
-		equip(sets.ja[spell.english]) --Yes!  Equip that set!
-	end
-
--- Ranged Attack
-	if spell.action_type == 'Ranged Attack' then --Ranged Attack?
-		equip(sets.ra.midshot) --Yes!  Equip MIDSHOT!
-	end
-	
-		
+	if sets.ja[spell.english] then 
+		equip(sets.ja[spell.english]) 
+	end	
 end
-
 
 
 ---
@@ -419,18 +348,17 @@ function status_change(new, old)
 end
 
 
-
 ---
---- Toggle for TP and WEAPON set modes
+--- cycle for TP and WEAPON set modes
 ---
 
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
@@ -448,9 +376,9 @@ function self_command(command)
 end
 
 
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
+--------------------------------------------
+---- (Must stay at the absolute bottom) ----
+--------------------------------------------
 
 -- Isolated Event Handler
 -- This handles the zone change safely without nesting bugs or scope crashes
