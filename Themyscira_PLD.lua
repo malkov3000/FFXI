@@ -9,10 +9,8 @@
 ---- Load ------
 ----------------
 
-
-
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 2 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 2 
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -20,11 +18,12 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 2') -- Update # to desired starting macro book!
-send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
+send_command('input /macro book 2') 
+send_command('wait 4; input /macro set 1') 
 
---no help on
-send_command('input /blockhelp on')
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') 
+
 
 ---------------------
 ------- SETS --------
@@ -32,18 +31,10 @@ send_command('input /blockhelp on')
 
 function get_sets()
 
-
--- Use "//gs export" in-game to export a file with your currently equiped gear!
--- Find the file in Windower>addons>GearSwap>data>export folder!
--- Copy the gear inside the {} and paste it into the correct set below!
--- It might work best to only include weapons in the WEAPON sets!
-
-
 ----------------------- IDLE SETS ----------------------
 
-	sets.idle = {} --Leave Empty!
+	sets.idle = {} 
 
-	-- Town set here
 	sets.idle.town = {
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
@@ -60,45 +51,38 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
 
-	-- DT set here
 	sets.idle.dt = sets.idle.town
-
 
 
 ----------------------- WEAPON SETS --------------------
 
-	WEP_Index = 1 --Don't Change!
-	sets.wep = {} --Leave Empty!
+	WEP_Index = 1 
+	sets.wep = {} 
 
-	-- We can have multiple different WEAPON sets!
 	--
 	--> Use "/console gs c togglewep" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a WEP set for it below!
-	WEP_Set_Names = {"PDT","MDT","WS","STUN","DW"}
-	
-	-- TP sets go below!
-	
-	--TP BONUS
-	sets.wep.MDT = {
-    main="Malignance Sword",
-    sub="Aegis",
-}	
 
-	sets.wep.STUN = {
-    main="Kaja Lance",
-    sub="Wizzan grip",
-}	
+	WEP_Set_Names = {"PDT","MDT","WS","STUN","DW"}
 
 	sets.wep.PDT = {
     main="Malignance Sword",
     sub="Duban",
 }	
 
+	sets.wep.MDT = {
+    main="Malignance Sword",
+    sub="Aegis",
+}	
+
 	sets.wep.WS = {
     main="Naegling",
     sub="Blurred Shield +1",
+}	
+
+	sets.wep.STUN = {
+    main="Shining One",
+    sub="Potent grip",
 }	
 
 	sets.wep.DW = {
@@ -107,30 +91,17 @@ function get_sets()
 }	
 	
 
-	--SKILL+
---	sets.wep.SKILL = {}
-
-	--ACCURACY
---	sets.wep.ACC = {}
-
-
-	
 ----------------------- TP SETS ------------------------
 
 	TP_Index = 1 --Don't Change!
 	sets.tp = {} --Leave Empty!
 
-	-- We can have multiple different TP sets!
 	--
 	--> Use "/console gs c toggletp" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a TP set for it below!
+
 	TP_Set_Names = {"TP","TP2"}
 	
-	-- TP sets go below!
-	
-	--Damage Taken Reduction
 	sets.tp.TP = {
     ammo="Coiste Bodhar",
     head="Chev. Armet +3",
@@ -162,14 +133,12 @@ function get_sets()
     left_ring="Gelatinous Ring +1",
     back="Null Shawl",
 }
-
 	
 
 ----------------------- WS SETS ------------------------
 	
-	sets.ws = {} --Leave Empty!
+	sets.ws = {} 
 
-	-- WS set here
 	sets.ws.standard = {   
 	ammo="Oshasha's Treatise",
     head="Nyame Helm",
@@ -189,12 +158,10 @@ function get_sets()
 	--sets.ws['x'] = {}  
 	
 	
-	
 ----------------------- ENMITY SETS --------------------
 
-	sets.hate = {} --Leave Empty!
+	sets.hate = {} 
 	
-	-- Enmity +++
 	sets.hate.high = {
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -211,24 +178,10 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
 	
-	-- Enmity ---
-	--sets.hate.low = {}	
 	
-
-
 ------------------- JOB ABILITY SETS -------------------
 
-	sets.ja = {} --Leave Empty!
-
-	--Uses: Windower>res>job_abilities
-	--sets.ja['CorsairRoll'] = {}
-	--sets.ja['CorsairShot'] = {}
-	--sets.ja['Waltz'] = {}
-	--sets.ja['Jig'] = {}
-	--sets.ja['Step'] = {}
-	--sets.ja['BloodPactRage'] = {}
-	--sets.ja['BloodPactWard'] = {}
-	--sets.ja['PetCommand'] = {}
+	sets.ja = {} 
 
 	sets.ja['Accession'] = sets.hate.high
 	sets.ja['Provoke'] = sets.hate.high
@@ -239,93 +192,41 @@ function get_sets()
 	sets.ja['Invincible'] = sets.hate.high
 	sets.ja['Cover'] = sets.hate.high
 	
-	sets.ja['Rampart'] = {
-    ammo="Staunch Tathlum +1",
+	sets.ja['Rampart'] = set_combine(sets.hate.high, 
+{
     head="Cab. Coronet +1",
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +3",
-    neck={ name="Unmoving Collar +1", priority = 200},
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
+)  
 	
-	sets.ja['Divine Emblem'] = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Rev. Breeches +3",
+	sets.ja['Divine Emblem'] = set_combine(sets.hate.high, 
+{
     feet="Chev. Sabatons +3",
-    neck={ name="Unmoving Collar +1", priority = 200},
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
+)  
 	
-	sets.ja['Sentinel'] = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Rev. Breeches +3",
+	sets.ja['Sentinel'] = set_combine(sets.hate.high, 
+{
     feet="Cab. Leggings +2",
-    neck={ name="Unmoving Collar +1", priority = 200},
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
+)  
 	
-	sets.ja['Shield Bash'] = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+	sets.ja['Shield Bash'] = set_combine(sets.hate.high, 
+{
     hands="Cab. Gauntlets +2",
-    legs="Rev. Breeches +3",
-    feet="Chev. Sabatons +3",
-    neck={ name="Unmoving Collar +1", priority = 200},
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
+)  
 	
-	sets.ja['Holy Circle'] = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Rev. Breeches +3",
+	sets.ja['Holy Circle'] = set_combine(sets.hate.high, 
+{
     feet="Rev. Leggings +4",
-    neck={ name="Unmoving Collar +1", priority = 200},
-    waist={ name="Plat. Mog. Belt", priority = 1000},
-    left_ear="Alabaster Earring",
-    right_ear="Etiolation Earring",
-    right_ring="Apeile Ring +1",
-    left_ring="Gelatinous Ring +1",
-    back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Occ. inc. resist. to stat. ailments+10',}},
 }
-		
+)  
 
 
 --------------------- FASTCAST SETS --------------------
 
-	sets.fc = {} --Leave Empty!
+	sets.fc = {} 
 
-	-- FC set here
 	sets.fc.standard = {
     ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
@@ -342,36 +243,16 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'"Fast Cast"+10',}},
 }
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
---	sets.fc['Blue Magic'] = {}
---	sets.fc['Divine Magic'] = {}
-	sets.fc['Healing Magic'] = {
-    ammo="Impatiens",
-    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-    body="Rev. Surcoat +3",
-    hands="Chev. Gauntlets +3",
-    legs="Enif Cosciales",
-    feet="Chev. Sabatons +3",
-    neck="Voltsurge torque",
-    waist={ name="Plat. Mog. Belt", priority = 1000},
+	sets.fc['Healing Magic'] = set_combine(sets.fc.standard, 
+{
     left_ear="Nourish. Earring +1",
-    right_ear="Loquac. Earring",
-    right_ring="Naji's Loop",
-    left_ring="Lebeche ring",
-    back={ name="Rudianos's Mantle", augments={'"Fast Cast"+10',}},
 }
---	sets.fc['Enhancing Magic'] = {}
---	sets.fc['Enfeebling Magic'] = {}
---	sets.fc['Elemental Magic'] = {}
---	sets.fc['Dark Magic'] = {}
---	sets.fc['Summoning Magic'] = {}
---	sets.fc['Ninjutsu'] = {}
-
+) 
 
 
 --------------------- MAGIC SETS -----------------------
 
-	sets.ma = {} --Leave Empty!
+	sets.ma = {} 
 	
 	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.ma['Divine Magic'] = {
@@ -421,11 +302,7 @@ function get_sets()
     left_ring="Gelatinous Ring +1",
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
---	sets.ma['Enfeebling Magic'] = {}
---	sets.ma['Elemental Magic'] = {}
---	sets.ma['Dark Magic'] = {}
---	sets.ma['Summoning Magic'] = {}
---	sets.ma['Ninjutsu'] = {}
+
 	sets.ma['Blue Magic'] = {
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -460,9 +337,7 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}},
 }
 
-
 end
-
 
 
 -------------------
@@ -471,7 +346,6 @@ end
 
 areas = {}
 
--- City areas for town gear
 areas.towns = S{
     "Ru'Lude Gardens",
     "Upper Jeuno",
@@ -501,7 +375,6 @@ areas.towns = S{
     "Rabao",
     "Chocobo Circuit",
 }
-
 
 
 ----------------
@@ -539,7 +412,6 @@ function precast(spell)
 end
 
 
-
 ---
 --- MIDCAST
 ---
@@ -570,13 +442,11 @@ function midcast(spell)
 end
 
 
-
 ---
 --- AFTERCAST
 ---
 
 function aftercast(spell)
-
 
 	if player.status == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
@@ -586,16 +456,19 @@ function aftercast(spell)
 		equip(sets.idle.dt) 
 	end
 	
-	equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
-	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+
 end
 
 
+---
+--- Status change
+---
 
----
---- Status and Zone change
----
 function status_change(new, old)
+
 -- Status changes
 	if new == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
@@ -604,10 +477,12 @@ function status_change(new, old)
 	else
 		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+	
 end
-
-
-
 
 
 ---
@@ -621,6 +496,7 @@ function self_command(command)
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
     elseif command == 'togglewep' then 
+		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
@@ -629,12 +505,9 @@ function self_command(command)
 end
 
 
-
-
-
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
+--------------------------------------------
+---- (Must stay at the absolute bottom) ----
+--------------------------------------------
 
 -- Isolated Event Handler
 -- This handles the zone change safely without nesting bugs or scope crashes
@@ -668,4 +541,3 @@ function file_unload()
         windower.add_to_chat(121, '--- Gearswap cleanup successful! ---')
     end
 end 
-

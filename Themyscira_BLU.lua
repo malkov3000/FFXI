@@ -219,16 +219,6 @@ function get_sets()
 
 	sets.ja = {} 
 
-	--Uses: Windower>res>job_abilities
---	sets.ja['CorsairRoll'] = {}
---	sets.ja['CorsairShot'] = {}
---	sets.ja['Waltz'] = {}
---	sets.ja['Jig'] = {}
---	sets.ja['Step'] = {}
---	sets.ja['BloodPactRage'] = {}
---	sets.ja['BloodPactWard'] = {}
---	sets.ja['PetCommand'] = {}
-
 	sets.ja['Diffusion'] = {
 	feet="Luhlaza Charuqs +4",
 }
@@ -266,32 +256,13 @@ function get_sets()
     back="Fi Follet Cape +1",
 }
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.fc['Blue Magic'] = sets.fc.standard
---	sets.fc['Divine Magic'] = {}
---	sets.fc['Healing Magic'] = {}
---	sets.fc['Enhancing Magic'] = {}
---	sets.fc['Enfeebling Magic'] = {}
---	sets.fc['Elemental Magic'] = {}
---	sets.fc['Dark Magic'] = {}
---	sets.fc['Summoning Magic'] = {}
---	sets.fc['Ninjutsu'] = {}
 
 
 --------------------- MAGIC SETS -----------------------
 
 	sets.ma = {} 
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
---	sets.ma['Divine Magic'] = {}
---	sets.ma['Healing Magic'] = {}
---	sets.ma['Enhancing Magic'] = {}
---	sets.ma['Enfeebling Magic'] = {}
---	sets.ma['Elemental Magic'] = {}
---	sets.ma['Dark Magic'] = {}
---	sets.ma['Summoning Magic'] = {}
---	sets.ma['Ninjutsu'] = {}
-
 	sets.ma['White Wind'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
