@@ -1,21 +1,16 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
---Remane file to your character's name + "_" + job abbreviation---
-------------------------------------------------------------------
---Example: Themyscira_BLU.lua ------------------------------------
+-- Themyscira_RDM ------------------------------------------------
 ----------------------------------------------------------d(^^d)--
 ------------------------------------------------------------------
 
 
----------------
----Load Libs---
----------------
-
-
-
+----------------
+---- Load ------
+----------------
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 4 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 4 
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -23,11 +18,12 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 4') -- Update # to desired starting macro book!
-send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
+send_command('input /macro book 4') 
+send_command('wait 4; input /macro set 1') 
 
---no help on
-send_command('input /blockhelp on')
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') 
+
 
 ---------------------
 ------- SETS --------
@@ -90,7 +86,7 @@ function get_sets()
 
 	-- We can have multiple different WEAPON sets!
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a WEP set for it below!
@@ -120,7 +116,7 @@ function get_sets()
 
 	-- We can have multiple different TP sets!
 	--
-	--> Use "/console gs c toggletp" to cycle modes!
+	--> Use "/console gs c cycletp" to cycle modes!
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
@@ -541,15 +537,15 @@ end
 
 
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- cycle for TP and WEAPON set modes + Bar modes
 ---
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])

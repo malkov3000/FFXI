@@ -1,19 +1,16 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
---Themyscira_BST -------------------------------------------------
+-- Themyscira_BST ------------------------------------------------
 ----------------------------------------------------------d(^^d)--
 ------------------------------------------------------------------
 
 
----------------
----Load Libs---
----------------
-
-
-
+----------------
+---- Load ------
+----------------
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 7 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 7 
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,10 +18,11 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 7') -- Update # to desired starting macro book!
-send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
+send_command('input /macro book 7') 
+send_command('wait 4; input /macro set 1')
 
-
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') 
 
 
 ---------------------
@@ -87,7 +85,7 @@ function get_sets()
 
 	-- We can have multiple different WEAPON sets!
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 		--> Use "/console gs c ws#" to WS!
 	--
 	-- New modes can be added here!
@@ -115,7 +113,7 @@ function get_sets()
 
 	-- We can have multiple different TP sets!
 	--
-	--> Use "/console gs c toggletp" to cycle modes!
+	--> Use "/console gs c cycletp" to cycle modes!
 	--
 	-- New modes can be added here!
 	-- Make sure to also create a TP set for it below!
@@ -570,17 +568,17 @@ end
 
 
 ---
---- Toggle for TP and WEAPON set modes
+--- cycle for TP and WEAPON set modes
 ---
 
 
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
@@ -594,13 +592,13 @@ function self_command(command)
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][3]..'" <t>')
 	elseif command == 'ws4' then
 		send_command('@input /ws "'..WSLIST[WEP_Set_Names[WEP_Index]][4]..'" <t>')
-	elseif command == 'togglebarelement' then 
+	elseif command == 'cyclebarelement' then 
         BARELE_Index = BARELE_Index +1
         if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
         send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
 	elseif command == 'castbarelement' then
 		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
-	elseif command == 'togglebarstatus' then 
+	elseif command == 'cyclebarstatus' then 
         BARSTA_Index = BARSTA_Index +1
         if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
         send_command('@input /echo ----- BAR STATUS SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])

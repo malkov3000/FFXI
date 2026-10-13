@@ -5,15 +5,12 @@
 ------------------------------------------------------------------
 
 
----------------
----Load Libs---
----------------
-
-
-
+----------------
+---- Load ------
+----------------
 
 ------------------------------------LOCKSTYLE------------------------------------------
-local lockstyle = 3 -- Uses the in-game gearsets! Set # to desired lockstyle look!
+local lockstyle = 3 
 send_command('wait 4; input /lockstyleset ' .. lockstyle)
 
 function sub_job_change(new, old)
@@ -21,11 +18,12 @@ function sub_job_change(new, old)
 end
 
 ------------------------------------MACRO BOOK-----------------------------------------
-send_command('input /macro book 3') -- Update # to desired starting macro book!
-send_command('wait 4; input /macro set 1') -- Update # to desired starting macro set!
+send_command('input /macro book 3') 
+send_command('wait 4; input /macro set 1') 
 
---no help on
-send_command('input /blockhelp on')
+-------------------------------------NO HELP ON----------------------------------------
+send_command('input /blockhelp on') 
+
 
 ---------------------
 ------- SETS --------
@@ -33,18 +31,10 @@ send_command('input /blockhelp on')
 
 function get_sets()
 
-
--- Use "//gs export" in-game to export a file with your currently equiped gear!
--- Find the file in Windower>addons>GearSwap>data>export folder!
--- Copy the gear inside the {} and paste it into the correct set below!
--- It might work best to only include weapons in the WEAPON sets!
-
-
 ----------------------- IDLE SETS ----------------------
 
-	sets.idle = {} --Leave Empty!
+	sets.idle = {} 
 
-	-- DT set here
 	sets.idle.dt = {
     main="Daybreak",
     sub="Archduke's Shield",
@@ -63,35 +53,26 @@ function get_sets()
     back="Null Shawl",
 }
 
-	-- Town set here
 	sets.idle.town = sets.idle.dt
 
 
 ----------------------- WEAPON SETS --------------------
 
-	WEP_Index = 1 --Don't Change!
-	sets.wep = {} --Leave Empty!
+	WEP_Index = 1 
+	sets.wep = {} 
 	WSLIST = {}
 
-	-- We can have multiple different WEAPON sets!
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 	--
-	-- New modes can be added here!
-	-- Make sure to also create a WEP set for it below!
+
 	--WEP_Set_Names = {"TPBONUS","SKILL","ACC"}
 	
-	-- TP sets go below!
-	
-	--TP BONUS
 	--sets.wep.TPBONUS = {}	
 
-	--SKILL+
 	--sets.wep.SKILL = {}
 
-	--ACCURACY
 	--sets.wep.ACC = {}
-
 
 	
 ----------------------- TP SETS ------------------------
@@ -99,22 +80,13 @@ function get_sets()
 	TP_Index = 1 
 	sets.tp = {} 
 
+	--
+	--> Use "/console gs c cycletp" to cycle modes!
+	--
 
-	--
-	--> Use "/console gs c toggletp" to cycle modes!
-	--
-	-- New modes can be added here!
-	-- Make sure to also create a TP set for it below!
 	TP_Set_Names = {"DT"}
 	
-
-	
-	--Damage Taken Reduction
 	sets.tp.DT = sets.idle.dt	
-
-
-
-
 
 ----------------------- WS SETS ------------------------
 	
@@ -122,37 +94,21 @@ function get_sets()
 
 	sets.ws.standard = {}  
 
-	
 	--sets.ws['x'] = {}  
-
 
 
 ------------------- JOB ABILITY SETS -------------------
 
 	sets.ja = {} 
 
-	--Uses: Windower>res>job_abilities
-	--sets.ja['CorsairRoll'] = {}
-	--sets.ja['CorsairShot'] = {}
-	--sets.ja['Waltz'] = {}
-	--sets.ja['Jig'] = {}
-	--sets.ja['Step'] = {}
-	--sets.ja['BloodPactRage'] = {}
-	--sets.ja['BloodPactWard'] = {}
-	--sets.ja['PetCommand'] = {}
-
-
 	sets.ja['Divine Caress'] = {hands="Ebers Mitts +2",}
 	sets.ja['Benediction'] = {body="Piety Bliaut +2",}	
-
-
 
 
 --------------------- FASTCAST SETS --------------------
 
 	sets.fc = {} 
 
-	-- FC set here
 	sets.fc.standard = {
     main="C. Palug Hammer",
     sub="Ammurapi Shield",
@@ -209,6 +165,7 @@ function get_sets()
     right_ring="Naji's Loop",
     back="Fi Follet Cape +1",
 }
+
 --	sets.fc['Elemental Magic'] = {}
 --	sets.fc['Dark Magic'] = {}
 --	sets.fc['Ninjutsu'] = {}
@@ -250,12 +207,10 @@ function get_sets()
 }
 
 
-
 --------------------- MAGIC SETS -----------------------
 
 	sets.ma = {} 
 	
-	--Uses: Windower>res>spells AND Windower>res>skills
 	sets.ma['Divine Magic'] = {
     main="Bunzi's Rod",
     sub="Ammurapi Shield",
@@ -273,6 +228,7 @@ function get_sets()
     right_ring="Mephitas's Ring +1",
     back="Aurist's Cape +1",
 }
+
 	sets.ma['Healing Magic'] = {
     --main="Chatoyant Staff",
     --sub="Enki Strap",
@@ -292,6 +248,7 @@ function get_sets()
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
 }
+
 	sets.ma['Enhancing Magic'] = {
     main="Gada",
     sub="Ammurapi Shield",
@@ -309,6 +266,7 @@ function get_sets()
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Cure" potency +10%','Damage taken-5%',}},
 }
+
 	sets.ma['Enfeebling Magic'] = {
     main="Bunzi's Rod",
     sub="Ammurapi Shield",
@@ -326,6 +284,7 @@ function get_sets()
     right_ring="Stikini Ring",
     back="Aurist's Cape +1",
 }
+
 	sets.ma['Elemental Magic'] = {
     main="Bunzi's Rod",
     sub="Ammurapi Shield",
@@ -343,6 +302,7 @@ function get_sets()
     right_ring="Mephitas's Ring +1",
     back="Aurist's Cape +1",
 }
+
 --	sets.ma['Dark Magic'] = {}
 --	sets.ma['Ninjutsu'] = {}
 
@@ -464,9 +424,7 @@ function get_sets()
 	sets.ma['Curaga III'] = sets.ma.aga
 	sets.ma['Curaga IV'] = sets.ma.aga
 
-
 end
-
 
 
 -------------------
@@ -475,7 +433,6 @@ end
 
 areas = {}
 
--- City areas for town gear
 areas.towns = S{
     "Ru'Lude Gardens",
     "Upper Jeuno",
@@ -505,7 +462,6 @@ areas.towns = S{
     "Rabao",
     "Chocobo Circuit",
 }
-
 
 
 -------------------------
@@ -556,7 +512,6 @@ function precast(spell)
 end
 
 
-
 ---
 --- MIDCAST
 ---
@@ -593,7 +548,6 @@ function midcast(spell)
 end
 
 
-
 ---
 --- AFTERCAST
 ---
@@ -607,15 +561,20 @@ function aftercast(spell)
 	else
 		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+
 end
 
 
-
 ---
---- Status and Zone change
+--- Status change
 ---
 
 function status_change(new, old)
+
 -- Status changes
 	if new == 'Engaged' then 
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
@@ -624,34 +583,37 @@ function status_change(new, old)
 	else
 		equip(sets.idle.dt) 
 	end
+	
+    if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+        equip(sets.wep[WEP_Set_Names[WEP_Index]])
+	end
+	
 end
 
 
-
-
 ---
---- Toggle for TP and WEAPON set modes + Bar modes
+--- cycle for TP and WEAPON set modes + Bar modes
 ---
-
 
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
+		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
         send_command('@input /echo ----- Weapon Set changed to -----> '..WEP_Set_Names[WEP_Index])
         equip(sets.wep[WEP_Set_Names[WEP_Index]]) 
-	elseif command == 'togglebarelement' then 
+	elseif command == 'cyclebarelement' then 
         BARELE_Index = BARELE_Index +1
         if BARELE_Index > #BAR_ELE_Names then BARELE_Index = 1 end 
         send_command('@input /echo ----- BAR ELEMENT SWITCHED TO -----> '..BAR_ELE_Names[BARELE_Index])
 	elseif command == 'castbarelement' then
 		send_command('@input /ma "'..BAR_ELE_Names[BARELE_Index]..'" <me>')
-	elseif command == 'togglebarstatus' then 
+	elseif command == 'cyclebarstatus' then 
         BARSTA_Index = BARSTA_Index +1
         if BARSTA_Index > #BAR_STA_Names then BARSTA_Index = 1 end 
         send_command('@input /echo ----- BAR STATUS SWITCHED TO -----> '..BAR_STA_Names[BARSTA_Index])
@@ -661,10 +623,9 @@ function self_command(command)
 end
 
 
-
-------------------------------------------------------------------
--- TOP-LEVEL ENGINE REGISTER (Must stay at the absolute bottom) --
-------------------------------------------------------------------
+--------------------------------------------
+---- (Must stay at the absolute bottom) ----
+--------------------------------------------
 
 -- Isolated Event Handler
 -- This handles the zone change safely without nesting bugs or scope crashes
@@ -679,7 +640,10 @@ function handle_zone_gear_swap(new_zone_id, old_zone_id)
             equip(sets.idle.dt) 
         end
         
-
+        -- Confirms weapon selections update through transitions safely
+        if sets.wep and sets.wep[WEP_Set_Names[WEP_Index]] then
+            equip(sets.wep[WEP_Set_Names[WEP_Index]])
+        end
     end
 end
 

@@ -619,7 +619,7 @@ end
 
 
 ---
---- Toggle for TP and WEAPON set modes
+--- cycle for TP and WEAPON set modes
 ---
 
 function self_command(command)

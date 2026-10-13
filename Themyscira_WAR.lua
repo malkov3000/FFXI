@@ -1,6 +1,6 @@
 ------------------------------------------------------------------
 ------------------------------------------------------------------
---Themyscira_WAR -------------------------------------------------
+-- Themyscira_WAR ------------------------------------------------
 ----------------------------------------------------------d(^^d)--
 ------------------------------------------------------------------
 
@@ -62,6 +62,7 @@ function get_sets()
 
 	--
 	--> Use "/console gs c cyclewep" to cycle modes!
+	--> Use "/console gs c ws#" to WS!
 	--
 
 	WEP_Set_Names = {"Chango","Dolichenus","Naegling","Loxotic","ShiningOne"}
@@ -180,7 +181,8 @@ function get_sets()
     ammo="Impatiens",
     feet={ name="Odyssean Greaves", augments={'Mag. Acc.+8','Phys. dmg. taken -4%','DEX+10','"Mag.Atk.Bns."+11',}},
     neck="Voltsurge Torque",
-    right_ear="Loquac. Earring",
+    left_ear="Loquac. Earring",
+    right_ear="Etiolation Earring",
     left_ring="Lebeche Ring",
     right_ring="Naji's Loop",
 }  
@@ -189,16 +191,6 @@ function get_sets()
 --------------------- MAGIC SETS -----------------------
 
 	sets.ma = {} 
-	
-	--Uses: Windower>res>spells AND Windower>res>skills
---	sets.ma['Divine Magic'] = {}
---	sets.ma['Healing Magic'] = {}
---	sets.ma['Enhancing Magic'] = {}
---	sets.ma['Enfeebling Magic'] = {}
---	sets.ma['Elemental Magic'] = {}
---	sets.ma['Dark Magic'] = {}
---	sets.ma['Summoning Magic'] = {}
---	sets.ma['Ninjutsu'] = {}
 
 end
 
