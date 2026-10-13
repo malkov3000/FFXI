@@ -61,7 +61,7 @@ function get_sets()
 	WSLIST = {}
 	
 	--
-	--> Use "/console gs c togglewep" to cycle modes!
+	--> Use "/console gs c cyclewep" to cycle modes!
 	--> Use "/console gs c ws#" to WS!
 	--
 
@@ -98,7 +98,7 @@ function get_sets()
 	sets.tp = {} 
 	
 	--
-	--> Use "/console gs c toggletp" to cycle modes!
+	--> Use "/console gs c cycletp" to cycle modes!
 	--
 
 	TP_Set_Names = {"TP","DW0","DT","LEARN"}
@@ -652,12 +652,12 @@ end
 ---
 
 function self_command(command)
-    if command == 'toggletp' then 
+    if command == 'cycletp' then 
         TP_Index = TP_Index +1 
         if TP_Index > #TP_Set_Names then TP_Index = 1 end 
         send_command('@input /echo ----- Engaged Set changed to -----> '..TP_Set_Names[TP_Index])
         equip(sets.tp[TP_Set_Names[TP_Index]]) 
-    elseif command == 'togglewep' then 
+    elseif command == 'cyclewep' then 
 		equip({sub = "empty"}) 
         WEP_Index = WEP_Index +1 
         if WEP_Index > #WEP_Set_Names then WEP_Index = 1 end 
